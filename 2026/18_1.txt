@@ -1,0 +1,101 @@
+1. Cómo podemos concatenar un número a un string? (.5 punto)
+Opción 1: poner en número entre comillas (""). Ej: "hola"+"22"= hola22
+### Revisar: si pones el número entre comillas, nunca fue un número, ya era texto. ¿Cómo unirías un número de verdad (sin comillas) a un string?
+Opción 1:asignarle a una variable el valor del número. Ej: edad=18 "tengo "+edad+ " años"
+### Revisar esta segunda opción: aquí edad = 18 sí es un número. Ejecuta "tengo " + edad + " años": ¿Python lo permite o da error? ¿Qué paso falta antes de concatenar edad?
+
+2. De qué tipo son las variables justifica la respuesta (1.5 puntos)
+ a = "1" 
+es una palabra, texto o mejor dicho un str, ya que viene entre comillas, por lo que no se trata como un número
+ b = 1.0
+es un número float, ya que tiene un punto decimal, sin importar si es entero o no
+ c = 1.5 + True
+es igual a 2.5, ya que True vale 1, entonces es 1.5+1=2.5 y es un número float por tener punto decimal
+ d = 1.5 + 2.5
+es igual a 4.0 y es un número float por el punto decimal
+ e = 1 + True 
+es igual a 2, y es un int ya que no tiene punto decimal 
+ f = False + True
+es igual a 1, ya que False vale 0 y True vale 1 que es igual a 0+1=1, por lo que es un número int
+ g = True * 0
+es igual a 0 ya que sería 1*0=0 y es un número int
+
+3. Manipulando la variable palabra (concatenando y con los métodos de strings), convertirla (2 puntos)
+ a. cambiar algunas letras por números
+	palabra = "hola" 
+	en "Ho14"
+palabra = "hola"
+resultado = palabra.replace("h", "H").replace("l", "1").replace("a", "4")
+
+ b. remover espacios
+	palabra = "  hola"
+	en "hola"
+palabra= "  hola"
+resultado = palabra.strip()
+
+ c. cambiar mayúsculas y minúsculas
+    palabra = "HoLa"
+	en "hOlA"
+palabra = "HoLa"
+resultado = palabra.swapcase()
+
+ d. poner la primera en mayúscula
+	palabra = "hola"
+	en "Hola"
+palabra = "hola"
+resultado = palabra.capitalize()
+
+4. Explica qué hacen los métodos y da un ejemplo: (2 puntos)
+ a. count()
+Devuelve el número de veces que un valor especificado aparece en una cadena. Cuenta cuántas veces aparece un substring (subcadena) dentro de una cadena.
+a = "Me gustan múcho las pelis, mis pelis favoritas son las de romance fantastico, pero las pelis de terror tambien me gustan "
+x = a.count("pelis")
+print(x)
+3
+
+a = "Me gustan múcho las pelis, mis pelis favoritas son las de romance fantastico, pero las pelis de terror tambien me gustan "
+x = a.count("accion")
+print(x)
+0
+
+ b. find()
+Busca en la cadena un valor especificado y devuelve la posición donde se encontró la primera aparición de un substring dentro de una cadena, si no lo encuentra, devuelve -1 (no lanza error).
+a = "Hola profe, buenos dias"
+x = a.find("buenos")
+print(x)
+12
+
+a = "Hola profe, buenos dias"
+x = a.find("maestro")
+print(x)
+-1
+
+ c. isdigit()
+Devuelve True si todos los caracteres de la cadena son dígitos numéricos (0-9). Si no, devuelve False
+a= "1234567890"
+x = a.isdigit()
+print(x)
+True
+
+a= "1234567890t"
+x = a.isdigit()
+print(x)
+False
+
+ d. replace()
+Este método reemplaza una cadena de texto por otra. ej:
+a = "hola y adios profe !"
+print(a.replace("h", "n"))
+nola y adios profe!
+
+5. Qué problema tiene declarar estas variables? (1.5 puntos)
+ oración larga = 'hola mundo'
+ palabra = 'hola' 'mundo'
+### El punto 5 quedó sin responder: solo copiaste las dos declaraciones. ¿Qué tiene de raro para Python el nombre 'oración larga'? ¿Y palabra = 'hola' 'mundo' da error o no? ¿Qué valor guarda?
+
+6. Investigar "fstring": qué son, cómo se usan y un ejemplo. (2.5 puntos)
+F-String es la forma preferida de formatear cadenas.Para especificar una cadena como una f-cadena, simplemente coloque un fdelante del literal de cadena y agregue llaves {}como marcadores de posición para variables y otras operaciones.
+edad = 11
+a = f"Mi hermana tiene {edad} años"
+print(a)
+Mi hermana tiene 11 años

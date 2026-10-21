@@ -1,0 +1,69 @@
+1. Cómo podemos concatenar un número a un string? (.5 punto)
+- Usando la función string (str)
+2. De qué tipo son las variables justifica la respuesta (1.5 puntos)
+ a = "1": Número entero.
+### Revisar: ¿qué indican las comillas alrededor del 1? Comprueba con type(a) qué tipo es realmente.
+ b = 1.0: Número decimal, por el punto decimal.
+ c = 1.5 + True: El resultado es decimal, ya que al sumarlos True vale 1.
+ d = 1.5 + 2.5: El resultado es 4.0, lo que lo convierte en un número decimal.
+ e = 1 + True: El resultado es un número entero, ya que al sumarlos quedaría como 1+1=2.
+ f = False + True: El resultado es un número entero, que es 1.Ya que True vale 1 y False vale 0.
+ g = True * 0: El resultado es número entero, ya que True vale 1 y quedaría como 1*0.
+3. Manipulando la variable palabra (concatenando y con los métodos de strings), convertirla (2 puntos)
+ a. cambiar algunas letras por números
+	palabra = "hola" 
+	en "Ho14"
+palabra= "hol"
+str="4"
+palabra+str
+´hola
+### Nota: El ejercicio pide partir de palabra = "hola" y llegar a "Ho14". Ejecuta tu código: ¿qué resultado da realmente? ¿Cómo podrías cambiar letras por números y la primera letra a mayúscula con métodos de strings?
+### Nota: usaste str como nombre de variable. Funciona, pero ¿qué le pasa después a la función str() si la usas como variable?
+ b. remover espacios
+	palabra = "  hola"
+	en "hola"
+palabra1= "  hola"
+palabra2= palabra1.strip()
+print(palabra2)
+hola
+ c. cambiar mayúsculas y minúsculas
+    palabra = "HoLa"
+	en "hOlA"
+a= "HoLa"
+print(a.swapcase())
+hOlA
+ d. poner la primera en mayúscula
+	palabra = "hola"
+	en "Hola"
+a= "hola"
+print(a.replace("h", "H"))
+Hola
+4. Explica qué hacen los métodos y da un ejemplo: (2 puntos)
+ a. count(): Cuenta cuántas veces aparece un elemento en una colección.
+frutas= ("manzana", "manzana", "pera")
+### Nota: tu ejemplo usa count() sobre una tupla, no sobre un string. Funciona, pero la pregunta es sobre métodos de strings: ¿cómo sería con un texto?
+resultado= frutas.count("manzana")
+print(resultado)
+2
+ b. find(): Utilizada para buscar la primera aparición de una subcadena dentro de un texto.
+texto= "hola, como estas"
+resultado= texto.find("como")
+print(resultado)
+6
+ c. isdigit(): Verifica si todos los caracteres de una cadena de texto son números. Con True si es así o con False si no lo son.
+texto= "321"
+print(texto.isdigit())
+True
+ d. replace(): Reemplaza las apariciones de una cadena de texto (subcadena) por otra cadena de texto diferente.
+texto= "Me gusta el rosa, el rosa es muy bonito"
+resultado= texto.replace("rosa", "morado")
+Me gusta el morado, el morado es muy bonito
+5. Qué problema tiene declarar estas variables? (1.5 puntos)
+ oración larga = 'hola mundo'= Se necesita la doble comilla al inicio y al final de la variable (" ")
+### Revisar: las comillas simples '...' son igual de válidas que las dobles en Python. Fíjate en el NOMBRE de la variable: ¿puede llevar un espacio?
+ palabra = 'hola' 'mundo'= No la toma en cuenta, ya que no se permiten espacios.
+### Revisar: esta línea sí es válida. Ejecútala, imprime palabra y observa qué hace Python con dos cadenas escritas una junto a la otra.
+6. Investigar "fstring": qué son, cómo se usan y un ejemplo. (2.5 puntos)
+Un fstring (cadena con formato) es una forma rápida y moderna de insertar variables y operaciones directamente dentro de un texto en Python.
+Son textos normales que llevan una letra f o F al inicio, antes de las comillas.Permiten escribir variables o cuentas matemáticas adentro usando llaves {}.Python cambia esas llaves por el valor real cuando corre el programa.
+Poner una f antes de abrir las comillas del texto.Escribir tu mensaje de forma normal.Colocar el nombre de tu variable o tu operación matemática dentro de llaves {} donde quieras que aparezca el dato.

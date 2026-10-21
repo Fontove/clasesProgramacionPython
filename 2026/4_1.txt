@@ -1,0 +1,75 @@
+1. Cómo podemos concatenar un número a un string? (.5 punto)
+Tendríamos que convertir el numero a texto con str()
+numero=18
+texto="Edad"
+resultado=texto+str(numero)
+print(resultado)=Edad18
+
+2. De qué tipo son las variables justifica la respuesta (1.5 puntos)
+ a = "1"- Es una cadena de texto, al estar entre comillas 
+ b = 1.0- Es un numero flotante(FLOAT) porque lleva un punto decimal 
+ c = 1.5 + True- Es un numero flotante(float) True lo tomara como una valor el cual será 1 por lo tanto al momento de sumar dará el resultado de 2.5
+ d = 1.5 + 2.5- Es la suma de dos decimales que es 4.0 por lo tanto es un numero flotante(float)
+ e = 1 + True- Al igual que en el caso del C el valor de True me lo marcara como el valor de 1 por lo cual que 1+1 es igual a 2 es un numero entero(int)
+ f = False + True- En este caso el valor de false me lo marcara con el valor de 0 y el valor de True como 1 por lo cual dará de resultado como 1 por lo cual su resultado es entero(int)
+ g = True * 0- Como en los siguientes caso Python marcara el valor de true como 1 por lo cual al momento de hacer la multiplicación de 1 por 0 dará como resultado 0 y entendemos que será un numero entero(int)
+
+3. Manipulando la variable palabra (concatenando y con los métodos de strings), convertirla (2 puntos)
+ a. cambiar algunas letras por números
+	palabra = "hola" 
+	en "Ho14"
+palabra="gato"
+resultado=palabra.replace("t","1").replace("o","4")
+print(resultado)=gat4
+
+ b. remover espacios
+	palabra = "  hola"
+	en "hola"
+palabra="  mariposa   "
+resultado=palabra.strip()
+print(resultado)=mariposa
+
+ c. cambiar mayúsculas y minúsculas
+    palabra = "HoLa"
+	en "hOlA"
+palabra="MaRiPoSa"
+resultado=palabra.swapcase()
+print(resultado)=mArIpOsA
+
+ d. poner la primera en mayúscula
+	palabra = "hola"
+	en "Hola"
+palabra="mariposa"
+resultado=palabra.capitalize()
+print(resultado)=Mariposa
+
+4. Explica qué hacen los métodos y da un ejemplo: (2 puntos)
+ a. count()- Subcadena, cuenta cuantas veces aparece una parte dentro del texto
+txt="banana"
+print(txt.count("a"))=3 
+
+ b. find()- Subcadena, devuelve la posición (índice) donde empieza por primera vez. si no lo encuentra 
+txt="Amo a los gatos"
+print(txt.find("gatos"))=10
+
+ c. isdigit()- verifica si todos los caracteres son números. Devuelve true o false
+print("12345".isdigit())=True
+print("32a45".isdigit())=False
+
+ d. replace()- Cambia todas las 
+frase="me gustan los gatos"
+nueva_frase= frase.replace("gatos","perros")
+print(nueva_frase)=me gustan los perros
+
+5. Qué problema tiene declarar estas variables? (1.5 puntos)
+ oración larga = 'hola mundo'
+ palabra = 'hola' 'mundo'
+Python no une textos auntomaticante se tendría que poner el signo de + 
+### Revisar: ejecuta palabra = 'hola' 'mundo' e imprime palabra: ¿Python de verdad no las une? ¿Qué valor guarda? Además falta explicar la primera declaración: ¿qué problema tiene el NOMBRE oración larga?
+
+6. Investigar "fstring": qué son, cómo se usan y un ejemplo. (2.5 puntos)
+son una forma sencilla de incluir variables o expresiones dentro del texto. Se escriben poniendo una f antes de las comillas y poniendo lo que quieres calcular entre llaves{}
+nombre="Rosa"
+edad=18
+mensaje= f"Me llamo {nombre} y tengo {edad} años"
+print(mensaje)=Me llamo Rosa y tengo 18 años

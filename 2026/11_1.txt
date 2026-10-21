@@ -1,0 +1,46 @@
+1. Cómo podemos concatenar un número a un string? (.5 punto)
+se supone que no te deja poner un numero con texto, entonces se pone primero un "str()" en lugar del numero. Por ejemplo "Hoy+es+lunes+str(28)
+### Revisar tu ejemplo: la idea de str() es correcta, pero tal como está escrito, ¿Python lo ejecutaría? Fíjate dónde abren y cierran las comillas y dónde van los +.
+
+2. De qué tipo son las variables justifica la respuesta (1.5 puntos)
+ a = "1" str poque lo que va entre comillas es percibido como texto 
+ b = 1.0 float 
+ c = 1.5 + True float tod que tenga decimal se considera float y al sumarlo con un booleano se tiene que orecisar al punto decimal 
+ d = 1.5 + 2.5 float lo mismo que el anterior 
+ e = 1 + True int porque el "true" es percibido como 1 y hace una operacion con numeros enteros 
+ f = False + True int false seria 0 y true seria 1 y es una operacion matematica 
+ g = True * 0 int igual es una operacion de numeros enteros 
+
+3. Manipulando la variable palabra (concatenando y con los métodos de strings), convertirla (2 puntos)
+ a. cambiar algunas letras por números
+	palabra = "hola" 
+	en "Ho14"
+ b. remover espacios
+	palabra = "  hola"
+	en "hola"
+ c. cambiar mayúsculas y minúsculas
+    palabra = "HoLa"
+	en "hOlA"
+ d. poner la primera en mayúscula
+	palabra = "hola"
+	en "Hola"
+no entendi muy bien que hacer
+### El punto 3 quedó sin resolver. Repasa los métodos de strings que vimos: ¿cuál sustituye unos caracteres por otros? ¿cuál quita espacios? ¿cuál invierte mayúsculas y minúsculas? ¿cuál pone la primera letra en mayúscula? Inténtalo y, si sigues con dudas, acércate para verlo juntos.
+
+
+4. Explica qué hacen los métodos y da un ejemplo: (2 puntos)
+ a. count() es cuantas veces aparece la misma letra o la misma palabra
+ b. find() detector de posicion. dice donde empezo la letra y si no la encuentra te regresa desde 0
+### Revisar: si find() no encuentra lo que busca, ¿de verdad regresa 0? Recuerda que 0 es una posición válida (la primera). Pruébalo con algo que no esté en el texto.
+ c. isdigit() revisa si lo que estas escribiendo es correcto o no dependiendo de lo que "preguntes"
+### Revisar: isdigit() no comprueba si algo es "correcto". ¿Qué revisa exactamente de los caracteres de la cadena? Pruébalo con "123" y con "12a".
+ d. replace() remplaza palabras
+
+5. Qué problema tiene declarar estas variables? (1.5 puntos)
+ oración larga = 'hola mundo'aqui no puede haber espacios en el nombre, tendria que decir hola_mundo para que python lo pueda leer 
+### Nota: la idea es correcta. Solo fíjate: ¿hola_mundo es el nombre de la variable o su valor? ¿Cómo quedaría el nombre oración larga sin espacios?
+ palabra = 'hola' 'mundo' si no hay nada en medio los pega y diria "holamundo"
+
+6. Investigar "fstring": qué son, cómo se usan y un ejemplo. (2.5 puntos)
+Es la manera facil de poner las variables o numero sin tener que estar encerrandolos en comillas y se le pone una "f" antes de la comilla. como: f"hola (porfesor)"
+### Revisar el ejemplo: tal como está, f"hola (porfesor)" no inserta ninguna variable. ¿Entre qué signos (no paréntesis) va la variable dentro de una f-string? Prueba declarando una variable y mostrándola en la cadena.

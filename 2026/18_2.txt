@@ -1,0 +1,41 @@
+1. Crear una lista vacía y llenarla con los números  del 1 al 50 (1,2,3,...,48,49,50). Sugerencia: usar un ciclo, no generarla directamente con [1,2,3,...,48,49,50] ni list(range(0,50)) (1 punto)
+
+numeros = []
+for i in range(1, 51):
+    numeros.append(i)
+print(lista)
+### Revisar: este programa da error al ejecutarse (NameError). ¿Con qué nombre creaste la lista y qué nombre estás usando dentro del print()? Deben coincidir.
+
+
+2. Crear una lista vacía y llenarla con los números múltiplos de 5 del 2 al 50 (5,10,15,...,40,45,50). Nota: hay que usar un ciclo, no se vale generarla directamente con [5,10,15,...,40,45,50] ni list(range(0,50,5)) (3 puntos)
+
+multiplosdecinco = []
+for i in range(1, 51):
+    if i % 5 == 0:
+        multiplosdecinco.append(i)
+print(multiplosdecinco)
+
+
+3. Hacer un programa que imprima (4 puntos)
+*
+**
+***
+****
+*****
+******
+*******
+********
+*********
+**********
+
+for i in range(1, 11):
+    print("*" * i)
+
+4. Investigar cómo se usa un ciclo while y hacer un programa que imprima los números del 1 al 10. (2 puntos)
+El ciclo while ejecuta un bloque de código mientras una condición sea verdadera.  Se tiene que actualizar la variable dentro del ciclo para que en algún momento la condición se vuelva falsa y el ciclo termine, si no se produce un ciclo infinito
+
+numero = 0
+while numero < 10:
+    numero+=1
+    print(numero)
+### Nota: funciona, aunque es poco usual empezar en 0 e incrementar antes de imprimir. ¿Cómo quedaría si empiezas en 1 e imprimes antes de incrementar?

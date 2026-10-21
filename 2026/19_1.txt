@@ -1,0 +1,50 @@
+1. Cómo podemos concatenar un número a un string? (.5 punto)
+numero=”hay un numero” resultado=numero+str(16) print(resultado) 
+salida: aqui hay un numero 16
+### Nota: la salida que anotaste no coincide con lo que imprime tu código. Ejecútalo de nuevo: ¿La cadena que guardaste contiene "aqui"? ¿Python agrega un espacio antes del 16 por su cuenta?
+
+2. De que tipo son las variables justifica la respuesta (1.5 puntos)
+a = "1" int 
+### Revisar el tipo de a: fíjate en las comillas que rodean al 1. ¿Qué tipo es algo escrito entre comillas? Compruébalo con type(a).
+b = 1.0 float 
+c = 1.5 + True float 
+d = 1.5 + 2.5 float 
+e = 1 + True int 
+f = False + True int 
+g = True * 0 int   
+
+3. Manipulando la variable palabra (concatenando y con los metodos de strings), convertirla (2 puntos)
+a. cambiar algunas letras por numeros (palabra="hola" en "Ho14" )
+Ej: "Hola".replace("a","4") Salida:”Hol4”
+### Nota: Partiste de "Hola" en lugar de "hola" y tu salida es "Hol4", no "Ho14". ¿Qué otra letra falta cambiar por un número?
+b. remover espacios (palabra=" hola" en "hola" )
+Ej: " hola".split() Salida:['hola'] •. " hola".strip() Salida: 'hola'
+### Nota: split() quita los espacios pero devuelve una lista, no un string. Tu segunda opción con strip() sí da exactamente "hola".
+c. cambiar mayusculas y minusculas (palabra="HoLa" en "hOlA" )
+Ej: "HoLa".swapcase() Salida: 'hOlA'
+d. poner la primera en mayuscula (palabra = "hola" en "Hola") 
+Ej: "hola".capitalize() Salida: 'Hola'
+
+4.Explica que hacen los metodos y da un ejemplo: (2 puntos)
+a. count() cuantas veces aparece una plabra en una cadena
+Ej: "hola como te encuestas hoy. hola profe".count("hola") salida: 2
+b. find() cuenta cuentos caracteres hay desde el inicio hasta la palabra
+ Ej: "hola, como te encuentras hoy".find("como") Salida: 6
+c. isdigit()Devuelve True si todos los caracteres de la cadena son dígitos. Devuelve False si al menos uno de los caracteres de la cadena no es un dígito.
+variable="190836" variable.isdigit() Salida: True 
+gato ="Hola" gato.isdigit() Salida: False
+d. replace() remplaza caracteres por otros caracteres 
+Ej: "Cocodrilo".replace("o","8") Salida:”C8c8dril8”
+
+5. Qué problema tiene declarar estas variables? (1.5 puntos)
+ oración larga = 'hola mundo'
+R: el espacio hace que lo interprete como dos variables.
+ palabra = 'hola' 'mundo'
+R: porque hay un espacio entre los valores de la variable
+### Revisar: ese espacio no causa un error. Ejecuta la línea e imprime palabra: ¿qué hace Python con dos cadenas escritas juntas y qué valor queda guardado?
+
+6.Investigar "fstring": que son, como se usan y un ejemplo. (2.5 puntos)
+Son cadenas formadas en las que puedes incluir variables y expresiones dentro de una cadena.
+mascota="Estrella" edad=8  print("Hola, tengo un perro que se llama {mascota} y tiene {edad} años de edad") 
+### Revisar el ejemplo: ejecútalo tal cual. ¿Se muestran los valores de mascota y edad, o se imprime literalmente {mascota}? ¿Qué le falta antes de las comillas para ser una f-string?
+Salida: “Hola, tengo un perro que se llama Estrella y tiene 8 años”

@@ -1,0 +1,100 @@
+Tarea 1
+Clase de programación 
+1. Como podemos concatenar un numero a un string? (.5 punto) 
+texto
+
+marta="aqui hay un numero "
+resultado=marta+str(21)
+print(resultado)
+
+ salida: aqui hay un numero 21
+
+
+2. De que tipo son las variables justifica la respuesta (1.5 puntos)
+ a = "1"  int
+### Revisar: a = "1" está entre comillas. ¿Qué tipo de dato es algo escrito entre comillas, aunque parezca número? Compruébalo con type(a).
+ b = 1.0 float
+ c = 1.5 + True float
+ d = 1.5 + 2.5 float
+ e = 1 + True int
+ f = False + True int
+ g = True * 0  int
+
+
+3. Manipulando la variable palabra (concatenando y con los metodos de strings), convertirla (2 puntos)
+
+
+ a. cambiar algunas letras por numeros
+	palabra = "hola" 
+	en "Ho14"
+"Hola".replace("a","4")
+Salida: 'Hol4'
+### Nota: El ejercicio pide "Ho14" partiendo de "hola" y tu salida es "Hol4". Compara letra por letra: ¿qué otra letra falta cambiar por un número?
+
+ b. remover espacios
+	palabra = "  hola"
+	en "hola"
+•. "  hola".split()
+### Nota: split() quita los espacios pero devuelve una lista, no un string. Tu segunda opción con strip() sí da exactamente "hola".
+     Salida: ['hola']
+•. "  hola".strip()
+     Salida:  'hola'
+
+
+ c. cambiar mayusculas y minusculas
+    palabra = "HoLa"
+	en "hOlA"
+"HoLa".swapcase()
+Salida: 'hOlA'
+
+
+ d. poner la primera en mayuscula
+	palabra = "hola"
+	en "Hola"
+"hola".capitalize()
+Salida: 'Hola'
+
+
+4. Explica que hacen los metodos y da un ejemplo: (2 puntos)
+
+ a. count() cuantas veces aparece una plabra en una cadena
+ "hola esta es una oracion que hice hoy. hola profe".count("hola")
+              salida: 2
+
+ b. find() cuenta cuentos caracteres hay desde el inicio hasta la palabra 
+"hola, esta es una oración que hice hoy".find("esta")
+Salida: 6
+
+
+ c. isdigit()Devuelve True si todos los caracteres de la cadena son dígitos.
+Devuelve False si al menos uno de los caracteres de la cadena no es un dígito.
+
+  •  Marta="123456789"
+      Marta.isdigit()
+        Salida: True
+  • Nombre="Marta"
+     Nombre.isdigit()
+         Salida: False
+       
+
+ d. replace() remplaza caracteres por otros caracteres 
+"Marta".replace("t","7")
+Salida:'Mar7a'
+
+
+
+5. Que problema tiene declarar estas variables? (1.5 puntos)
+
+• oracion larga = 'hola mundo' que el espacio hace que lo tome como dos variables
+•  •palabra = 'hola' 'mundo' que falta el espacio cuando da salida 
+
+
+
+
+6. Investigar "fstring": que son, como se usan y un ejemplo. (2.5 puntos
+son cadenas formadas en las que puedes incluir variables y expresiones dentro de una cadena
+
+nombre="Marta"
+edad=21
+print(f"Hola, mi nombre es {nombre} y tengo {edad}")
+    Salida: Hola, mi nombre es Marta y tengo 21

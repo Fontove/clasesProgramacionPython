@@ -1,0 +1,121 @@
+* 1.Crear una lista vacía y llenarla con números del 1 al 50(1,2,3....,48,49,50).Sugerencia: usar un ciclo, no generarla directamente con (1,2,3,...,48,49,50) ni list(range(0,50))(1 punto)
+
+
+
+* Creamos la lista vacia:
+  
+>> lista = list()
+
+
+* Usamos un ciclo for para recorrer del 1 al 50:
+
+>>> for i in range(1, 51):
+...     lista.append(i)
+
+
+* *mprimimos el resultado:
+
+... print(lista)
+...
+\[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50]
+
+
+* Agregamos un código complementario.
+
+
+* Creamos la lista vacía de bases:
+
+>>> bases = \[]
+
+
+* Agregamos cada base con un ciclo:
+
+>>> for base in \["adenina", "timina", "citocina", "guanina"]:
+...     bases.append(bases)
+### Nota: esta parte extra no era obligatoria, pero tiene un detalle: ¿qué estás agregando a la lista en cada vuelta, la variable del ciclo o la lista misma? Observa la salida [[...], ...] y piensa por qué aparece así.
+
+
+* Imprimimos la lista completa:
+
+... print(bases)
+...
+**\[\[...], \[...], \[...], \[...]]**
+
+
+* Imprimimos la cantidad de elementos:
+
+>>> print(len(bases))
+**4**
+
+
+* Imprimimos un corte desde la posición 0 hasta la 3:
+
+>>> print(bases\[0:4])
+\[\[\[...], \[...], \[...], \[...]], \[\[...], \[...], \[...], \[...]], \[\[...], \[...], \[...], \[...]], \[\[...], \[...], \[...], \[...]]]
+
+
+
+
+
+2.Crear una lista vacía y llenarla con los números múltiplos de 5 del 2 al 50 (5,10,15,20,...,40,45,50).Nota: hay que usar un ciclo, no se vale generarla directamente con \[5,10,15,...,40,45,50] ni list(range(0,50,5))(3 puntos)
+
+multiplos\_de\_5 = \[]
+>>> for i in range(5, 51, 5):
+...     multiplos\_de\_5.append(i)
+... print(multiplos\_de\_5)
+...
+***\[5, 10, 15, 20, 25, 30, 35, 40, 45, 50]***
+
+
+3.Hacer un programa que imprima ( 4 puntos)
+
+>>>for y in range(1, 11):
+...     **print("\*" \* y)
+...
+\*
+\*\*
+\*\*\*
+\*\*\*\*
+\*\*\*\*\*
+\*\*\*\*\*\*
+\*\*\*\*\*\*\*
+\*\*\*\*\*\*\*\*
+\*\*\*\*\*\*\*\*\*
+\*\*\*\*\*\*\*\*\*\*
+
+
+4.Investiga como se hace un ciclo while y hacer un programa que imprima los números del 1 al 10 (2 puntos)
+
+
+Un ciclo de while ejecuta un bloque de código mientras una condición sea verdadera(True).Necesita una **variable contador**, la **condición** de evaluar en cada vuelta, y un **incremento** dentro del ciclo.
+
+
+contador = 1
+>>> while contador <=10:
+...     print(contador)
+...     contador = contador + 1
+...
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+
+
+
+

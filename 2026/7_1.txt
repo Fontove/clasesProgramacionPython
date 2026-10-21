@@ -1,0 +1,84 @@
+1. Cómo podemos concatenar un número a un string? (.5 punto)
+Solo se puede concatenar strings + strings. En caso de querer unir, una opción es "hola" + str(1) ó "hola" + "1".
+2. De qué tipo son las variables justifica la respuesta (1.5 puntos)
+ a = "1" string porque está entre comillas
+ b = 1.0 float porque tiene decimales
+ c = 1.5 + True float el resultado es 2.5 y es decimal
+ d = 1.5 + 2.5 float el resultado es 4, sin embargo, Python lo deja como 4.0
+ e = 1 + True int true equivale a 1, por lo que el resultado es dos y corresponde a un entero
+ f = False + True int en este caso es 0 + 1 = 1 equivale a un entero
+ g = True * 0 int la multiplicación resulta en 0 y se toma como entero
+3. Manipulando la variable palabra (concatenando y con los métodos de strings), convertirla (2 puntos)
+ a. cambiar algunas letras por números
+	palabra = "hola" 
+	en "Ho14"
+palabra = "hola"
+palabra = palabra.replace("h", "H")
+palabra = palabra.replace("l", "1")
+palabra = palabra.replace("a", "4")
+print(palabra)
+>>>Ho14
+Reemplaza algún termino por otro
+ b. remover espacios
+	palabra = "  hola"
+	en "hola"
+palabra = " hola"
+resultado = palabra.strip()
+print(resultado)
+>>>hola
+strip() elimina los espacios en blanco al inicio y al final de la cadena
+ c. cambiar mayúsculas y minúsculas
+    palabra = "HoLa"
+	en "hOlA"
+palabra = "HoLa"
+resultado = palabra.swapcase()
+print(resultado)
+>>>hOlA
+swapcase() porque invierte las mayúsculas y minúsculas de todos los caracteres de una cadena
+ d. poner la primera en mayúscula
+	palabra = "hola"
+	en "Hola"
+palabra = "hola"
+resultado = palabra.capitalize()
+print(resultado)
+>>>Hola
+capitalize() lo que hace es convertir la primera letra de la cadena a mayúscula y el resto a minúsculas
+4. Explica qué hacen los métodos y da un ejemplo: (2 puntos)
+ a. count() sirve para contar cuantas veces aparece una cadena o carácter en un texto. Ejemplo: 
+texto = "saraaaaaaa"
+resultado = texto.count("a")
+print(resultado)
+>>>8
+ b. find() sirve para buscar una palabra o texto dentro de una cadena y da la posición donde empieza. Por ejemplo:
+texto = "Rosa come chetos"
+resultado = texto.find("come")
+print(resultado)
+>>>5
+ c. isdigit() sirve para comprobar si una cadena está formada únicamente por números, si es cierto pone True y si no pone False. Por ejemplo:
+texto = "987654210"
+resultado = texto.isdigit()
+print(resultado)
+>>>True
+texto = "9876rosa210"
+resultado = texto.isdigit()
+print(resultado)
+>>>False
+ d. replace() reemplaza una cadena o carácter por otro. Por ejemplo:
+texto = "rosa"
+resultado = texto.replace("s", "5")
+resultado = resultado.replace("a", "4")
+print(resultado)
+>>>ro54
+La s se reemplaza por 5.
+Las a se reemplazan por 4.
+La r y la o se quedan igual.
+5. Qué problema tiene declarar estas variables? (1.5 puntos)
+ oración larga = 'hola mundo' el nombre de la variable no puede tener espacios.
+ palabra = 'hola' 'mundo' en realidad no da error y concatena ambas palabras, pero es mala práctica porque no indica que deben unirse.
+6. Investigar "fstring": qué son, cómo se usan y un ejemplo. (2.5 puntos)
+Las f-strings son cadenas de texto especiales de Python que permiten insertar variables dentro de un texto usando llaves {}. Se identifican porque llevan una f antes de las comillas. Ejemplo:
+nombre = "Rosa"
+comida = "chetos"
+frase = f"{nombre} come {comida}"
+print(frase)
+>>>Rosa come chetos

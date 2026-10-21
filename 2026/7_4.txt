@@ -1,0 +1,251 @@
+Tarea 4.
+
+Escribir funciones que reciban los parámetros indicados (input) y regrese el valor indicado (output).
+Probar la función con los ejemplos mostrados y la función assert
+
+(1.5 puntos)
+1. isdigit
+Input: un string
+Output: Booleano indicando si el string se compone de puros números
+assert( isdigit("1234") == True )
+assert( isdigit("abcd") == False )
+assert( isdigit("123a") == False )
+assert( isdigit("12a4") == False )
+
+swapcase
+
+capitalize
+
+es par
+
+def isdigit(texto):
+    if texto == "":
+        return False
+
+    for caracter in texto:
+        if caracter < '0' or caracter > '9':
+            return False
+
+    return True
+
+
+assert isdigit("1234")
+assert not isdigit("abcd")
+assert not isdigit("123a")
+assert not isdigit("12a4")
+
+
+def swapcase(texto):
+    resultado = ""
+
+    for letra in texto:
+        if 'a' <= letra <= 'z':
+            resultado += chr(ord(letra) - 32)
+        elif 'A' <= letra <= 'Z':
+            resultado += chr(ord(letra) + 32)
+        else:
+            resultado += letra
+
+    return resultado
+
+
+assert swapcase("Hola") == "hOLA"
+assert swapcase("PyThOn") == "pYtHoN"
+
+
+def capitalize(texto):
+    if texto == "":
+        return ""
+
+    resultado = ""
+    primera = texto[0]
+
+    if 'a' <= primera <= 'z':
+        resultado += chr(ord(primera) - 32)
+    else:
+        resultado += primera
+
+    for letra in texto[1:]:
+        if 'A' <= letra <= 'Z':
+            resultado += chr(ord(letra) + 32)
+        else:
+            resultado += letra
+
+    return resultado
+
+
+assert capitalize("hola") == "Hola"
+assert capitalize("PYTHON") == "Python"
+
+
+def es_par(numero):
+    return numero % 2 == 0
+
+
+assert es_par(2)
+assert not es_par(5)
+assert es_par(50)
+
+def count(texto, caracter):
+    if caracter == "":
+        return 0
+
+    contador = 0
+
+    for letra in texto:
+        if letra == caracter:
+            contador += 1
+
+    return contador
+
+
+(1.5 puntos)
+2. count
+Input: dos strings, el segundo es sólo un caracter
+Output: un entero con el número de veces que aparece el segundo string en el primer string
+assert( count("hola mundo","o") == 2 )
+assert( count("hola mundo","h") == 1 )
+assert( count("hola mundo"," ") == 1 )
+assert( count("hola mundo","r") == 0 )
+assert( count("hola mundo","!") == 0 )
+assert( count("hola mundo","") == 0 )
+assert( count("","A") == 0 )
+
+def count(texto, caracter):
+    if caracter == "":
+        return 0
+
+    contador = 0
+
+    for letra in texto:
+        if letra == caracter:
+            contador += 1
+
+    return contador
+
+
+assert count("hola mundo", "o") == 2
+assert count("hola mundo", "h") == 1
+assert count("hola mundo", " ") == 1
+assert count("hola mundo", "r") == 0
+assert count("hola mundo", "!") == 0
+assert count("hola mundo", "") == 0
+assert count("", "A") == 0
+
+
+(1.5 puntos)
+3. replace
+Input: tres strings, el segundo y tercero sólo son un caracter
+Output: un string, que sea igual al primero pero reemplazando las ocurrencias del segundo por el tercero
+assert( replace("hola","h","H") == "Hola" )
+assert( replace("hola","o","O") == "hOla" )
+assert( replace("hola","","H") == "hola" )
+assert( replace("hola","h","") == "ola" )
+assert( replace("holah","h","") == "ola" )
+
+def replace(texto, viejo, nuevo):
+    if viejo == "":
+        return texto
+
+    resultado = ""
+
+    for letra in texto:
+        if letra == viejo:
+            resultado += nuevo
+        else:
+            resultado += letra
+
+    return resultado
+
+
+assert replace("hola", "h", "H") == "Hola"
+assert replace("hola", "o", "O") == "hOla"
+assert replace("hola", "", "H") == "hola"
+assert replace("hola", "h", "") == "ola"
+assert replace("holah", "h", "") == "ola"
+
+(1.5 puntos)
+4. modulo
+Input: tres números a, b
+Output: el resultado de "a módulo b"
+assert( modulo(2,2) == 0 )
+assert( modulo(2,3) == 2 )
+assert( modulo(2,1) == 0 )
+assert( modulo(-2,2) == 0 )
+assert( modulo(7,3) == 1 )
+
+def modulo(a, b):
+    return a % b
+
+assert modulo(2, 2) == 0
+assert modulo(2, 3) == 2
+assert modulo(2, 1) == 0
+assert modulo(-2, 2) == 0
+assert modulo(7, 3) == 1
+
+(1.5 puntos)
+5. complemento
+Input: una string de una secuencia genómica
+Output: un string con la secuencia complementaria
+assert( complemento("A") == "T" )
+assert( complemento("T") == "A" )
+assert( complemento("G") == "C" )
+assert( complemento("C") == "G" )
+assert( complemento("AAAA") == "TTTT" )
+assert( complemento("ATGC") == "TACG" )
+assert( complemento("") == "" )
+
+def complemento(secuencia):
+    resultado = ""
+
+    for letra in secuencia:
+        if letra == "A":
+            resultado += "T"
+        elif letra == "T":
+            resultado += "A"
+        elif letra == "G":
+            resultado += "C"
+        elif letra == "C":
+            resultado += "G"
+
+    return resultado
+
+
+assert complemento("A") == "T"
+assert complemento("T") == "A"
+assert complemento("G") == "C"
+assert complemento("C") == "G"
+assert complemento("AAAA") == "TTTT"
+assert complemento("ATGC") == "TACG"
+assert complemento("") == ""
+
+(2.5 puntos)
+6. GCcontent
+Input: un string con una secuencia de ADN
+Output: porcentaje de caracteres que son "G" ó "C"
+assert( GCcontent("ATGC") == .5 )
+assert( GCcontent("") == 0 )
+assert( GCcontent("AAAA") == 0 )
+assert( GCcontent("ATgc") == .5 )
+assert( GCcontent("GGCC") == 1 )
+
+
+
+def GCcontent(secuencia):
+    if secuencia == "":
+        return 0
+
+    contador = 0
+
+    for letra in secuencia:
+        if letra == "G" or letra == "C" or letra == "g" or letra == "c":
+            contador += 1
+
+    return contador / len(secuencia)
+
+
+assert GCcontent("ATGC") == .5
+assert GCcontent("") == 0
+assert GCcontent("AAAA") == 0
+assert GCcontent("ATgc") == .5
+assert GCcontent("GGCC") == 1

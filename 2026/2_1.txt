@@ -1,0 +1,71 @@
+1. Cómo podemos concatenar un número a un string? (.5 punto) 
+
+Podemos concatenarlo si colocamos el número dentro de comillas ""
+### Revisar: si escribes el número entre comillas desde el inicio, nunca fue un número, ya era texto. ¿Qué harías si tuvieras una variable con un número (por ejemplo edad = 18, sin comillas) y quisieras unirla a un string? ¿Qué función lo transforma a texto?
+
+2. De qué tipo son las variables justifica la respuesta (1.5 puntos)
+
+ a = "1"                      string, esta entre comillas   
+ b = 1.0                      float, tiene punto decimal 
+ c = 1.5 + True               float, el resultado da 2.5 teniendo punto decimal
+ d = 1.5 + 2.5                float, el resultado da 4.0 teniendo punto decimal 
+ e = 1 + True                 int, se sustituye por el numero binario (true=1) el resultado da un numero entero (2)
+ f = False + True             int, al sustituir por numeros binarios el resultado es 1 (entero)
+ g = True * 0                 int, al multiplicar 1*0 el resultado es 0 (entero) / error ´true´ no definido
+### Nota: la clasificación de g es correcta. Sobre el error que anotas: fíjate cómo está escrito el valor booleano en el ejercicio (¿mayúscula o minúscula?). ¿Python da ese error con True tal cual aparece en el enunciado, o solo si lo escribes de otra forma?
+
+3. Manipulando la variable palabra (concatenando y con los métodos de strings), convertirla (2 puntos)
+
+ a. cambiar algunas letras por números         >>>palabra = "hola"
+                                               >>> palabra.replace("h","H").replace("a","4").replace("l","1")
+                                               'Ho14'
+        palabra = "hola" 
+	en "Ho14"
+ b. remover espacios                             >>> palabra=" hola"
+                                                 >>> palabra.strip()
+                                                  'hola'
+	palabra = "  hola"
+	en "hola"
+ c. cambiar mayúsculas y minúsculas                 >>> palabra="HoLa"
+                                                    >>> palabra.swapcase()
+                                                    'hOlA'
+    palabra = "HoLa"
+	en "hOlA"
+ d. poner la primera en mayúscula                >>> palabra="hola"
+                                                 >>> palabra.capitalize()
+                                                 'Hola'
+	palabra = "hola"
+	en "Hola"
+
+4. Explica qué hacen los métodos y da un ejemplo: (2 puntos)
+
+ a. count()            cuenta cuantas veces se repite algo 
+                        >>> "ciencias".count("i")
+                        2 
+ b. find()             encuentra la posicion de algo
+                        >>> "agrogenomicas".find("r")
+                        2
+ c. isdigit()          muestra si todos los elemntos son digitos, te dice si es verdadero o falso
+                        >>> "83726272".isdigit()
+                        True
+
+ d. replace()          remplaza cosas por otras
+                       >>> "ciencias".replace("c","C")
+                       'CienCias'
+
+5. Qué problema tiene declarar estas variables? (1.5 puntos)
+
+ oración larga = 'hola mundo'      no se pueden dejar espacios en los nombres de las variables 
+ palabra = 'hola' 'mundo'          no se pueden dejar espacios en el valor de la variable (no indica la operacion)
+### Revisar: esta línea no da error en Python. Ejecútala e imprime palabra: ¿qué hace Python con dos cadenas escritas una junto a la otra? ¿Qué valor guarda y qué pasa con el espacio?
+
+6. Investigar "fstring": qué son, cómo se usan y un ejemplo. (2.5 puntos)
+
+Permite colocar variables dentro de una oracion usando una ´f´ y corchetes.
+### Nota: tu ejemplo está bien. Solo revisa el nombre: los signos { } que usas, ¿se llaman corchetes? ¿Cómo se llaman los [ ] y cómo los { }?
+Se utiliza primero la ´f´ afuera de las comillas de la oracion y a dentro de la oracion se colocan las variables entre corchetes.
+ejemplo:
+ >>> m="ciencias"
+>>> e="plantas"
+>>> f"me gustan las {m} y las {e}"
+'me gustan las ciencias y las plantas'

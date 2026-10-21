@@ -1,0 +1,160 @@
+Escribir la función con el nombre dado en cada número. Debe recibir los parámetros indicados (input) y regrese el valor indicado (output).
+Para los problemas 1-3 hay que probar la función con los ejemplos mostrados, para los 4-6 hay que hacer sus propios casos de prueba y explicar un poco para qué hacen la prueba (ver ejemplo en el problema 1). Está permitido usar código que hemos hecho en clase y los métodos de strings, pero tienen que hacer su propia función con el nombre que se pide.
+
+(1.5 puntos)
+1. MiEsDigito
+Input: un string
+Output: Booleano indicando si el string se compone de puros números
+MiEsDigito("1234") == True # probamos si funciona con puros números
+MiEsDigito("abcd") == False # probamos si funciona con puras letras
+MiEsDigito("123a") == False # probamos si hay números y letras
+MiEsDigito("12a4") == False # probamos que la letra esté a la mitad de los números
+
+def MiEsDigito(texto):
+    if (texto) == 0:
+### Nota: Comparas el texto con el número 0, y un string nunca es igual a un número, así que este if nunca se cumple. Prueba MiEsDigito(""): ¿qué regresa? ¿Qué te faltó aplicarle a texto para saber si está vacío?
+        return False
+    for caracter in texto:
+        if caracter < "0" or caracter > "9":
+            return False
+    return True
+print(MiEsDigito("1234"))  # True  # probamos si funciona con puros números
+print(MiEsDigito("abcd"))  # False # probamos si funciona con puras letras
+print(MiEsDigito("123a"))  # False # probamos si hay números y letras
+print(MiEsDigito("12a4"))  # False # probamos que la letra esté a la mitad de los números
+
+True
+False
+False
+False
+
+(1.5 puntos)
+2. MiConteo
+Input: dos strings, el segundo es sólo un caracter
+Output: un entero con el número de veces que aparece el segundo string en el primer string
+MiConteo("hola mundo","o") == 2
+MiConteo("hola mundo","h") == 1
+MiConteo("hola mundo"," ") == 1
+MiConteo("hola mundo","r") == 0
+MiConteo("hola mundo","!") == 0
+MiConteo("hola mundo","") == 0
+MiConteo("","A") == 0
+
+def MiConteo(texto, caracter):
+    if caracter == "":
+        return 0  
+    contador = 0
+    for i in texto:
+        if i == caracter:
+            contador += 1
+    return contador
+print(MiConteo("hola mundo", "o") == 2)
+print(MiConteo("hola mundo", "h") == 1)
+print(MiConteo("hola mundo", " ") == 1)
+print(MiConteo("hola mundo", "r") == 0)
+print(MiConteo("hola mundo", "!") == 0)
+print(MiConteo("hola mundo", "") == 0)
+print(MiConteo("", "A") == 0)
+print(MiConteo("", "A") == 3)
+
+True
+True
+True
+True
+True
+True
+True
+False
+
+(2 puntos)
+3. GCcontent
+Input: un string con una secuencia de ADN
+Output: porcentaje de caracteres que son "G" ó "C"
+GCcontent("ATGC") == .5
+GCcontent("") == 0
+GCcontent("AAAA") == 0
+GCcontent("ATgc") == .5
+GCcontent("GGCC") == 1
+
+def GCcontent(secuencia):
+    total = len(secuencia)
+    if total == 0:
+        return 0.0
+    gc_count = 0
+    for base in secuencia:
+        if base == "G" or base == "C" or base == "g" or base == "c":
+            gc_count += 1
+    return gc_count / total
+print(GCcontent("ATGC") == 0.5)
+print(GCcontent("") == 0.0)
+print(GCcontent("AAAA") == 0.0)
+print(GCcontent("ATgc") == 0.5)
+print(GCcontent("rohf") == 1.0)
+print(GCcontent("rohf") == 0.0)
+### Nota: ¿qué querías comprobar con "rohf"? No es una secuencia de ADN y una de esas pruebas sale False. Si la dejas, explica para qué sirve.
+
+True
+True
+True
+True
+False
+True
+
+(2 puntos)
+4. MiSwapCase
+Input: un string
+Output: un string que invierta las mayúsculas y minúsculas
+
+def MiSwapCase(texto):
+    resultado = ""
+    for c in texto:
+        if "a" <= c <= "z":
+            resultado += chr(ord(c) - 32)
+        elif "A" <= c <= "Z":
+            resultado += chr(ord(c) + 32)
+        else:
+            resultado += c
+    return resultado
+print(MiSwapCase("Hola Mundo") == "hOLA mUNDO") 
+
+True
+
+(1 punto)
+5. MiCapitalize
+Input: un string
+Output: un string que tenga la primera letra en mayúsculas
+
+def MiCapitalize(texto):
+    if len(texto) == 0:
+        return ""
+    primera_letra = texto[0]
+    if "a" <= primera_letra <= "z":
+        primera_letra = chr(ord(primera_letra) - 32)
+    resto = ""
+    for i in range(1, len(texto)):
+        c = texto[i]
+        if "A" <= c <= "Z":
+            resto += chr(ord(c) + 32)
+        else:
+            resto += c
+    return primera_letra + resto
+print(MiCapitalize("computacion") == "Computacion")
+
+True
+
+(2 puntos)
+6. EsPar
+Input: Un número entero
+Output: Imprime si el número es par o impar, no debe regresar nada
+
+def EsPar(numero):
+    if numero % 2 == 0:
+        print("El número es par")
+    else:
+        print("El número
+### Revisar: esta línea tiene un error de sintaxis (la cadena nunca se cierra), así que la función no corre y la salida que escribiste abajo no pudo salir de este código. ¿Qué le falta a esa línea? Complétala y vuelve a ejecutarla.
+EsPar(4) 
+EsPar(7) 
+
+El número es par
+El número es impar

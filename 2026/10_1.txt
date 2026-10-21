@@ -1,0 +1,68 @@
+Tarea1
+
+1. Cómo podemos concatenar un número a un string? (.5 punto)
+### Esta pregunta quedó sin responder. ¿Qué pasa si intentas unir directamente un número con un texto? ¿Qué podrías hacer con el número antes de concatenarlo?
+
+
+
+
+2. De qué tipo son las variables justifica la respuesta (1.5 puntos)
+
+a = "1" (string)
+b = 1.0 (float)
+c = 1.5 + True (float)
+d = 1.5 + 2.5 (float)
+e = 1 + True (int)
+f = False + True (int)
+g = True * 0 (int)
+
+
+3. Manipulando la variable palabra (concatenando y con los métodos de strings), convertirla (2 puntos)
+
+a. cambiar algunas letras por números
+palabra = "hola"
+en "Ho14"
+
+
+b. remover espacios
+palabra = " hola"
+en "hola"
+
+c. cambiar mayúsculas y minúsculas
+  palabra = "HoLa"
+en "hOlA"
+
+
+d. poner la primera en mayúscula
+palabra = "hola"
+en "Hola"
+### El punto 3 quedó sin resolver: solo copiaste el enunciado. ¿Qué código o método de strings usarías para cada transformación (a, b, c y d)?
+
+
+4. Explica qué hacen los métodos y da un ejemplo: (2 puntos)
+
+a. count(). Cuenta cuántas veces aparece un subtexto en la cadena
+
+b. find(). Busca un subtexto y devuelve el índice, de su primera aparición, si no lo encuentra devuelve -1.
+
+c. isdigit(). Devuelve true si todos los números de la cadena con enteros, de lo contrario devuelve false
+
+d. replace(). Remplaza un texto por otro dentro de la cadena
+
+
+5. Qué problema tiene declarar estas variables? (1.5 puntos)
+
+oración larga = 'hola mundo'
+Tiene un error de sintaxis. Python no permite espacios en los nombres de las variables. Debería usarse un guion bajo
+
+palabra = 'hola' 'mundo'
+No genera un error de código, pero tiene un problema lógico. Python concatena automáticamente los strings adyacentes, por lo que la variable
+guardará 'holamundo' todo junto, perdiendo el espacio que probablemente se deseaba entre las palabras.
+
+
+6. Investigar "fstring": qué son, cómo se usan y un ejemplo. (2.5 puntos)
+
+Las f-strings (cadenas de formato literales) son una forma moderna, legible y eficiente de incrustar expresiones y variables dentro de cadenas de
+texto en Python
+Se antepone una letra f o F antes de abrir las comillas del string, y se colocan las variables o expresiones directamente dentro de llaves {}.
+

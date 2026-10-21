@@ -1,0 +1,323 @@
+**1. ¿Cómo podemos conectar un numero a una cadena? (0.5 puntos)**
+
+
+
+Para una cadena no podemos conectar directamente un int + float porque nos lanzaría un error tipo (TypeError). Para lograr esta cadena usaremos el conector de str.
+
+
+
+edad = 20
+
+
+
+>>> "el siguiente año cumpliré " + str(edad) + " años"
+
+
+
+'el siguiente año cumpliré 20 años'
+
+
+
+**2. ¿De que tipo son las variables? (1.5 puntos)**
+
+
+
+* a = "1". ***str*** debido a que el numero esta encerrado por comillas.
+
+&#x20;  >>> a = "1"
+
+&#x20;  >>> print(type(a))
+
+&#x20;  <class 'str'>
+
+
+
+* b = 1.0. ***float*** contiene un punto decimal. Aunque después del punto haya un 0 Python lo interpretara como un decimal para evitar perdida de información durante la operación.
+
+&#x20;  >>> b = 1.0
+
+&#x20;  >>> print(type(b))
+
+&#x20;  <class 'float'> 
+
+
+
+* c = 1.5 + true. ***float*** <i>(numero decimal)</i> debido a que Python prioriza el type de dato mas preciso para evitar perdida de información. 
+
+&#x20;  >>> variable = 1.5 + True
+
+&#x20;  >>> print(type(variable))
+
+&#x20;  <class 'float'>
+
+
+
+* d = 1.5 + 2.5 . ***float*** porque lo que sume tiene punto decimal y Python para no hacer perdida de información te da el resultado igual en punto decimal 
+
+
+
+&#x20;  >>> variable = 1.5 + 2.5
+
+&#x20;  >>> print(type(variable))
+
+&#x20;  <class 'float'>
+
+
+
+* e = 1 + True. ***int*** (entero) debido a que True vale 1 y la operación 1 + 1 da como resultado 2 que es un entero.
+
+
+
+&#x20;  >>> resultado = 1 + True
+
+&#x20;  >>> print(resultado)
+
+&#x20;  2
+
+&#x20;  >>> print(type(resultado))
+
+&#x20;  <class 'int'>
+
+
+
+* f = False + True. ***int*** (entero) debido a que False=0 y True=1 y al sumarlo da un entero.
+
+
+
+&#x20;  >>> print( False + True)
+
+&#x20;  1
+
+&#x20;  >>> print(type(False + True))
+
+&#x20;  <class 'int'>
+
+
+
+* g = True \* 0. ***int*** (entero) debido a que True vale= 1 y la operación 1 \* 0 es un resultado entero.
+
+
+
+&#x20;  >>> print( True \* 0)
+
+&#x20;  0
+
+&#x20;  >>> print(type(True \* 0))
+
+&#x20;  <class 'int'>
+
+
+
+3\. **Manipulando la variable palabra (conectando y con los métodos de strings), convertirla (2 puntos).**
+
+
+
+* a. cambia algunas letras por números. 
+
+
+
+&#x20;  palabra= "hola"
+
+&#x20;  en "Ho14"
+
+&#x20;  >>> texto = "hola"
+
+&#x20;  >>> nuevo\_texto = texto.replace("h" , "H").replace("l" , "1").replace("a" , "4")
+
+&#x20;  >>> print(nuevo\_texto)
+
+&#x20;  **Ho14**
+
+
+
+* b. remover espacios.
+
+
+
+&#x20;  palabra= " hola"
+
+&#x20;  en "hola"
+
+&#x20;  >>> palabra = " hola"
+
+&#x20;  >>> resultado = palabra.strip( )
+
+&#x20;  >>> print(resultado)
+
+&#x20;  **"hola"**
+
+
+
+* c. cambiar minúsculas a mayúsculas. 
+
+
+
+&#x20;  palabra = "HoLa"
+
+&#x20;  en = "hola" 
+
+&#x20;  >>> palabra = "HoLa"
+
+&#x20;  >>> resultado = palabra.swapcase()
+
+&#x20;  >>> print(resultado)
+
+&#x20;  **hOlA**
+
+
+
+* d. poner la primera en mayúsculas.
+
+
+
+&#x20;  palabra = "hola"
+
+&#x20;  en = "Hola"
+
+&#x20;  >>> palabra = "hola"
+
+&#x20;  >>> resultado = palabra.capitalize()
+
+&#x20;  >>> print(resultado)
+
+&#x20;  **Hola**
+
+
+
+**4. explica que hacen los métodos y da un ejemplo (2 puntos)**
+
+
+
+* a. contar() = cuenta cuantas veces aparece un carácter dentro del string
+
+
+
+&#x20;  >>> texto = "quesillo"
+
+&#x20;  >>> print(texto.count("a"))
+
+&#x20;  **0**
+
+&#x20;  >>> texto = "quesillo es queso oxaca"
+
+&#x20;  >>> print(texto.count("a"))
+
+&#x20;  **2**
+
+
+
+* b. encontrar() = le das un texto para buscar y el te dice la posición exacta en la que empieza, si no lo encuentra te manda un -1 para avisarte que no esta.
+
+
+
+&#x20;  >>> mensaje = "hola amigo"
+
+&#x20;  >>> print(mensaje.find("amigo"))
+
+&#x20;  **5**
+
+&#x20;  >>> print(mensaje.find("perro"))
+
+&#x20;  **-1**
+
+
+
+* c. esdigito() = lo que hace esto es que devulve "True" si los caracteres de la cadena son dígitos numéricos de (0 al 9) de lo contrario devuelve "false"
+
+
+
+&#x20;  >>> num1 = "123456"    
+
+&#x20;  >>> num2 = "123a56789"
+
+&#x20;  >>> print(num1.isdigit())
+
+&#x20;  **True**
+
+&#x20;>>> print(num2.isdigit())
+
+&#x20;  **False**
+
+
+
+* d. remplazar() = remplaza todas las apariciones de una subcadena por otra nueva.
+
+
+
+&#x20;  >>> texto = "hola mundo"
+
+&#x20;  >>> print(texto.replace("mundo", "python"))
+
+&#x20;  **hola Python**
+### Revisar el resultado que anotaste: compara el texto que pusiste como reemplazo en replace() con lo que aparece en tu salida. ¿Coinciden las mayúsculas/minúsculas? Ejecútalo y verifica.
+
+
+
+
+**5. ¿Qué problema tiene declarar estas variables?( 1.5 puntos)**
+
+
+
+* oracion larga = "hola mundo" = las variables en Python no deben llevar espacios ya que se interpreta como 2 cosas distintas y genera un error de syntaxError
+
+&#x20;  >>> a = hola mundo
+
+&#x20;  File "<python-input-25>", line 1
+
+&#x20;  a = hola mundo
+
+&#x20;            ^^^^^
+
+&#x20;  SyntaxError: invalid syntax
+### Nota: tu explicación es correcta, pero el ejemplo que ejecutaste (a = hola mundo) tiene el espacio en el VALOR, no en el nombre de la variable. ¿Qué pasa si pruebas con un nombre que tenga espacio?
+
+
+
+* palabra = "hola" "mundo" = en esta falta el conector que puede ser suma, resta, etc. Aunque Python realiza una concatenación automática es una mala practica esto.
+
+
+
+&#x20;  >>> palabra = "hola" "mundo"
+
+&#x20;  >>> print("hola" "mundo")
+
+&#x20;  holamundo
+
+
+
+**6. investiga "fstring": que son, como se usan y da un ejemplo (2,5 puntos)**
+
+
+
+* ¿Qué son? Las f-string son una forma sencilla y rápida de insertar una variable o expresiones dentro de un texto en Python.
+* ¿Cómo se usa? se colocan las letras f o F justo antes de la primera comilla de la cadena. Dentro del texto, cualquier variable o expresión que quieres mostrar se coloca entre llaves {}
+* ejemplo:
+
+&#x20;  >>> nombre = "fani"
+
+&#x20;  >>> edad = 19
+
+&#x20;  >>> mensaje = f"Hola, me llamo {nombre} y tengo {edad} años."
+
+&#x20;  >>> print(mensaje)
+
+&#x20;  **Hola, me llamo fani y tengo 19 años**.
+
+
+
+
+
+
+
+
+
+&#x20;  
+
+&#x20;  
+
+
+
+
+
+&#x20;  
+

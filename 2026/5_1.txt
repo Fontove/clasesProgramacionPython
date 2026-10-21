@@ -1,0 +1,58 @@
+1. str(5)
+2.
+a=str ( las comillas de '1' dice que es texto)
+b=float (tiene decimal)
+c=float ( true=1, el rsultado es 2.5, o sea con decimal)
+d=float (true=1, el resultado es 4.0, tambien decimal)
+### Nota: el tipo es correcto, pero en d = 1.5 + 2.5 ¿aparece algún True? Revisa la justificación.
+e=int (true=1, el resultado es 2, es entero y se utiliza "int")
+f=int (false=0 y true=1, el resultado es 1)
+g=int (1*0= 0, tambien es entero)
+3.
+a.
+palabra = palabra.replace("h", "H")
+palabra = palabra.replace("l", "1")
+palabra = palabra.replace("a", "4")
+print(palabra)
+b.
+palabra=" hola"
+palabra=palabra.strip( )
+print(palabra)
+c.
+palabra="Hola"
+palabra=palabra.swapcase( )
+### Revisar: partiste de "Hola" y no de "HoLa" como dice el enunciado. Ejecuta tu código: ¿obtienes "hOlA"?
+print(palabra)
+d.
+palabra="hola"
+palabra=palabra.capitalize( )
+print(palabra)
+4.
+a. count se utiliza para contar la cantidad de letras de una palabra
+### Nota: tu ejemplo está bien; ¿count() cuenta todas las letras de la palabra, o cuántas veces aparece lo que le pones entre paréntesis?
+palabra= "nadar"
+print(palabra.count("a"))
+b. find se utiliza para buscar una letra dentro de la palabra y te dice en que posicion se encuentra
+palabra="felicidad"
+print(palabra.find("c"))
+c. isdigit nos dice si un texto esta formado por numeros, sus respuestas seran "true" y "false"
+palabra="funciona"
+print(palabra.isdigit( ))
+d.replace nos ayuda a remplazar una letra o un texto
+palabra="UnAM"
+palabra=palabra.replace("n", "N")
+print(palabra)
+5. los espacios en "oracion larga" phyton lo vera como que son variables diferentes 
+oracionlarga='hola mundo'
+print(oracionlarga)
+palabra = 'hola' 'mundo'
+print(palabra)
+### Falta explicar la segunda declaración: de palabra = 'hola' 'mundo' solo pusiste el código. ¿Da error o no? ¿Qué valor guarda (fíjate en el espacio)?
+6.
+"fstring" ses una forma para escribir un texco y usar variablesndentro del texto.
+se pone una "f" antes de las comillas y las variables se escriben entre { }
+
+carrera="ciencias agrogenomicas"
+nombre="Vane"
+print(f"hola, soy {nombre} y mi carrrera es {carrera}.")
+

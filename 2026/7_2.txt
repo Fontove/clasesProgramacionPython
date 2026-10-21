@@ -1,0 +1,56 @@
+1. Crear una lista vacía y llenarla con los números  del 1 al 50 (1,2,3,...,48,49,50). Sugerencia: usar un ciclo, no generarla directamente con [1,2,3,...,48,49,50] ni list(range(0,50)) (1 punto)
+lista = [] crea una lista vacía.
+range(1, 51) genera los números del 1 al 50.
+append(i) agrega cada número a la lista.
+print(lista) muestra la lista completa al final.
+
+lista=[]
+for i in range (1,51):
+    lista.append(i)
+  
+  
+print(lista)
+2. Crear una lista vacía y llenarla con los números múltiplos de 5 del 2 al 50 (5,10,15,...,40,45,50). Nota: hay que usar un ciclo, no se vale generarla directamente con [5,10,15,...,40,45,50] ni list(range(0,50,5)) (3 puntos)
+range(5, 51) recorre los números del 5 al 50.
+i % 5 == 0 verifica si el número es múltiplo de 5.
+append(i) agrega esos números a la lista.
+print(lista) muestra el resultado al final.
+
+lista=[]
+for i in range(5,51):
+    if i %5 == 0:
+      lista.append(i)
+
+
+print(lista)
+
+3. Hacer un programa que imprima (4 puntos)
+*
+**
+***
+****
+*****
+******
+*******
+********
+*********
+**********
+for i in range(1, 11):
+   print("*" * i)
+
+4. Investigar cómo se usa un ciclo while y hacer un programa que imprima los números del 1 al 10. (2 puntos)
+Un ciclo while repite un bloque de código mientras una condición sea verdadera. En cada repetición normalmente se actualiza una variable para evitar que el ciclo sea infinito.
+while condición:
+   instrucciones
+
+numero empieza en 1.
+while numero <= 10 comprueba si el número es menor o igual que 10.
+Si se cumple, imprime el número.
+numero = numero + 1 aumenta el valor en 1.
+Cuando numero llega a 11, la condición deja de cumplirse y el ciclo termina.
+
+numero = 1
+ 
+while numero <= 10:
+   print(numero)
+   numero = numero + 1

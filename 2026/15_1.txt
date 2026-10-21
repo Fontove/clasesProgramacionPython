@@ -1,0 +1,81 @@
+1. Cómo podemos concatenar un número a un string? se tiene que convertir el nuemero a string, se puede lograr escribiendo str(nuemro deseado) y se le suma a la concatenacion. (.5 punto)
+
+2. De qué tipo son las variables justifica la respuesta (1.5 puntos)
+ a = "1": es una palabra, ya que las palabras en python deben ir en comillas para su uso ya que si no se utilizan de esta manera se toma como una variable.
+ b = 1.0: es un float ya que es un número decimal.
+ c = 1.5 + True: es un float, ya que el resultado de la suma de ambos es un decimal. 
+ d = 1.5 + 2.5: es un float, aunque el resultado sea un entero paython toma el decimal y lo deja como float.
+ e = 1 + True: es un int, ya  que el resultado da un entero que seria 2.
+ f = False + True: es un int, ya que el valor de F y T es 0 y 1 respectivamente, al hacer una suma el resultado es un entero.
+ g = True * 0: es un int, ya que el resultado de la operacion da 0, siendo un numero entero dentro de paython.
+
+3. Manipulando la variable palabra (concatenando y con los métodos de strings), convertirla (2 puntos)
+ a. cambiar algunas letras por números
+	palabra = "hola" 
+	en "Ho14"
+txt = "hola"
+x = txt.replace("h","H").replace("l","1").replace("a","4")
+print(x)
+Ho14
+
+ b. remover espacios
+	palabra = "  hola"
+	en "hola"
+txt = " hola"
+x = txt.strip()
+print(x)
+hola
+
+ c. cambiar mayúsculas y minúsculas
+    palabra = "HoLa"
+	en "hOlA"
+txt = "HoLa"
+x = txt.swapcase()
+print(x)
+hOlA
+
+ d. poner la primera en mayúscula
+	palabra = "hola"
+	en "Hola"
+txt = "hola"
+x = txt.capitalize()
+print(x)
+Hola
+
+4. Explica qué hacen los métodos y da un ejemplo: (2 puntos)
+ a. count(): El método devuelve el número de veces aparece un valor especificado en la cadena.
+Ej: txt = "hongo"
+x =txt.count("o")
+print(x)
+2
+ b. find():El método encuentra la primera ocurrencia del valor especificado. Da la ubicacion de lo que le indiquemos.
+Ej: txt ="hola, me gustan los honguitos"
+x= txt.find("honguitos")
+print(x)
+20
+ c. isdigit(): El método devuelve Verdadero si todos los los caracteres son dígitos, de lo contrario falsos. 
+Ej: txt ="120414"
+x= txt.isdigit()
+print(x)
+True
+ d. replace():El método sustituye a un especificado frase con otra frase especificada. 
+Ej: txt = "me gustan los honguitos"
+x = txt.replace("honguitos", "insectos")
+print(x)
+me gustan los insectos
+
+5. Qué problema tiene declarar estas variables? (1.5 puntos)
+ oración larga = 'hola mundo'
+ palabra = 'hola' 'mundo'
+en la primera: en paython no podemos escribir variables con espacios, ya que esto lo da como algun error, y no funciona.
+segunda: da la palabra junta, sin el espacio que se añadio, para que paython deje el espacio debe ser agregado con comillas igual que las palabras de hola y mundo, de esta manera paython respeta el espacio que se coloca.
+
+6. Investigar "fstring": qué son, cómo se usan y un ejemplo. (2.5 puntos)
+forma de insertar valores de variables o expresiones directamente dentro de un string de texto
+se utilizan agregando delante de una string la f  y se añaden los corchetes para marcar la posicion de una variable u otro elemento (f {})
+### Nota: tu ejemplo está bien. Solo revisa el nombre: los signos { }, ¿se llaman corchetes? ¿Cómo se llaman los [ ] y cómo los { }?
+Ej.
+kit = 2
+txt = f"me gustan los gatos, tengo {kit}"
+print(txt)
+me gustan los gatos, tengo 2

@@ -1,0 +1,55 @@
+1. Cómo podemos concatenar un número a un string? (.5 punto)
+se puede contatenar convirtiendo el numero a string al agregarle comillas, ya que las comillas hacen que Python lo identifique como string: "hola" + "2" = "hola2"
+### Revisar: si le pones comillas desde el inicio, ese "2" nunca fue un número, ya era texto. Si tuvieras edad = 2 (sin comillas), ¿qué función necesitarías para unirlo a "hola"?
+
+2. De qué tipo son las variables justifica la respuesta (1.5 puntos)
+ a = "1" : strign porque esta dentro de las comillas y Python lo identifica como texto mientras esta dentro de las comillas
+ b = 1.0 : Float porque contiene punto y eso lo identifica como decimal
+ c = 1.5 + True : float, true vale 1 para Python, 1.5+1= 2.5 que es decimal automáticamente
+ d = 1.5 + 2.5 : float, estamos sumando dos decimales directamente 
+ e = 1 + True : Int, true es 1, estamos sumando dos enteros
+ f = False + True : Int, false vale 0 y true vale 1, es una suma de enteros
+ g = True * 0 : Int, true es 1, 1*0= 0 es una multiplicación de enteros
+
+3. Manipulando la variable palabra (concatenando y con los métodos de strings), convertirla (2 puntos)
+ a. cambiar algunas letras por números
+
+	palabra = "hola" 
+	en "Ho14" :
+1- 1paso = palabra.replace("h","H") => "Hola"
+### Revisar: ejecuta tu código tal cual. ¿Python acepta un nombre de variable que empieza con un número, como 1paso o 2paso? ¿Qué error aparece?
+2- 2paso = 1paso.replace("l","1") => "Ho1a"
+3- resultado_final = 2paso.replace("a","4") => "Ho14"
+print(resultado_final) => Ho14
+
+ b. remover espacios
+	palabra = "  hola"
+	en "hola" : palabra.strip() => hola
+
+ c. cambiar mayúsculas y minúsculas
+    palabra = "HoLa"
+	en "hOlA" : palabra.swapcase() => hOlA
+
+ d. poner la primera en mayúscula
+	palabra = "hola"
+	en "Hola" : palabra.capitalize() => Hola
+
+4. Explica qué hacen los métodos y da un ejemplo: (2 puntos)
+
+ a. count() cuenta las veces que se llega a repetir una letra, palabra o texto dentro de una string. ejemplo: manzana.count(a) => 3
+### Revisar el ejemplo de count(): tal como lo escribiste, sin comillas en manzana ni en a, ¿Python lo ejecuta? ¿Qué le falta a un texto para que Python lo trate como string?
+ b. find() indica en que posición comienza la primera palabra o letra, cuando no la encuentra nos da -1. ejemplo: "mariposa".find("s") => 6
+ c. isdigit() checa si el texto esta todo hecho solo de números y nos arroja true si es que son puros dígitos y false si es que hay letras o algún símbolo. ejemplo: "3000".isdigit() => true
+ d. replace() encuentra una parte del texto y lo cambia por otro. ejemplo: "pala".remplace("c","p") => cala
+### Revisar el ejemplo de replace(): ¿qué texto se busca y por cuál se cambia? ¿La palabra "pala" tiene alguna "c"? Ejecútalo y revisa también cómo se escribe el nombre del método.
+
+5. Qué problema tiene declarar estas variables? (1.5 puntos)
+ oración larga = 'hola mundo' => tiene espacio en el nombre y en Python no se puede usar espacio para nombrar variables y tiene tilde que es un símbolo no recomendado.
+ palabra = 'hola' 'mundo' => no hay suma ni coma, el resultado será "holamundo" 
+
+6. Investigar "fstring": qué son, cómo se usan y un ejemplo. (2.5 puntos)es una forma mas simple y sencilla de hacer combinaciones de variables, sin usar + ni hacerlo manual. Para usarla ponemos la f pegadita a las comillas antes de abrirlas y las variables las ponemos dentro de llaves {} 
+Ejemplo: persona = "rosa"
+         dulces = 4
+oracion = f"La niña {persona} se ha comido {dulces} dulces hoy"
+print(oracion) => La niña dulce se ha comido 4 dulces hoy
+### Revisar el resultado: ¿qué valor guarda la variable persona? ¿Es eso lo que aparece en tu salida en lugar de {persona}?

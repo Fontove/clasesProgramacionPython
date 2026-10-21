@@ -1,0 +1,92 @@
+1. Investigar cómo se usa el operador módulo (modulus) en python, explicarlo con sus palabras y poner un ejemplo. (1 punto)
+ sirve para dar el residuo de una división entre dos números enteros o flotantes, devuelve el sobrante de la división
+ejemplo: 15%5 y sale 0; 233%56 y sale 9
+
+
+
+
+2. Crear una lista vacía y llenarla con los números pares del 2 al 50 (2,4,6,8,...,48,50) utilizando un for y un condicional para controlar que sólo los pares se agreguen.  (2 puntos)
+numeros = []
+for i in range(2, 51):
+   if i % 2 == 0:
+   numeros.append(i)
+### Revisar la indentación: tal como está, Python marca IndentationError en la línea del append. ¿Qué sangría necesita para quedar dentro del if? Fíjate también en el print: ¿está dentro o fuera del for? ¿Cuántas veces se imprimiría la lista y coincide eso con la salida que escribiste?
+   print(numeros)
+salida: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]
+
+
+
+
+3. Investigar para qué sirve el comando "break" en un for, explicarlo con sus palabras y hacer un ejemplo. (1 punto)
+el comando detiene la ejecución del bucle "for" haciendo que se salga del ciclo y continue con la instrucción siguiente al bucle.
+for i in range(1, 11):
+    if i == 5:
+        break
+    print(i)
+salida:
+1
+2
+3
+4
+
+
+
+4. Programar el método find de los strings a mano. (2 puntos) Sugerencia: utilizar break cuando encuentren lo que buscan
+palabra = 'banana'
+# regresar la posición de la primera 'a'
+ for i in range(len(palabra)):
+    if palabra[i] == 'a':
+    print(i)
+    break
+### Revisar la indentación: este código no corre (IndentationError: unexpected indent). ¿Por qué la línea del for empieza con un espacio? ¿El print y el break quedaron realmente dentro del if? Compáralo con tu versión "sin break" de abajo, que sí corre.
+salida: 1
+
+y si no tuviera el break seria 
+for i in range(len(palabra)):
+     if palabra[i] == 'a':
+      print(i)
+salida: 
+1
+3
+5
+
+5. Imprimir todos los números de la siguiente lista utilizando ciclos: (4 puntos)
+lista = [ [1], [1,2], [1,2,3], [1,2,3,4], [1,2,3,4,5] ]
+# 1
+# 1
+# 2
+# 1
+# 2
+# 3
+# 1
+# 2
+# 3
+# 4
+# 1
+# 2
+# 3
+# 4
+# 5
+
+ juli = [[1], [1,2], [1,2,3], [1,2,3,4], [1,2,3,4,5]]
+
+ for vi in juli:
+     for numero in vi:
+     print(numero)
+### Revisar la indentación: este código no corre (IndentationError). ¿Con cuántos espacios empiezan las líneas de juli y del primer for? ¿El print quedó realmente dentro del segundo for? Pruébalo en Python y compara con la salida que escribiste.
+salida:
+1
+1
+2
+1
+2
+3
+1
+2
+3
+4
+1
+2
+3
+4
+5
