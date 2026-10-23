@@ -1,0 +1,99 @@
+1. Cómo podemos concatenar un número a un string? (.5 punto)
+Convirtiendo el número en una strig, usando la funcion str(). Ejemplo:
+edad=8
+print("La pelicula tiene " +str(edad)+ " anos desde que se estreno")
+La pelicula tiene 8 anos desde que se estreno
+
+2. De qué tipo son las variables justifica la respuesta (1.5 puntos)
+
+ a = "1"          Es string, por que esta entre comillas, y asi es considerado como una palabra
+ b = 1.0          Es float, por que esta escrito con punto decimal.
+ c = 1.5 + True   Es float, True es igual a 1, y el sistema lo toma como 1.0, por lo que es una suma con decimales.
+ d = 1.5 + 2.5    Es float, por que es una operacion con numeros decimales.
+ e = 1 + True     Es int, por que 1 es un numero entero, y el sistema toma a True como el numero entero 1. 
+ f = False + True Es int, por que el sistema toma los valores para False y True, como 0 y 1, respectivamente.
+ g = True * 0     Es int, porque True es igual al numero entero 1, y el 0 tambien lo es, entonces es una simple operacion de numeros enteros.
+
+3. Manipulando la variable palabra (concatenando y con los métodos de strings), convertirla (2 puntos)
+ a. cambiar algunas letras por números
+	palabra = "hola" 
+	en "Ho14"
+ >>>palabra="hola"
+>>> palabra.replace("a", "4").replace("l","1").replace("h","H")
+Resultado:'Ho14'
+
+ b. remover espacios
+	palabra = "  hola"
+	en "hola"
+palabra = "  hola"
+ palabra.strip()
+Resultado:'hola'
+ c. cambiar mayúsculas y minúsculas
+    palabra = "HoLa"
+	en "hOlA"
+ palabra = "HoLa"
+>>> palabra.swapcase()
+Resultado: 'hOlA'
+ d. poner la primera en mayúscula
+	palabra = "hola"
+	en "Hola"
+>>> palabra = "hola"
+>>> palabra.capitalize()
+Resultado: 'Hola'
+
+4. Explica qué hacen los métodos y da un ejemplo: (2 puntos)
+
+ a. count()
+Sirve para contar cuantas veces aparece un elemento, dentro de una secuencia.Ejemplo:
+colores=("rojo", "verde", "rojo", "negro", "azul", "rojo")
+ colores.count("rojo")
+  Resultado: 3
+### Nota: tu ejemplo usa count() sobre una tupla, no sobre un string. Funciona, pero la pregunta es sobre métodos de strings: ¿cómo sería con un texto?
+ b. find()
+Permite encontrar una cadena de texto dentro de otra, arrojandote el numero de la posición dónde se encuentra.
+Ejemplo:
+text="Las enzimas son proteinas"
+text.find("son")
+Resultado:12
+
+ c. isdigit()
+sirve para comprobar si todos los caracteres de una cadena de texto son números. Te pondra True si son solo
+números, y False si hay algo mas que numeros, como letras o espacios. Ejemplo:
+>>> secuencia="1234910"
+>>> secuencia.isdigit()
+True
+>>> numero="1 a b c 2"
+>>> numero.isdigit()
+False
+
+ d. replace()
+Sirve para remplazar un texto o bien, palabras u letras en específico por otro dentro de una cadena de caracteres.
+oracion="Yo aprobe matematicas"
+ oracion.replace("aprobe", "reprobe")
+ Resultado:'Yo reprobe matematicas'
+
+5. Qué problema tiene declarar estas variables? (1.5 puntos)
+
+ oración larga = 'hola mundo' Que la variable oración larga, tiene un espacio, y en python no puede haber espacios
+                               en las variables.
+ palabra = 'hola' 'mundo'     Al escribirse asi, python toma las dos strings como consecutivas, es decir, no deja ningun
+                              espacio entre las dos palabras, ya que no estas declarando que deba existir
+                              algún espacio.    
+
+6. Investigar "fstring": qué son, cómo se usan y un ejemplo. (2.5 puntos)
+
+Un f-string es una forma de escribir textos en Python que permite insertar variables directamente dentro de una cadena de texto.
+Para utilizarlo, se coloca una f antes de las comillas y las variables se escriben dentro de llaves {}.
+Primero se crean las variables y se les asigna un valor. Después, al utilizar print(), se coloca una f antes del texto
+y las variables se escriben entre llaves en el lugar donde queremos que aparezcan.
+
+Ejemplo:
+super = "Superman"
+color = "azul"
+### Nota: usaste super como nombre de variable. Funciona, pero super ya es una función de Python; ¿qué le pasaría si la necesitaras después?
+
+print(f"{super} tiene su traje {color}")
+
+Resultado: "Superman tiene su traje azul"
+
+

@@ -1,0 +1,82 @@
+1. Investigar cómo se usa el operador módulo (modulus) en python, explicarlo con sus palabras y poner un ejemplo. (1 punto)
+
+El operador modulus sirve para darme el residuo de la division entre dos numeros, se representa con el simbolo "%", primero
+pongo el dividendo, luego coloco el simbolo del modulus y al ultimo el divisor.
+
+9%3                             9%8
+print(9%3)                      print(9%8)
+0                               1
+
+2. Crear una lista vacía y llenarla con los números pares del 2 al 50 (2,4,6,8,...,48,50) utilizando un for y un condicional para controlar que sólo los pares se agreguen.  (2 puntos)
+
+lista= []
+numero=2
+for num in range(2,51):
+    if num%2==0:
+       lista.append(num)
+print(lista)
+
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]
+
+3. Investigar para qué sirve el comando "break" en un for, explicarlo con sus palabras y hacer un ejemplo. (1 punto)
+
+Sirve para detener un ciclo en el momento que se encuentre un valor o un caracter que deseo encontrar o bien donde yo deseo
+que se detenga.
+ejemplo= 'No se que estoy haciendo con mi vida'
+for eje in ejemplo:
+    if eje == 'c':
+       break 
+    print(eje, end='')
+
+No se que estoy ha
+
+4. Programar el método find de los strings a mano. (2 puntos) Sugerencia: utilizar break cuando encuentren lo que buscan
+palabra = 'banana'
+# regresar la posición de la primera 'a'
+
+pala= "banana"
+posicion=0
+for letra in pala:
+  if letra =="a":
+     break
+  posicion +=1
+print(posicion)
+1
+
+5. Imprimir todos los números de la siguiente lista utilizando ciclos: (4 puntos)
+lista = [ [1], [1,2], [1,2,3], [1,2,3,4], [1,2,3,4,5] ]
+# 1
+# 1
+# 2
+# 1
+# 2
+# 3
+# 1
+# 2
+# 3
+# 4
+# 1
+# 2
+# 3
+# 4
+# 5 
+
+lista = [[1], [1,2], [1,2,3], [1,2,3,4], [1,2,3,4,5]]
+for sublista in lista:
+    for numero in sublista:
+        print(numero)
+1
+1
+2
+1
+2
+3
+1
+2
+3
+4
+1
+2
+3
+4
+5
