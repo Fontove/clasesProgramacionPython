@@ -45,10 +45,9 @@ Resultado: 'Hola'
 
  a. count()
 Sirve para contar cuantas veces aparece un elemento, dentro de una secuencia.Ejemplo:
-colores=("rojo", "verde", "rojo", "negro", "azul", "rojo")
+colores="rojo, verde, rojo, negro, azul, rojo"
  colores.count("rojo")
   Resultado: 3
-### Nota: tu ejemplo usa count() sobre una tupla, no sobre un string. Funciona, pero la pregunta es sobre métodos de strings: ¿cómo sería con un texto?
  b. find()
 Permite encontrar una cadena de texto dentro de otra, arrojandote el numero de la posición dónde se encuentra.
 Ejemplo:
@@ -88,11 +87,10 @@ Primero se crean las variables y se les asigna un valor. Después, al utilizar p
 y las variables se escriben entre llaves en el lugar donde queremos que aparezcan.
 
 Ejemplo:
-super = "Superman"
+variable = "Superman"
 color = "azul"
-### Nota: usaste super como nombre de variable. Funciona, pero super ya es una función de Python; ¿qué le pasaría si la necesitaras después?
 
-print(f"{super} tiene su traje {color}")
+print(f"{variable} tiene su traje {color}")
 
 Resultado: "Superman tiene su traje azul"
 

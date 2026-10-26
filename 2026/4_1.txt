@@ -65,7 +65,13 @@ print(nueva_frase)=me gustan los perros
  oración larga = 'hola mundo'
  palabra = 'hola' 'mundo'
 Python no une textos auntomaticante se tendría que poner el signo de + 
-### Revisar: ejecuta palabra = 'hola' 'mundo' e imprime palabra: ¿Python de verdad no las une? ¿Qué valor guarda? Además falta explicar la primera declaración: ¿qué problema tiene el NOMBRE oración larga?
+### Revisar: ejecuta palabra = 'hola' 'mundo' (sin el +) e imprime palabra: ¿Python de verdad no las une? ¿Qué valor guarda?
+oracion_larga = 'hola mundo'
+palabra = 'hola' + 'mundo'
+print(oracion_larga) # hola mundo
+print(palabra)      # hola mundo
+hola mundo
+holamundo
 
 6. Investigar "fstring": qué son, cómo se usan y un ejemplo. (2.5 puntos)
 son una forma sencilla de incluir variables o expresiones dentro del texto. Se escriben poniendo una f antes de las comillas y poniendo lo que quieres calcular entre llaves{}

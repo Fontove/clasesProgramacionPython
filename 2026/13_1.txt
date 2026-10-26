@@ -11,8 +11,7 @@ print(resultado)
 
 
 2. De que tipo son las variables justifica la respuesta (1.5 puntos)
- a = "1"  int
-### Revisar: a = "1" está entre comillas. ¿Qué tipo de dato es algo escrito entre comillas, aunque parezca número? Compruébalo con type(a).
+ a = "1"  str
  b = 1.0 float
  c = 1.5 + True float
  d = 1.5 + 2.5 float
@@ -29,14 +28,15 @@ print(resultado)
 	en "Ho14"
 "Hola".replace("a","4")
 Salida: 'Hol4'
-### Nota: El ejercicio pide "Ho14" partiendo de "hola" y tu salida es "Hol4". Compara letra por letra: ¿qué otra letra falta cambiar por un número?
+"Hol4".replace("l","1")
+salida: Ho14
 
  b. remover espacios
 	palabra = "  hola"
 	en "hola"
 •. "  hola".split()
-### Nota: split() quita los espacios pero devuelve una lista, no un string. Tu segunda opción con strip() sí da exactamente "hola".
      Salida: ['hola']
+### Nota: split() quita los espacios pero devuelve una lista, no un string. Tu segunda opción con strip() sí da exactamente "hola".
 •. "  hola".strip()
      Salida:  'hola'
 

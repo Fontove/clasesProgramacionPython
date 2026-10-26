@@ -1,0 +1,116 @@
+ 1. Investigar cómo se usa el operador módulo (modulus) en python, explicarlo con sus palabras y poner un ejemplo. (1 punto)
+El operador modulo devuelve el resto de un división entera, nos dice cuanto es el sobrante al momento de dividir un numero entero entre otro numero 
+resto = 7 % 3
+print(resto)
+numero = 8
+if numero % 2 == 0:
+    print("Es par")
+else:
+        print("Es par")
+### Nota: en tu ejemplo extra, ¿qué imprime el else cuando el número es impar? Prueba con numero = 9.
+
+1
+Es par
+
+2. Crear una lista vacía y llenarla con los números pares del 2 al 50 (2,4,6,8,...,48,50) utilizando un for y un condicional para controlar que sólo los pares se agreguen.  (2 puntos)
+pares = []
+for numero in range(2, 51):
+    if numero % 2 == 0:
+        pares.append(numero)
+        print(pares)
+### Nota: el print está dentro del ciclo, por eso la lista se imprime en cada vuelta. ¿Dónde lo pondrías para ver solo la lista final?
+[2]
+[2, 4]
+[2, 4, 6]
+[2, 4, 6, 8]
+[2, 4, 6, 8, 10]
+[2, 4, 6, 8, 10, 12]
+[2, 4, 6, 8, 10, 12, 14]
+[2, 4, 6, 8, 10, 12, 14, 16]
+[2, 4, 6, 8, 10, 12, 14, 16, 18]
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22]
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24]
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26]
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28]
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30]
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32]
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34]
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36]
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38]
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40]
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42]
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44]
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46]
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48]
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]
+
+3. Investigar para qué sirve el comando "break" en un for, explicarlo con sus palabras y hacer un ejemplo. (1 punto)
+Break detiene inmediatamente el ciclo en el momento que se ejecuta el código, sin importar si no ha terminado de recorrer todos los elementos 
+
+frutas = ["manzanas", "platano", "cereza", "naranja"]
+for fruta in frutas:
+    print(fruta)
+    if fruta == "cereza":
+        print("¡Encontre cereza! Detengo el ciclo")
+        break
+
+manzanas
+platano
+cereza
+¡Encontre cereza! Detengo el ciclo
+
+4. Programar el método find de los strings a mano. (2 puntos) Sugerencia: utilizar break cuando encuentren lo que buscan
+palabra = 'banana'
+# regresar la posición de la primera 'a'
+
+palabra = "banana"
+buscar = "a"
+posicion = -1
+
+for indice, letra in enumerate(palabra):
+    if letra == buscar:
+        posicion = indice
+        break
+
+print(f"La primera '{buscar}' está en la posición: {posicion}")
+La primera 'a' está en la posición: 1
+
+
+5. Imprimir todos los números de la siguiente lista utilizando ciclos: (4 puntos)
+lista = [ [1], [1,2], [1,2,3], [1,2,3,4], [1,2,3,4,5] ]
+# 1
+# 1
+# 2
+# 1
+# 2
+# 3
+# 1
+# 2
+# 3
+# 4
+# 1
+# 2
+# 3
+# 4
+# 5
+
+lista = [[1], [1, 2],[1, 2, 3], [1, 2, 3, 4], [1, 2, 3, 4, 5]]
+for sublista in lista:
+    for numero in sublista:
+        print(numero)
+1
+1
+2
+1
+2
+3
+1
+2
+3
+4
+1
+2
+3
+4
+5

@@ -33,10 +33,9 @@ while a <= 50:
 *********
 **********
 >>> numero=1
->>> while numero <= 10: 
-...print("*" * numero)
-...numero += 1
-### Nota: tal como lo pegaste, el print y el numero += 1 no tienen sangría dentro del while. ¿Qué pasaría si alguien copia este código así? Revisa que las líneas del ciclo queden indentadas.
+>>> while numero <= 10:
+...     print("*" * numero)
+...     numero += 1
 *
 **
 ***

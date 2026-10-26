@@ -6,12 +6,16 @@ ejemplo: 15%5 y sale 0; 233%56 y sale 9
 
 
 2. Crear una lista vacía y llenarla con los números pares del 2 al 50 (2,4,6,8,...,48,50) utilizando un for y un condicional para controlar que sólo los pares se agreguen.  (2 puntos)
+
+
 numeros = []
+
 for i in range(2, 51):
-   if i % 2 == 0:
-   numeros.append(i)
-### Revisar la indentación: tal como está, Python marca IndentationError en la línea del append. ¿Qué sangría necesita para quedar dentro del if? Fíjate también en el print: ¿está dentro o fuera del for? ¿Cuántas veces se imprimiría la lista y coincide eso con la salida que escribiste?
-   print(numeros)
+    if i % 2 == 0:
+        numeros.append(i)
+
+print(numeros)
+
 salida: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]
 
 
@@ -33,12 +37,15 @@ salida:
 
 4. Programar el método find de los strings a mano. (2 puntos) Sugerencia: utilizar break cuando encuentren lo que buscan
 palabra = 'banana'
-# regresar la posición de la primera 'a'
- for i in range(len(palabra)):
+
+
+palabra = 'banana'
+
+for i in range(len(palabra)):
     if palabra[i] == 'a':
-    print(i)
-    break
-### Revisar la indentación: este código no corre (IndentationError: unexpected indent). ¿Por qué la línea del for empieza con un espacio? ¿El print y el break quedaron realmente dentro del if? Compáralo con tu versión "sin break" de abajo, que sí corre.
+        print(i)
+        break
+
 salida: 1
 
 y si no tuviera el break seria 
@@ -68,13 +75,12 @@ lista = [ [1], [1,2], [1,2,3], [1,2,3,4], [1,2,3,4,5] ]
 # 4
 # 5
 
- juli = [[1], [1,2], [1,2,3], [1,2,3,4], [1,2,3,4,5]]
+juli = [[1], [1, 2], [1, 2, 3], [1, 2, 3, 4], [1, 2, 3, 4, 5]]
 
- for vi in juli:
-     for numero in vi:
-     print(numero)
-### Revisar la indentación: este código no corre (IndentationError). ¿Con cuántos espacios empiezan las líneas de juli y del primer for? ¿El print quedó realmente dentro del segundo for? Pruébalo en Python y compara con la salida que escribiste.
-salida:
+for vi in juli:
+    for numero in vi:
+        print(numero)
+salida: 
 1
 1
 2
