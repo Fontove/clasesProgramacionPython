@@ -1,3 +1,4 @@
+###Problemas a corregir: ej. 6: GCcontent no da .5 con "ATgc"
 Tarea 4.
 
 Escribir funciones que reciban los parámetros indicados (input) y regrese el valor indicado (output).

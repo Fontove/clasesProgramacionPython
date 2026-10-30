@@ -1,3 +1,4 @@
+###Tarea completa entregada
 Tarea 4.
 
 Escribir la función con el nombre dado en cada número. Debe recibir los parámetros indicados (input) y regrese el valor indicado (output).

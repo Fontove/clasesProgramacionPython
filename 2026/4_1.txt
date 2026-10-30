@@ -1,3 +1,4 @@
+###Problemas a corregir: ej. 5: revisar qué hace Python con 'hola' 'mundo'
 1. Cómo podemos concatenar un número a un string? (.5 punto)
 Tendríamos que convertir el numero a texto con str()
 numero=18

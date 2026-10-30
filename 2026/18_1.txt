@@ -1,3 +1,4 @@
+###Problemas a corregir: ej. 1: el número ya era texto; ej. 1: revisar si "tengo " + edad + " años" corre; ej. 5: punto sin responder
 1. Cómo podemos concatenar un número a un string? (.5 punto)
 Opción 1: poner en número entre comillas (""). Ej: "hola"+"22"= hola22
 ### Revisar: si pones el número entre comillas, nunca fue un número, ya era texto. ¿Cómo unirías un número de verdad (sin comillas) a un string?

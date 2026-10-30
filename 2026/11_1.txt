@@ -1,3 +1,4 @@
+###Problemas a corregir: ej. 1: el ejemplo no corre (comillas y +); ej. 3: punto sin resolver; ej. 4: revisar qué regresa find() cuando no encuentra; ej. 4: revisar qué comprueba isdigit(); ej. 6: el ejemplo de f-string no inserta ninguna variable
 1. Cómo podemos concatenar un número a un string? (.5 punto)
 se supone que no te deja poner un numero con texto, entonces se pone primero un "str()" en lugar del numero. Por ejemplo "Hoy+es+lunes+str(28)
 ### Revisar tu ejemplo: la idea de str() es correcta, pero tal como está escrito, ¿Python lo ejecutaría? Fíjate dónde abren y cierran las comillas y dónde van los +.

@@ -1,3 +1,4 @@
+###Problemas a corregir: ej. 1: pregunta sin responder; ej. 3: punto sin resolver
 Tarea1
 
 1. Cómo podemos concatenar un número a un string? (.5 punto)

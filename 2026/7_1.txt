@@ -1,3 +1,4 @@
+###Tarea completa entregada
 1. Cómo podemos concatenar un número a un string? (.5 punto)
 Solo se puede concatenar strings + strings. En caso de querer unir, una opción es "hola" + str(1) ó "hola" + "1".
 2. De qué tipo son las variables justifica la respuesta (1.5 puntos)

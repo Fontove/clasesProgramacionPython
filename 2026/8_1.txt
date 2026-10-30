@@ -1,3 +1,4 @@
+###Problemas a corregir: ej. 4: la salida de replace() no coincide con el código
 **1. ¿Cómo podemos conectar un numero a una cadena? (0.5 puntos)**
 
 

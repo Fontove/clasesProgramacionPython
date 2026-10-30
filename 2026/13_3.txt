@@ -1,3 +1,4 @@
+###Tarea completa entregada
 1. Investigar cómo se usa el operador módulo (modulus) en python, explicarlo con sus palabras y poner un ejemplo. (1 punto)
  sirve para dar el residuo de una división entre dos números enteros o flotantes, devuelve el sobrante de la división
 ejemplo: 15%5 y sale 0; 233%56 y sale 9

@@ -1,3 +1,4 @@
+###Problemas a corregir: ej. 1: concatenar un número que no esté entre comillas; ej. 5: revisar qué hace Python con 'hola' 'mundo'
 1. Cómo podemos concatenar un número a un string? (.5 punto) 
 
 Podemos concatenarlo si colocamos el número dentro de comillas ""

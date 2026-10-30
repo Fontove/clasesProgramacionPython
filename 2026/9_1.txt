@@ -1,3 +1,4 @@
+###Problemas a corregir: ej. 2: revisar el tipo de a = "1"
 1. Cómo podemos concatenar un número a un string? (.5 punto)
 Se puede usar el "str" para poder juntarse 
 >>> a="Hola profe pongame "

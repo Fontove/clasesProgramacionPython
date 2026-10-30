@@ -1,3 +1,4 @@
+###Tarea completa entregada
 1. Investigar cómo se usa el operador módulo (modulus) en python, explicarlo con sus palabras y poner un ejemplo. (1 punto)
 El operador módulo, se representa por el símbolo de porcentaje (%), se usa para calcular el residuo o resto de una división entera entre dos números. En lugar de devolver el cociente (el resultado de dividir), devuelve lo que sobra después de hacer la división.
 Ejemplo:

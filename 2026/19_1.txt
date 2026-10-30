@@ -1,3 +1,4 @@
+###Problemas a corregir: ej. 2: revisar el tipo de a = "1"; ej. 5: revisar qué hace Python con 'hola' 'mundo'; ej. 6: el ejemplo no es una f-string
 1. Cómo podemos concatenar un número a un string? (.5 punto)
 numero=”hay un numero” resultado=numero+str(16) print(resultado) 
 salida: aqui hay un numero 16

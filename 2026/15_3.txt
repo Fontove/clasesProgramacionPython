@@ -1,0 +1,123 @@
+###Problemas a corregir: ej. 1: revisar quién es múltiplo de quién
+1. Investigar cómo se usa el operador módul0o (modulus) en python, explicarlo con sus palabras y poner un ejemplo. (1 punto)
+El operador modulus (%) se utiliza para calcular el residuo de una división entre dos (a%b), para saber si un número es par o impar (se utiliza un if y un else, también se le añade doble igual(==)), o para la comprobación de números múltiplos ((a%b), si el resultado da 0 quiere decir que son múltiplos exactos).
+
+Ejemplos:
+	*Utilizando if y else
+numero=4
+if numero % 2 == 0:
+    print("Es par")
+else:
+    print("Es impar")
+
+Es par
+	*Utilizado para residuo
+print(11%3)
+
+2
+(es el residuo de la división).
+
+	*Utilizado para múltiplos
+print(10%5)
+
+0
+(es un múltiplo de 10 ya que no nos da ningún residuo).
+### Revisa la frase: si 10 % 5 da 0, ¿quién es múltiplo de quién?
+
+
+2. Crear una lista vacía y llenarla con los números pares del 2 al 50 (2,4,6,8,...,48,50) utilizando un for y un condicional para controlar que sólo los pares se agreguen.  (2 puntos)
+
+par =[]
+for num in range(2,51):
+    if num %2==0:
+        par.append(num)
+print(par)
+
+	*Resultado
+
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]
+
+
+3. Investigar para qué sirve el comando "break" en un for, explicarlo con sus palabras y hacer un ejemplo. (1 punto)
+El comando break nos ayuda a "romper" de manera inmediata un loop antes de que este haya completado todas las acciones solicitadas.
+
+Ejemplo:
+
+insectos=["Abeja","Avispa","Mariposa","Polilla","Mantis","Luciernaga","Mariquita"]
+for bichito in insectos:
+     print(f"Revisando bichito: {bichito}")
+     
+     if bichito == "Mantis":
+        print("¡Lo encontramos! Deteniendo la búsqueda.")
+        break
+print("Fin del proceso en insectos.")
+
+	*Resultados
+Revisando bichito: Abeja
+Revisando bichito: Avispa
+Revisando bichito: Mariposa
+Revisando bichito: Polilla
+Revisando bichito: Mantis
+¡Lo encontramos! Deteniendo la búsqueda.
+Fin del proceso en insectos.
+
+
+4. Programar el método find de los strings a mano. (2 puntos) Sugerencia: utilizar break cuando encuentren lo que buscan
+palabra = 'banana'
+# regresar la posición de la primera 'a'
+
+fruta="banana"
+
+lugar = 0
+
+for letra in fruta:
+    if letra == "a":
+        print(lugar)
+        break
+
+    lugar=lugar +1
+
+	*Resultado
+1
+
+
+5. Imprimir todos los números de la siguiente lista utilizando ciclos: (4 puntos)
+lista = [ [1], [1,2], [1,2,3], [1,2,3,4], [1,2,3,4,5] ]
+# 1
+# 1
+# 2
+# 1
+# 2
+# 3
+# 1
+# 2
+# 3
+# 4
+# 1
+# 2
+# 3
+# 4
+# 5
+
+for sublista in lista:
+    for numero in sublista:
+        print(numero)
+	
+	*Resultados
+1
+1
+2
+1
+2
+3
+1
+2
+3
+4
+1
+2
+3
+4
+5
+
+*Nota: le pedí un poco de ayuda a la IA por que no recordaba como se hacia 

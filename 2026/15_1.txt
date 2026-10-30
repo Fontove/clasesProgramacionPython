@@ -1,3 +1,4 @@
+###Tarea completa entregada
 1. Cómo podemos concatenar un número a un string? se tiene que convertir el nuemero a string, se puede lograr escribiendo str(nuemro deseado) y se le suma a la concatenacion. (.5 punto)
 
 2. De qué tipo son las variables justifica la respuesta (1.5 puntos)

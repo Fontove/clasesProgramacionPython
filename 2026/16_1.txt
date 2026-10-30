@@ -1,3 +1,4 @@
+###Tarea completa entregada
 1. Cómo podemos concatenar un número a un string? (.5 punto)
 Convirtiendo el número en una strig, usando la funcion str(). Ejemplo:
 edad=8

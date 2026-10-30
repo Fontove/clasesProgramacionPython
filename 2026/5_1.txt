@@ -1,3 +1,4 @@
+###Problemas a corregir: ej. 3: partir de "HoLa" como pide el enunciado; ej. 5: falta explicar palabra = 'hola' 'mundo'
 1. str(5)
 2.
 a=str ( las comillas de '1' dice que es texto)

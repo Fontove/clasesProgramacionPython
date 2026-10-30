@@ -1,3 +1,4 @@
+###Tarea completa entregada
 Tarea 1
 Clase de programación 
 1. Como podemos concatenar un numero a un string? (.5 punto) 

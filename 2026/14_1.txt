@@ -1,3 +1,4 @@
+###Problemas a corregir: ej. 1: el número ya era texto; ej. 3: nombres de variable que empiezan con número; ej. 4: el ejemplo de count() no corre; ej. 4: revisar el ejemplo de replace(); ej. 6: revisar la salida de la f-string
 1. Cómo podemos concatenar un número a un string? (.5 punto)
 se puede contatenar convirtiendo el numero a string al agregarle comillas, ya que las comillas hacen que Python lo identifique como string: "hola" + "2" = "hola2"
 ### Revisar: si le pones comillas desde el inicio, ese "2" nunca fue un número, ya era texto. Si tuvieras edad = 2 (sin comillas), ¿qué función necesitarías para unirlo a "hola"?

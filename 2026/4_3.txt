@@ -1,3 +1,4 @@
+###Tarea completa entregada
  1. Investigar cómo se usa el operador módulo (modulus) en python, explicarlo con sus palabras y poner un ejemplo. (1 punto)
 El operador modulo devuelve el resto de un división entera, nos dice cuanto es el sobrante al momento de dividir un numero entero entre otro numero 
 resto = 7 % 3

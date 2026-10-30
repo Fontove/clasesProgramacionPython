@@ -1,0 +1,116 @@
+###Problemas a corregir: ej. 2: revisar el tipo de a = "1"; ej. 3: el corte no funciona con el texto del enunciado
+. Cómo podemos concatenar un número a un string? (.5 punto)
+>>>a="hola profe pongame"
+>>>b="10"
+>>>a+str(b)
+'Hola profe pongame 10'
+### Nota: la salida pegada no coincide con lo que imprime tu código (mayúscula y espacio); revisa qué da realmente a+str(b).
+2. De qué tipo son las variables justifica la respuesta (1.5 puntos)
+ a = "1"
+ b = 1.0
+ c = 1.5 + True
+ d = 1.5 + 2.5
+ e = 1 + True
+ f = False + True
+ g = True * 0
+ a = "1"
+>>> type(1)
+<class 'int'> Al ser un entero siempre es int
+### Fíjate que a = "1" lleva comillas, pero tú revisaste type(1); ¿qué tipo da type("1")?
+ b = 1.0
+>>> type(1.0)
+<class 'float'> Aunque matematicamente es un entero esta representado con un decimal
+ c = 1.5 + True
+>>> type(1.5+True)
+<class 'float'> True es igual a 1 al sumarse a 1.5 es 2.5 y es un decimal o un float
+ d = 1.5 + 2.5
+>>> type(1.5+2.5)
+<class 'float'> Aunque la sumatoria total es 4 se interpreta como 4.0 lo que es un decimal
+ e = 1 + True
+>>> type(1+True)
+<class 'int'> True se represanta como 1 al sumarse como el otro 1 el resultado es un 2 sin punto decimal
+ f = False + True
+>>> type(False+True)
+<class 'int'> Es como sumar 0+1 y el resultado esta expresado sin punto decimal
+ g = True * 0
+>>> type(True*0)
+<class 'int'> True se interpreta como 1 asi que 1*0 es 0 igual sin punto decimal
+3. Manipulando la variable palabra (concatenando y con los métodos de strings), convertirla (2 puntos)
+ a. cambiar algunas letras por números
+	palabra = "hola" 
+	en "Ho14"
+ b. remover espacios
+	palabra = "  hola"
+	en "hola"
+ c. cambiar mayúsculas y minúsculas
+    palabra = "HoLa"
+	en "hOlA"
+ d. poner la primera en mayúscula
+	palabra = "hola"
+	en "Hola"
+cambiar algunas letras por números
+	palabra = "hola" 
+	en "Ho14"
+>>> palabra="hola"
+>>> palabra[0:2]+str(14)
+'ho14'
+### Nota: casi; el resultado pedido es "Ho14", ¿qué le falta a tu "ho14"?
+ b. remover espacios
+	palabra = "  hola"
+	en "hola"
+>>> palabra=" hola"
+>>> palabra[1:5]
+'hola'
+### Revisar: el enunciado parte de "  hola" (dos espacios); con ese texto tu corte no da "hola". ¿Qué método de strings quita los espacios sin contar posiciones?
+ c. cambiar mayúsculas y minúsculas
+    palabra = "HoLa"
+	en "hOlA"
+>>> palabra="HoLa"
+>>> palabra.swapcase()
+'hOlA' Para este invesigue el metodo ya que no se me ocurrio con lo que vimos en clase :(
+ d. poner la primera en mayúscula
+	palabra = "hola"
+	en "Hola"
+>>> palabra="hola"
+>>> a="H"
+>>> a+palabra[1:4]
+'Hola'
+4. Explica qué hacen los métodos y da un ejemplo: (2 puntos)
+ a. count()
+ b. find()
+ c. isdigit()
+ d. replace()
+>>> a="Dressrosa"
+>>> print(a.count("s"))
+### Nota: falta explicar qué hace count(); ¿qué devuelve tu ejemplo y por qué?
+ b. find() Permite buscar dentro de una cadena una subcadena
+>>> b="UNAM super kul"
+>>> print(b.find("super"))
+ c. isdigit(): Comprueba que todos los caracteres de la cadena con numeros si si es True si tiene cualquier otro caracter es False
+>>> c="1,2,3,4,5,6,7,8"
+>>> print(c.isdigit())
+False
+d. replace(): Remplaza partes una cadena por otra pero no modifica la cadena original
+>>> a="Feliz cumpleaños"
+>>> b=a.replace("cumpleaños","navidad")
+>>> print(b)
+Feliz navidad
+5. Qué problema tiene declarar estas variables? (1.5 puntos)
+ oración larga = 'hola mundo'
+ palabra = 'hola' 'mundo'
+oración larga = 'hola mundo'
+ palabra = 'hola' 'mundo'
+>>> Frase larga= "Hola mundo"
+  File "<python-input-0>", line 1
+    Frase larga= "Hola mundo"
+          ^^^^^
+SyntaxError: invalid syntax La sintaxis es incorrecta por dejar el espacio en el nombre de las variables
+palabra = 'hola' 'mundo'
+>>> palabra = 'hola' 'mundo'
+>>> palabra
+'holamundo' Aunque exista un espacio aparante entre las variables al procesarse no existe solo se junta
+6. Investigar "fstring": qué son, cómo se usan y un ejemplo. (2.5 puntos)
+F en Fstring representa Format o formatear asi que es como formatear una cadena, pero mas bien se usa para modificarla de una manera optima sin tener que escribirla toda de nuevo
+>>> nombre="Pablo"
+>>> print(f"Hola {nombre} como estás")
+Hola Pablo como estás
