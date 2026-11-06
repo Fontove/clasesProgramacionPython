@@ -1,4 +1,4 @@
-###Problemas a corregir: ej. 6: GCcontent no da .5 con "ATgc"
+###Tarea completa entregada
 Tarea 4.
 
 Escribir funciones que reciban los parámetros indicados (input) y regrese el valor indicado (output).
@@ -127,16 +127,17 @@ Output: porcentaje de caracteres que son "G" ó "C"
 assert( GCcontent("ATGC") == .5 )
 assert( GCcontent("") == 0 )
 assert( GCcontent("AAAA") == 0 )
-assert( GCcontent("ATgc") == 0 )
+assert( GCcontent("ATgc") == .5 )
 assert( GCcontent("GGCC") == 1 )
 
 
-def GCcontent(cadena):
-   total_bn=len(cadena)
-   if total_bn==0:
-      return 0.0
-   cont = cadena.count('G') + cadena.count('C')
-### Revisar: el enunciado pide assert( GCcontent("ATgc") == .5 ), pero tu función regresa 0 con esa secuencia (y cambiaste ese assert a == 0). ¿Qué pasa con las letras "g" y "c" en minúscula cuando cuentas con count("G") y count("C")?
-   return cont / total_bn
+def GCcontent(secuencia):
+    if secuencia == "":
+        return 0
+    contador = 0
+    for letra in secuencia:
+        if letra == "G" or letra == "C" or letra == "g" or letra == "c":
+            contador += 1
+    return contador / len(secuencia)
 
 

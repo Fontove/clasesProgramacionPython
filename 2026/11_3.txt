@@ -1,0 +1,58 @@
+###Problemas a corregir: ej. 4: la posición se escribe a mano y no es la de la primera 'a'
+#1. Investigar cómo se usa el operador módulo (modulus) en python, explicarlo con sus palabras y poner un ejemplo. (1 punto)
+#un operador modulo se representa con un % y se usa para obtener el residuo de una division 
+number=5
+if number%5==0:
+    print(True)
+#en este caso el valor del residuo es cero 
+
+#2. Crear una lista vacía y llenarla con los números pares del 2 al 50 (2,4,6,8,...,48,50) utilizando un for y un condicional para controlar que sólo los pares se agreguen.  (2 puntos)
+lista= [] 
+#esta es la lista vacia sobre la cual se van a agregar los valores de numeros pares del 2 al 50 
+for i in range(1,51): #se indica que se van a repetir acciones sobre los valores del rango de 1 a 51, ya que el limite superior no se incluye en el rango
+    if i%2==0: #se indica que si el residuo de la division entre el valor del ciclo y 2 es igual a cero, entonces es un numero par
+        lista.append(i) #si se cumple la condicion anterior, entonces se agrega el valor del ciclo a la lista vacia
+print(lista)#si se cumplen con las condiciones especificadas, se imprimiran los valores 
+
+#3. Investigar para qué sirve el comando "break" en un for, explicarlo con sus palabras y hacer un ejemplo. (1 punto)
+for n in range (12,30):
+    if n== 12:
+        print("encontrado el 12")
+        break
+### Nota: falta explicar con tus palabras qué hace break; ¿qué le pasa al ciclo cuando se ejecuta?
+    print(n)
+for x in range (70,80):
+    if x==75:
+        print(x)
+
+#4. Programar el método find de los strings a mano. (2 puntos) Sugerencia: utilizar break cuando encuentren lo que buscan
+palabra = 'banana'
+# regresar la posición de la primera 'a'
+for letra in palabra:
+    if letra=="a":
+        print(2)
+### El 2 está escrito a mano y no sale del ciclo; ¿cómo llevarías la cuenta de la posición mientras recorres la palabra? Revisa también desde qué número se cuentan las posiciones.
+        break
+    print(letra)
+
+#5. Imprimir todos los números de la siguiente lista utilizando ciclos: (4 puntos)
+lista = [ [1], [1,2], [1,2,3], [1,2,3,4], [1,2,3,4,5] ]
+for listas in lista: #recorre las listas de la lista #si indico print aqui, se imprimiren de forma de lista, es decir, cada lista en una linea diferente
+    for numbers in listas: #hace zoom en los numeros de cada lista y toma cada uno de ellos para imprimirlos de forma individual
+        print(numbers) 
+#una vez fijado zoom por lista, recorre el elemneto de cada lista
+#1
+#1
+#2
+#1
+#2
+#3
+#1
+#2
+#3
+#4
+#1
+#2
+#3
+#4
+#5

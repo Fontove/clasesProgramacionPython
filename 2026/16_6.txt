@@ -1,0 +1,94 @@
+###Problemas a corregir: ej. 1: usa un set en lugar de una lista; ej. 3: el código genético está incompleto
+Tarea 6.
+
+(3 puntos)
+1. Construye una lista que funcione como un conjunto (set). Esto es, construye una función a la que le pasas una lista y un elemento que agregar
+ pero sólo lo agregue si no existe dentro de la lista, también hay que hacer una función que agregue valores (si la llave no existe hay que agregarla
+ y si ya existe hay que sobre-escribir su valor).
+
+def agregar(lista, elemento):
+    if elemento not in lista:
+        lista.add(elemento)
+### Se pedía usar una lista que se comporte como conjunto; con una lista, ¿existe el método add? ¿cuál método de listas usarías?
+# Prueba de la primera función
+numeros = {1, 2, 3, 4}
+agregar(numeros, 3)
+agregar(numeros, 5)
+print(numeros)
+#Resultado {1, 2, 3, 4, 5}
+
+def agregar_valor(diccionario, llave, valor):
+    if llave not in diccionario:
+        diccionario[llave] = valor
+    else:
+        diccionario[llave] = valor
+### Nota: el if y el else hacen exactamente lo mismo, ¿hace falta la condición?
+# Prueba de la segunda función
+alumno = {"nombre": "Roberto", "edad": 22}
+agregar_valor(alumno, "edad", 23)
+agregar_valor(alumno, "carrera", "Odontologia")
+print(alumno)
+#Resultado {'nombre': 'Roberto', 'edad': 23, 'carrera': 'Odontologia'}
+
+(4 puntos)
+2. Construye dos listas que funcionen juntas como un diccionario. Por ejemplo, simular el diccionario 
+d = {'uno':1, 'dos':2, 'tercero':3}
+Utilizando las listas debe poder responder
+"la llave uno, tiene valor 1"
+Sugerencia, usar el método index de las listas para buscar la llave y luego el índice para buscar el valor correspondiente.
+
+llaves = ['uno', 'dos', 'tercero']
+valores = [1, 2, 3]
+def buscar(llaves, valores, llave):
+    if llave in llaves:
+        posicion = llaves.index(llave)
+        valor = valores[posicion]
+        print(f'La llave {llave} tiene valor {valor}')
+    else:
+        print('La llave no existe')
+
+print(buscar(llaves, valores, 'quinto'))
+#Resultado La llave no existe
+### Nota: tu función ya imprime y no regresa nada; ¿qué más aparece al hacer print(buscar(...))?
+
+(3 puntos)
+3. Hacer una función que convierta un string con nucleótidos en la proteína correspondiente. Sugerencia, crea un diccionario del código genético. 
+Nota: los codones de paro comunmente se sustituyen por un asterisco (*). Tener cuidado con qué pasa si la secuencia no tiene una longitud múltiplo de 3.
+
+codigo_genetico = {"AUG": "Met", "UUU": "Phe", "UUC": "Phe", "UUA": "Leu",
+    "UUG": "Leu", "CUG": "Leu","UCU": "Ser", "UCC": "Ser", "UCA": "Ser", "UCG": "Ser",
+### Revisa tu diccionario: faltan algunos codones de Leu y esas secuencias no se traducen, ¿cuántos codones debería tener?
+    "UAU": "Tyr", "UAC": "Tyr", "UGU": "Cys", "UGC": "Cys", "UGG": "Trp",
+    "CCU": "Pro", "CCC": "Pro", "CCA": "Pro", "CCG": "Pro",
+    "CAU": "His", "CAC": "His", "CAA": "Gln", "CAG": "Gln",
+    "CGU": "Arg", "CGC": "Arg", "CGA": "Arg", "CGG": "Arg",
+    "AUU": "Ile", "AUC": "Ile", "AUA": "Ile",
+    "ACU": "Thr", "ACC": "Thr", "ACA": "Thr", "ACG": "Thr",
+    "AAU": "Asn", "AAC": "Asn", "AAA": "Lys", "AAG": "Lys",
+    "AGU": "Ser", "AGC": "Ser", "AGA": "Arg", "AGG": "Arg",
+    "GUU": "Val", "GUC": "Val", "GUA": "Val", "GUG": "Val",
+    "GCU": "Ala", "GCC": "Ala", "GCA": "Ala", "GCG": "Ala",
+    "GAU": "Asp", "GAC": "Asp", "GAA": "Glu", "GAG": "Glu",
+    "GGU": "Gly", "GGC": "Gly", "GGA": "Gly", "GGG": "Gly",
+    "UAA": "*", "UAG": "*", "UGA": "*"}
+def traducir_a_proteina(secuencia, diccionario):
+    inicio_arn = secuencia.find("AUG")
+    if inicio_arn == -1:
+        return "No se encontró el codón de inicio (AUG)."
+    aminoacidos = []
+    for i in range(inicio_arn, len(secuencia), 3):
+        codon = secuencia[i:i+3]
+        # Para ignorar codón
+        if len(codon) < 3:
+            break
+        aminoacido = diccionario.get(codon, "?")
+        aminoacidos.append(aminoacido)
+        # Si es codón de stop, se agrega el "*" y se termina
+        if aminoacido == "*":
+            break
+    return aminoacidos
+
+# Ejemplo
+secuencia_arn = "GCAUGGCUUUCCUGUGAAAA"
+print(traducir_a_proteina(secuencia_arn, codigo_genetico))
+#resultado ['Met', 'Ala', 'Phe', 'Leu', '*']

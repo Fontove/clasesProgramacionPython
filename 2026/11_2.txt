@@ -1,0 +1,85 @@
+###Problemas a corregir: ej. 4: el ciclo while no termina; ej. 4: explicación de la condición del while invertida
+#1. Crear una lista vacía y llenarla con los números  del 1 al 50 (1,2,3,...,48,49,50). Sugerencia: usar un ciclo, no generarla directamente con [1,2,3,...,48,49,50] ni list(range(0,50)) (1 punto)
+lista=list()
+for i in range(1, 51):
+    lista.append(i)
+print(lista)
+bases= []
+for base in ("adenina", "citosina", "guanina", "timina"):
+    bases.append(base) #agrega las bases a la lista vacia base
+print(bases)
+print(len(bases)) #imprime rl numero de elementos en la lista bases
+print(bases[0:4]) #indica cuales numeros de elementos se van a imprirmir de la lista
+
+
+#2. Crear una lista vacía y llenarla con los números múltiplos de 5 del 2 al 50 (5,10,15,...,40,45,50). Nota: hay que usar un  ciclo, no se vale generarla directamente con [5,10,15,...,40,45,50] ni list(range(0,50,5)) (3 puntos)
+lista2=list()
+for i in range(1,10):
+    lista2.append(i*5)
+print(lista2)
+### Nota: revisa el límite de tu range; ¿tu lista llega hasta el 50?
+
+#3. Hacer un programa que imprima (4 puntos)
+for x in range (1,11):
+    print("*" * x)
+
+#4. Investigar cómo se usa un ciclo while y hacer un programa que imprima los números del 1 al 10. (2 puntos)
+
+contador = 1
+while contador <= 10:
+    print(contador)
+contador = contador + 1 
+### Esta línea quedó fuera del while, así que el ciclo nunca termina e imprime 1 sin parar. ¿Qué tiene que cambiar para que quede dentro del ciclo?
+#aqui al uno se le va sumando uno hasta llegar al 10 porque se vuelve falso si es mayor a 10
+contadores = 11
+while contadors <=10:
+### Nota: aquí la variable se escribe distinto que en la línea donde la creaste, por eso Python marca NameError.
+    print(contadors)
+    contadors=contadors-1
+#esto no va imprimir nada porque la condicion es falsa desde el inicio ya que 11 no es mayor o igual a 10
+### Revisa tu explicación: ¿11 es mayor o menor que 10? ¿Qué compara exactamente <=?
+#el valor incial es donde inicia el conteo y es valor de la condicion es el limite del conteo y la contabilidad es el valor que se le va sumando o restando al valor inicial para que llegue al limite de la condicion
+temperatura= 25
+while temperatura <=37:
+    print(f"temepratura actual: {temperatura}°C")
+    temperatura=temperatura+2
+contador= 34
+if contador <0:
+    print("true")
+else: contador = contador + 10
+intercel=20
+while intercel>8:
+    print("RNA")
+    intercel2=intercel-1
+### Nota: dentro del ciclo cambias intercel2 en vez de intercel; ¿cambia alguna vez la condición del while?
+#aqui se va a imprimir RNA 12 veces porque ews el numero de veces que se resto hasta llegar a 8, ya que la condicion es que sea mayor a 8 y se le va restando 1 al valor inicial de 20 hasta llegar a 8
+intercel2=40
+while intercel2>=20:
+    print("DNA")
+    intercel2=intercel2-2
+    #aqui se va a imprimir DNA 11 veces porque es el numero de veces que se resta el -2 del 40 hasta llegar a 20, ya que la condicion es que sea mayor o igual a 20 y se le va restando 2 al valor inicial de 40 hasta llegar a 20
+for digito in "1413":
+    print(digito)
+numero= 13459
+for digito in str(numero):
+    print(numero)
+### Nota: imprimes numero en cada vuelta en lugar de la variable del ciclo; ¿qué querías mostrar?
+listDNA_sequence= []
+for base in["A","A","T","T","G","C"]:
+    listDNA_sequence.append(base)
+print(f"hay{listDNA_sequence.count("T")} timinas,{listDNA_sequence.count("A")}adeninas,{listDNA_sequence.count("G")}guaninas y {listDNA_sequence.count("C")}citosinas")
+#dada una secuencia de proteina imprirmir cuantas veces se reepite un aminoacido
+listPP_sequence= []
+for aminoacid in ["Cys","Try","Lle","Gln","Asp","Asp","Cys","Pro","Leu","Gly"]:
+    listPP_sequence.append(aminoacid)
+print(f"hay {listPP_sequence.count("Cys")} cisteinas,{listPP_sequence.count("Try")} tirosinas,{listPP_sequence.count("Lle")} isoleucinas,{listPP_sequence.count("Gln")} glutaminas,{listPP_sequence.count("Asp")} aspartatos,{listPP_sequence.count("Pro")} prolina y {listPP_sequence.count("Gly")} glicinas")
+adeninas= "AAAAAAAAA"
+citositas= "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC"
+timinas= "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+guaninas= "GGGGGGGGGGGGGGGGGGGG"
+listaDeNeuclotidos= ["adeninas","citositas","timinas","guaninas"]
+for element in listaDeNeuclotidos:
+    if element is "A":
+        "A"=="A"+ "A"
+### Nota: element nunca vale "A" (contiene "adeninas", "citositas"...), así que no se imprime nada; además esta línea solo compara, no modifica nada.
+        print(adeninas)

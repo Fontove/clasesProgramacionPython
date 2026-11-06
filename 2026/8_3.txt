@@ -1,0 +1,106 @@
+###Problemas a corregir: ej. 2: la condición no filtra solo los pares
+1. Investigar cómo se usa el operador módulo (modulus) en python, explicarlo con sus palabras y poner un ejemplo. (1 punto)
+
+El operador módulo (%) se utiliza para obtener el residuo o resto de una división. Por ejemplo:
+a = 22
+b = 10
+resultado = a % b
+print(resultado)
+
+Salida
+2
+
+Esto ocurre porque al dividir 22 entre 10, el cociente es 2 y el residuo es 2.
+
+
+2. Crear una lista vacía y llenarla con los números pares del 2 al 50 (2,4,6,8,...,48,50) utilizando un for y un condicional para controlar que sólo los pares se agreguen.  (2 puntos)
+
+lista = []
+
+for i in range(2, 51):
+    if i % 1 == 0:
+### Revisa el número después de %: ¿qué números cumplen "i % 1 == 0"? Corre tu código y compara la salida con la que pegaste.
+        lista.append(i)
+
+print(lista)
+
+Salida
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]
+
+lista = [] crea la lista vacía.
+for i in range(2, 51) recorre los números.
+if i % 2 == 0 verifica que el número sea par.
+lista.append(i) agrega el número a la lista.
+
+
+3. Investigar para qué sirve el comando "break" en un for, explicarlo con sus palabras y hacer un ejemplo. (1 punto)
+
+El comando break sirve para detener inmediatamente un ciclo for, sin importar que todavía queden iteraciones por realizar.
+
+print(lista)
+### Nota: este print(lista) no forma parte del ejemplo de break y su salida no aparece; ¿hace falta aquí?
+for i in range(1, 10):
+    if i == 4:
+        break
+    print(i)
+
+Salida
+1
+2
+3
+
+4. Programar el método find de los strings a mano. (2 puntos) Sugerencia: utilizar break cuando encuentren lo que buscan
+palabra = 'banana'
+# regresar la posición de la primera 'a'
+
+palabra = "banana"
+
+for i in range(len(palabra)):
+    if palabra[i] == "a":
+        print(i)
+        break
+
+Salida
+1
+
+
+5. Imprimir todos los números de la siguiente lista utilizando ciclos: (4 puntos)
+lista = [ [1], [1,2], [1,2,3], [1,2,3,4], [1,2,3,4,5] ]
+# 1
+# 1
+# 2
+# 1
+# 2
+# 3
+# 1
+# 2
+# 3
+# 4
+# 1
+# 2
+# 3
+# 4
+# 5
+
+lista = [[1], [1,2], [1,2,3], [1,2,3,4], [1,2,3,4,5]]
+
+for sublista in lista:
+    for numero in sublista:
+        print(numero)
+
+Salida
+1
+1
+2
+1
+2
+3
+1
+2
+3
+4
+1
+2
+3
+4
+5

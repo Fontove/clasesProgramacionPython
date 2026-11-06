@@ -1,0 +1,105 @@
+###Problemas a corregir: ej. 3: GCcontent("ATgc") no da 0.5; ej. 6: regresa en vez de imprimir y solo funciona en un rango
+#complemento
+
+#Tarea 4.
+
+#Escribir la función con el nombre dado en cada número. Debe recibir los parámetros indicados (input) y regrese el valor indicado (output).
+#Para los problemas 1-3 hay que probar la función con los ejemplos mostrados, para los 4-6 hay que hacer sus propios casos de prueba y explicar un poco para qué hacen la prueba (ver ejemplo en el problema 1). Está permitido usar código que hemos hecho en clase y los métodos de strings, pero tienen que hacer su propia función con el nombre que se pide.
+#(1.5 puntos)
+#1. MiEsDigito
+#Input: un string
+#Output: Booleano indicando si el string se compone de puros números
+#yo se que son numeros pero quiero que python me diga si todos son numeros 
+def MiEsDigito (a): #le decimos a python el nombre de la funcion y ponemos una variable para que python sepa que es lo que va a recibir
+    return a.isdigit() #definamos que hara la funcion con la variable o se pueden agregar mas variables, en este caso le decimos que nos regrese un valor booleano si todos los caracteres son numeros o no
+print(MiEsDigito("1234"))#llamos a la funcion y definimos la variable a para que haga la instruccion que le dimos y nos regrese un valor booleano, en este caso es verdadero porque todos los caracteres son numeros
+print(MiEsDigito("abcd"))
+print(MiEsDigito("123a")) 
+print(MiEsDigito("12a4")) 
+
+#MiEsDigito("1234") == True # probamos si funciona con puros números
+#MiEsDigito("abcd") == False # probamos si funciona con puras letras
+#MiEsDigito("123a") == False # probamos si hay números y letras
+#MiEsDigito("12a4") == False # probamos que la letra esté a la mitad de los números#
+
+#(1.5 puntos)
+#2. MiConteo
+def MiConteo(b,c):
+    count = 0
+    for char in b:
+        if char == c:
+            count+= 1
+    return count
+print(MiConteo("hola mundo","o")) == 2
+### Nota: el == 2 quedó fuera del print, así compara lo que regresa print (None) con 2 y no hace nada; ¿querías usar assert o comparar dentro del print?
+print(MiConteo("hola mundo","h")) == 1
+print(MiConteo("hola mundo"," ")) == 1
+print(MiConteo("hola mundo","r")) == 0
+print(MiConteo("hola mundo","!")) == 0
+print(MiConteo("hola mundo","")) == 0
+print(MiConteo("","A")) == 0
+#Input: dos strings, el segundo es sólo un caracter
+#Output: un entero con el número de veces que aparece el segundo string en el primer string
+#MiConteo("hola mundo","o") == 2
+#MiConteo("hola mundo","h") == 1
+#MiConteo("hola mundo"," ") == 1
+#MiConteo("hola mundo","r") == 0
+#MiConteo("hola mundo","!") == 0
+#MiConteo("hola mundo","") == 0
+#MiConteo("","A") == 0
+
+#(2 puntos)
+#3. GCcontent
+def GCcontent (d):
+    conteo_gc= 0
+    longitud_total = len(d)
+    if longitud_total==0:
+        return 0.0
+    for letra in d:
+        if letra== "G" or letra =="C":
+            conteo_gc += 1
+    porcentaje= (conteo_gc/longitud_total)
+    return porcentaje
+print(GCcontent("ATGC"))  # Debe imprimir 0.5
+print(GCcontent(""))      # Debe imprimir 0.0
+print(GCcontent("AAAA"))  # Debe imprimir 0.0
+print(GCcontent("ATgc"))  # Debe imprimir 0.5
+### Tu función da 0.0 para "ATgc" en lugar de 0.5; ¿qué pasa con las letras minúsculas?
+print(GCcontent("GGCC"))  # Debe imprimir 1.0
+#Input: un string con una secuencia de ADN
+#Output: porcentaje de caracteres que son "G" ó "C"
+#GCcontent("ATGC") == .5
+#GCcontent("") == 0
+#GCcontent("AAAA") == 0
+#GCcontent("ATgc") == .5
+#GCcontent("GGCC") == 1
+
+#(2 puntos)
+#4. MiSwapCase
+def MiSwapCase (p):
+    return p.swapcase()
+print(MiSwapCase("LaPtoP"))
+#Input: un string
+#Output: un string que invierta las mayúsculas y minúsculas
+
+#(1 punto)
+#5. MiCapitalize
+def MiCapitalize (word):
+    return word.capitalize()
+print(MiCapitalize ("unam"))
+#Input: un string
+#Output: un string que tenga la primera letra en mayúsculas
+
+#(2 puntos)
+#6. EsPar
+def EsParono (ent):
+    for x in range (0,100): #como le digo a python que tome en ceunta todos los enteros 
+### Tu función regresa el texto en vez de imprimirlo y solo sirve para números del 0 al 199 (prueba con -3 o 500); ¿qué operador de la tarea 3 te dice si un número es par sin recorrer un rango? Revisa también el nombre pedido.
+        if ent== 2*x +1:
+            return "es impar"
+        if ent== 2*x:
+            return "es par"
+print(EsParono(4))
+print(EsParono(5))
+#Input: Un número entero
+#Output: Imprime si el número es par o impar, no debe regresar nada

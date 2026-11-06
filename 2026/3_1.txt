@@ -1,0 +1,69 @@
+###Problemas a corregir: ej. 3c: falta la conversión de "HoLa" a "hOlA"; ej. 3d: falta poner la primera letra en mayúscula
+1. Cómo podemos concatenar un número a un string? (.5 punto)
+para poder concatenar un número con un string, debemos convertir el número a un texto usando str()
+
+2. De qué tipo son las variables justifica la respuesta (1.5 puntos)
+ a = "1" es un str por que esta entre commilas, entonces es un texto
+ b = 1.0 es un float porque tiene punto décimal
+ c = 1.5 + True es float porque true es igual a 1, entonces la operación nos da 2.5 por lo tanto cumple el requisito de un float por el punto décimal
+ d = 1.5 + 2.5 es float por que es la suma de dos números décimales
+ e = 1 + True es un int por que true equvale a 1, entonces 1+1=2
+ f = False + True int porque true equivale a 0 y true a 1; y resulta 1
+### Nota: revisa la explicación, ¿cuál de los dos (True o False) equivale a 0?
+ g = True * 0 int; porque true equivale a 1: 1*0=0 (multiplicación)
+
+3. Manipulando la variable palabra (concatenando y con los métodos de strings), convertirla (2 puntos)
+ a. cambiar algunas letras por números
+	palabra = "hola"
+	en "Ho14"
+texto = "hola mundo"
+Cambia la 'h' por un 'H' 'l' por un '1' y la 'a' por un '4'
+nuevo_texto = texto.replace("h", "H").replace("l", "1").replace("a","4")
+print(nuevo_texto)  # Resultado: Ho14
+### Nota: con texto = "hola mundo" el resultado real es "Ho14 mundo", ¿por qué no sale solo "Ho14"? Prueba con la palabra del enunciado.
+
+ b. remover espacios
+	palabra = "  hola"
+	en "hola"
+se puede usar el método strip() que puede quitar todos los espacios que esten al principio o final de la cadena
+ # Cadena con espacios al principio
+texto = "  hola"
+# Aplicar el método strip()
+texto_limpio = texto.strip()
+print(texto_limpio)  # Resultado: "hola"
+
+ c. cambiar mayúsculas y minúsculas
+    palabra = "HoLa"
+	en "hOlA"
+### Falta el ej. 3c: ¿qué método de strings intercambia mayúsculas y minúsculas?
+
+ d. poner la primera en mayúscula
+	palabra = "hola"
+	en "Hola"
+### Falta el ej. 3d: ¿hay algún método de strings que ponga en mayúscula solo la primera letra?
+
+4. Explica qué hacen los métodos y da un ejemplo (2 puntos)
+a. count() Cuenta cuántas veces aparece una letra, palabra o número dentro de un texto o una lista. texto = "Mi gato es un gato muy bonito"
+print(texto.count("gato"))
+# Resultado: 2
+b. find() Busca una letra o palabra dentro de un texto y te dice en qué posición (número de casilla) empieza. texto = "Hola mundo"
+print(texto.find("mundo"))
+# Resultado: 5 (porque la 'm' está en la posición 5)
+c. isdigit()Revisa si un texto está compuesto únicamente por números. Te devuelve True (Verdadero) si todos son números, o False (Falso) si tiene letras, espacios o signos. texto1 = "12345"
+texto2 = "Año 2026"
+print(texto1.isdigit()) # Resultado: True
+print(texto2.isdigit()) # Resultado: False (tiene letras y un espacio)
+d. replace()Cambia una letra o palabra por otra diferente dentro de un texto. texto = "Me gusta el café"
+nuevo_texto = texto.replace("café", "té")
+print(nuevo_texto)
+# Resultado: "Me gusta el té"
+
+
+5. Qué problema tiene declarar estas variables? (1.5 puntos)
+ oración larga = 'hola mundo' el error que tiene es un espacio en blanco entre hola y mundo, la solución seria poner un guion bajo para unir las palabras
+ palabra = 'hola' 'mundo'
+
+6. Investigar "fstring": qué son, cómo se usan y un ejemplo. (2.5 puntos) Los fs trings son una forma de escribir stringsque permite insertar variables o expresiones directamente dentro del texto.
+ nombre = "Mar"
+print(f"Hola {nombre}")
+resultado= Hola Mar
