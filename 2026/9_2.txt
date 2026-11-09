@@ -1,0 +1,44 @@
+###Problemas a corregir: ej. 1: el print quedó fuera de lugar y el código marca error; ej. 2: el print quedó fuera de lugar y el código marca error
+1. Crear una lista vacía y llenarla con los números  del 1 al 50 (1,2,3,...,48,49,50). Sugerencia: usar un ciclo, no generarla directamente con [1,2,3,...,48,49,50] ni list(range(0,50)) (1 punto)
+>>> numeros = list()
+>>> for i in range(1,51):
+...     numeros.append(i)
+... print(numeros)
+### Tal como lo pegaste, el print quedó sin sangría como continuación del for (...) y Python marca error; revisa dónde termina el ciclo.
+...
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50]
+
+2. Crear una lista vacía y llenarla con los números múltiplos de 5 del 2 al 50 (5,10,15,...,40,45,50). Nota: hay que usar un ciclo, no se vale generarla directamente con [5,10,15,...,40,45,50] ni list(range(0,50,5)) (3 puntos)
+>>> multiplos = list()
+>>> for i in range (1,11):
+...     multiplos.append(i*5)
+... print(multiplos)
+### Tal como lo pegaste, el print quedó sin sangría como continuación del for (...) y Python marca error; revisa dónde termina el ciclo.
+...
+[5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
+3. Hacer un programa que imprima (4 puntos)
+>>> for i in range(1, 5):
+### Nota: revisa el límite de tu range; el enunciado pide 10 renglones, ¿cuántos imprime el tuyo?
+...     print("*" * i)
+...
+*
+**
+***
+****
+4. Investigar cómo se usa un ciclo while y hacer un programa que imprima los números del 1 al 10. (2 puntos)
+Es un tipo de ciclo que a diferencia de for se usa cuando no esta determinados los elementos sobre los que se va a iterar 
+>>> numero = 1
+>>> while numero <= 10:
+...     print(numero)
+...     numero += 1
+...
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
