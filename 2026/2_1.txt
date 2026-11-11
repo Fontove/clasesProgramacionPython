@@ -1,8 +1,13 @@
-###Problemas a corregir: ej. 1: concatenar un número que no esté entre comillas; ej. 5: revisar qué hace Python con 'hola' 'mundo'
+###Tarea completa entregada
 1. Cómo podemos concatenar un número a un string? (.5 punto) 
 
-Podemos concatenarlo si colocamos el número dentro de comillas ""
-### Revisar: si escribes el número entre comillas desde el inicio, nunca fue un número, ya era texto. ¿Qué harías si tuvieras una variable con un número (por ejemplo edad = 18, sin comillas) y quisieras unirla a un string? ¿Qué función lo transforma a texto?
+Debes convertir el número a string explícitamente con str()
+ej:
+>>> edad= 18
+>>> texto= "tengo "
+>>> texto + str(edad)
+'tengo 18' 
+
 
 2. De qué tipo son las variables justifica la respuesta (1.5 puntos)
 
@@ -12,8 +17,7 @@ Podemos concatenarlo si colocamos el número dentro de comillas ""
  d = 1.5 + 2.5                float, el resultado da 4.0 teniendo punto decimal 
  e = 1 + True                 int, se sustituye por el numero binario (true=1) el resultado da un numero entero (2)
  f = False + True             int, al sustituir por numeros binarios el resultado es 1 (entero)
- g = True * 0                 int, al multiplicar 1*0 el resultado es 0 (entero) / error ´true´ no definido
-### Nota: la clasificación de g es correcta. Sobre el error que anotas: fíjate cómo está escrito el valor booleano en el ejercicio (¿mayúscula o minúscula?). ¿Python da ese error con True tal cual aparece en el enunciado, o solo si lo escribes de otra forma?
+ g = True * 0                 int, al multiplicar 1*0 el resultado es 0 (entero)
 
 3. Manipulando la variable palabra (concatenando y con los métodos de strings), convertirla (2 puntos)
 
@@ -56,9 +60,8 @@ Podemos concatenarlo si colocamos el número dentro de comillas ""
 
 5. Qué problema tiene declarar estas variables? (1.5 puntos)
 
- oración larga = 'hola mundo'      no se pueden dejar espacios en los nombres de las variables 
- palabra = 'hola' 'mundo'          no se pueden dejar espacios en el valor de la variable (no indica la operacion)
-### Revisar: esta línea no da error en Python. Ejecútala e imprime palabra: ¿qué hace Python con dos cadenas escritas una junto a la otra? ¿Qué valor guarda y qué pasa con el espacio?
+ oración larga = 'hola mundo'      No se pueden dejar espacios en los nombres de las variables 
+ palabra = 'hola' 'mundo'          Falta un conector, pero el resultado automatico es: holamundo
 
 6. Investigar "fstring": qué son, cómo se usan y un ejemplo. (2.5 puntos)
 

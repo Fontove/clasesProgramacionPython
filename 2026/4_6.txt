@@ -1,0 +1,137 @@
+###Problemas a corregir: ej. 2: no usa dos listas como se pide; ej. 2: el código no corre por la indentación; ej. 3: un error de escritura hace que el código falle al encontrar el codón de paro
+Tarea 6.
+
+(3 puntos)
+1. Construye una lista que funcione como un conjunto (set). Esto es, construye una función a la que le pasas una lista y un elemento que agregar pero sólo lo agregue si no existe dentro de la lista, también hay que hacer una función que agregue valores (si la llave no existe hay que agregarla y si ya existe hay que sobre-escribir su valor).
+
+def agregar_si_no_existe(lista, elemento):
+    """Agrega el elemento solo si no está en la lista"""
+    if elemento not in lista:
+        lista.append(elemento)
+        return True
+    return False
+
+def agregar_valor(lista, clave, valor):
+    """Si la clave no existe, la agrega. Si existe, sobreescribe su valor"""
+    # Buscamos si la clave ya está
+    for i in range(0, len(lista), 2):
+        if lista[i] == clave:
+            lista[i + 1] = valor
+            return "Sobreescrito"
+    
+    lista.append(clave)
+    lista.append(valor)
+    return "Agregado"
+
+if __name__ == "__main__":
+    mi_lista = []
+    agregar_si_no_existe(mi_lista, "manzana")
+    agregar_si_no_existe(mi_lista, "pera")
+    agregar_si_no_existe(mi_lista, "manzana")  # No se agrega
+    print("Lista como conjunto:", mi_lista)
+    
+    diccionario_lista = []
+    print(agregar_valor(diccionario_lista, "uno", 1))
+    print(agregar_valor(diccionario_lista, "dos", 2))
+    print(agregar_valor(diccionario_lista, "uno", 100))  # Sobreescribe
+    print("Lista como diccionario:", diccionario_lista)
+Lista como diccionario: ['uno', 100, 'dos', 2]
+(4 puntos)
+2. Construye dos listas que funcionen juntas como un diccionario. Por ejemplo, simular el diccionario 
+d = {'uno':1, 'dos':2, 'tercero':3}
+Utilizando las listas debe poder responder
+"la llave uno, tiene valor 1"
+Sugerencia, usar el método index de las listas para buscar la llave y luego el índice para buscar el valor correspondiente.
+
+
+
+def agregar_o_actualizar(lista_datos, clave, valor):
+### Se pedían dos listas que trabajen juntas (una de llaves y otra de valores); ¿cómo usarías index para buscar la llave y luego su valor?
+    """
+    Recibe una lista alternada [clave1, valor1, clave2, valor2, ...]
+    Busca la clave: si existe → actualiza su valor
+                   si no existe → agrega clave y valor al final
+    """
+       for i in range(0, len(lista_datos), 2):
+### El código no corre tal como está (IndentationError): revisa la sangría del for, de los append y del bloque if __name__; ¿el append de la clave debe ir dentro del for?
+        if lista_datos[i] == clave:
+            lista_datos[i + 1] = valor
+            return f"La llave '{clave}', tiene valor {valor}"  # sobreescrito
+    
+        lista_datos.append(clave)
+    lista_datos.append(valor)
+    return f"La llave '{clave}', tiene valor {valor}"  # agregado
+
+if __name__ == "__main__":
+       mi_lista = []
+    
+    print(agregar_o_actualizar(mi_lista, "uno", 1))
+    print(agregar_o_actualizar(mi_lista, "dos", 2))
+    print(agregar_o_actualizar(mi_lista, "tres", 3))
+    
+    # Intentamos cambiar el valor de "uno"
+    print(agregar_o_actualizar(mi_lista, "uno", 100))
+    
+    print("\nLista final:", mi_lista)
+
+La llave 'uno', tiene valor 1
+La llave 'dos', tiene valor 2
+La llave 'tres', tiene valor 3
+La llave 'uno', tiene valor 100
+
+
+
+(3 puntos)
+3. Hacer una función que convierta un string con nucleótidos en la proteína correspondiente. Sugerencia, crea un diccionario del código genético. Nota: los codones de paro comunmente se sustituyen por un asterisco (*). Tener cuidado con qué pasa si la secuencia no tiene una longitud múltiplo de 3.
+
+## Diccionario del código genético
+codigo_genetico = {
+    'UUU': 'F', 'UUC': 'F', 'UUA': 'L', 'UUG': 'L',
+    'UCU': 'S', 'UCC': 'S', 'UCA': 'S', 'UCG': 'S',
+    'UAU': 'Y', 'UAC': 'Y', 'UAA': '*', 'UAG': '*',
+    'UGU': 'C', 'UGC': 'C', 'UGA': '*', 'UGG': 'W',
+    'CUU': 'L', 'CUC': 'L', 'CUA': 'L', 'CUG': 'L',
+    'CCU': 'P', 'CCC': 'P', 'CCA': 'P', 'CCG': 'P',
+    'CAU': 'H', 'CAC': 'H', 'CAA': 'Q', 'CAG': 'Q',
+    'CGU': 'R', 'CGC': 'R', 'CGA': 'R', 'CGG': 'R',
+    'AUU': 'I', 'AUC': 'I', 'AUA': 'I', 'AUG': 'M',
+    'ACU': 'T', 'ACC': 'T', 'ACA': 'T', 'ACG': 'T',
+    'AAU': 'N', 'AAC': 'N', 'AAA': 'K', 'AAG': 'K',
+    'AGU': 'S', 'AGC': 'S', 'AGA': 'R', 'AGG': 'R',
+    'GUU': 'V', 'GUC': 'V', 'GUA': 'V', 'GUG': 'V',
+    'GCU': 'A', 'GCC': 'A', 'GCA': 'A', 'GCG': 'A',
+    'GAU': 'D', 'GAC': 'D', 'GAA': 'E', 'GAG': 'E',
+    'GGU': 'G', 'GGC': 'G', 'GGA': 'G', 'GGG': 'G'
+}
+
+def adn_a_arn(secuencia_adn):
+    """Convierte ADN a ARN (T -> U)"""
+    return secuencia_adn.replace('T', 'U')
+
+def traducir_a_proteina(secuencia_adn):
+    """Convierte secuencia de ADN a cadena de proteínas"""
+    
+    arn = adn_a_arn(secuencia_adn.upper())
+    
+    proteina = ""
+    if len(arn) % 3 != 0:
+        print(f" Atención: La longitud ({len(arn)}) no es múltiplo de 3. Se traducirán los codones completos.")
+    
+    for i in range(0, len(arn) - 2, 3):
+        codon = arn[i:i+3]
+        aminoacido = codigo_genetico.get(codon, '?')  # ? si no existe
+        proteina += aminoacido
+        
+        # Si encontramos codón de parada, terminamos
+        if aminoacido == '*':
+            brea
+### Esta línea produce un NameError al llegar al codón de paro, así que no se obtiene la salida pegada; revisa cómo se escribe la instrucción para salir del ciclo
+    return proteina
+if __name__ == "__main__":
+    adn = "ATGGCCAAATTTTAG"
+    proteina = traducir_a_proteina(adn)
+    print(f"ADN: {adn}")
+    print(f"Proteína: {proteina}")
+
+ADN: ATGGCCAAATTTTAG
+Proteína: MAKF*

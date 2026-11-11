@@ -1,0 +1,103 @@
+###Problemas a corregir: ej. 2: GC incorrecto en la línea 8 del ejemplo; ej. 4: no detecta el ATG de la línea 8; ej. 5: GC total incorrecto; ej. 6: falta la explicación del formato
+import os
+
+# Mostrar la carpeta desde donde se ejecuta Python
+print("Directorio actual:")
+print(os.getcwd())
+
+# Obtener el nombre del organismo
+archivo_fasta = input("Nombre del archivo FASTA: ")
+
+nombre_organismo = archivo_fasta.split(".")[0]
+
+# Diccionario para obtener las bases complementarias
+complemento = {
+    "A": "T",
+    "T": "A",
+    "G": "C",
+    "C": "G"
+}
+
+# Variables para calcular el GC total
+total_gc = 0
+total_bases = 0
+
+# Variables para controlar las líneas
+numero_linea = 0
+primera_secuencia = False
+
+# Abrir el archivo FASTA
+archivo = open(archivo_fasta, "r")
+
+for linea in archivo:
+
+    numero_linea = numero_linea + 1
+
+    linea = linea.strip()
+
+    if linea == "":
+        continue
+
+    # Identificar los encabezados
+    if linea.startswith(">"):
+
+        encabezado = linea[1:]
+
+        print("Organismo " + nombre_organismo +
+              ", contig " + encabezado)
+
+        primera_secuencia = True
+
+    else:
+
+        # Calcular el contenido GC de la línea
+        cantidad_gc = (
+            linea.count("G") +
+            linea.count("C")
+### ej. 2: revisa la línea 8 del ejemplo (atgCCCCCCCC), ¿se cuentan todas las G y C si vienen en minúsculas?
+        )
+
+        gc_linea = cantidad_gc / len(linea)
+
+        print("GC línea " + str(numero_linea) +
+              ": " + format(gc_linea, ".2f"))
+
+        # Acumular los valores para el GC total
+        total_gc = total_gc + cantidad_gc
+        total_bases = total_bases + len(linea)
+
+        # Obtener la complementaria de la primera secuencia
+        if primera_secuencia:
+
+            complementaria = ""
+
+            for base in linea:
+                complementaria = complementaria + complemento[base]
+### Nota: con 16sVarios.fasta el programa truena con KeyError, ¿qué pasa si la secuencia trae letras distintas de A, T, G, C (o minúsculas)?
+
+            print("Secuencia complementaria: " + complementaria)
+
+            primera_secuencia = False
+
+        # Identificar el codón ATG
+        if "ATG" in linea:
+### ej. 4: en el ejemplo la línea 8 tiene "atg" en minúsculas y no se detecta, ¿cómo harías que la búsqueda no dependa de mayúsculas/minúsculas?
+
+            print("ATG en línea " + str(numero_linea))
+
+# Cerrar el archivo
+archivo.close()
+
+# Calcular el contenido GC total
+if total_bases > 0:
+
+    gc_total = total_gc / total_bases
+### ej. 5: el GC total no coincide con el del ejemplo (.53), revisa qué bases se están contando en las líneas con minúsculas
+
+    print("GC total del archivo: " +
+          format(gc_total, ".2f"))
+
+else:
+
+    print("El archivo no contiene secuencias.")
+### ej. 6: falta; hay que explicar el formato de archivo que te tocó (nombre, extensión, para qué se usa, sus reglas y un ejemplo)

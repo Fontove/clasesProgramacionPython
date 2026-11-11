@@ -1,4 +1,4 @@
-###Problemas a corregir: ej. 4: la salida de replace() no coincide con el código
+###Tarea completa entregada
 **1. ¿Cómo podemos conectar un numero a una cadena? (0.5 puntos)**
 
 
@@ -236,14 +236,9 @@ edad = 20
 
 * d. remplazar() = remplaza todas las apariciones de una subcadena por otra nueva.
 
-
-
-&#x20;  >>> texto = "hola mundo"
-
-&#x20;  >>> print(texto.replace("mundo", "python"))
-
-&#x20;  **hola Python**
-### Revisar el resultado que anotaste: compara el texto que pusiste como reemplazo en replace() con lo que aparece en tu salida. ¿Coinciden las mayúsculas/minúsculas? Ejecútalo y verifica.
+>>> texto = "hola mundo"
+>>> print(texto.replace("mundo", "python"))
+**hola python**
 
 
 

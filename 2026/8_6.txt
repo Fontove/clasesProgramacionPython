@@ -1,0 +1,109 @@
+###Tarea completa entregada
+Tarea 6.
+
+(3 puntos)
+1. Construye una lista que funcione como un conjunto (set). Esto es, construye una función a la que le pasas una lista y un elemento que agregar pero sólo lo agregue si no existe dentro de la lista, también hay que hacer una función que agregue valores (si la llave no existe hay que agregarla y si ya existe hay que sobre-escribir su valor).
+
+def agregar_conjunto(lista, elemento):
+    if elemento not in lista:
+        lista.append(elemento)
+
+def agregar_valor(llaves, valores, llave, valor):
+    if llave in llaves:
+        posicion = llaves.index(llave)
+        valores[posicion] = valor      
+    else:
+        llaves.append(llave)         
+        valores.append(valor)
+
+
+conjunto = []
+agregar_conjunto(conjunto, 1)
+agregar_conjunto(conjunto, 2)
+agregar_conjunto(conjunto, 1)  
+print(conjunto)
+
+
+llaves = []
+valores = []
+agregar_valor(llaves, valores, "uno", 1)     
+agregar_valor(llaves, valores, "dos", 2)     
+agregar_valor(llaves, valores, "uno", 100)   
+print(llaves)
+print(valores)
+
+PS C:\Users\alumn\visual> & 'C:\Users\alumn\AppData\Local\Microsoft\WindowsApps\python3.13.exe' 'c:/Users/alumn/visual/Untitled-1.py'
+[1, 2]
+['uno', 'dos']
+[100, 2]
+
+
+(4 puntos)
+2. Construye dos listas que funcionen juntas como un diccionario. Por ejemplo, simular el diccionario 
+d = {'uno':1, 'dos':2, 'tercero':3}
+Utilizando las listas debe poder responder
+"la llave uno, tiene valor 1"
+Sugerencia, usar el método index de las listas para buscar la llave y luego el índice para buscar el valor correspondiente.
+
+llaves = ['uno', 'dos', 'tercero']
+valores = [1, 2, 3]
+
+def buscar(llaves, valores, llave):
+    if llave in llaves:
+        posicion = llaves.index(llave)
+        print("la llave", llave, "tiene valor", valores[posicion])
+    else:
+        print("la llave", llave, "no existe")
+
+buscar(llaves, valores, 'uno')
+buscar(llaves, valores, 'dos')
+buscar(llaves, valores, 'tercero')
+buscar(llaves, valores, 'cuarto')   
+
+PS C:\Users\alumn\visual> & 'C:\Users\alumn\AppData\Local\Microsoft\WindowsApps\python3.13.exe' '"c:/Users/alumn/visual/llaves = [''uno'', ''dos'', ''tercero''].py"'
+la llave uno tiene valor 1
+la llave dos tiene valor 2
+la llave tercero tiene valor 3
+la llave cuarto no existe
+
+(3 puntos)
+3. Hacer una función que convierta un string con nucleótidos en la proteína correspondiente. Sugerencia, crea un diccionario del código genético. Nota: los codones de paro comúnmente se sustituyen por un asterisco (*). Tener cuidado con qué pasa si la secuencia no tiene una longitud múltiplo de 3.
+
+codigo ={
+    "TTT": "F", "TTC": "F", "TTA": "L", "TTG": "L",
+    "CTT": "L", "CTC": "L", "CTA": "L", "CTG": "L",
+    "ATT": "I", "ATC": "I", "ATA": "I", "ATG": "M",
+    "GTT": "V", "GTC": "V", "GTA": "V", "GTG": "V",
+    "TCT": "S", "TCC": "S", "TCA": "S", "TCG": "S",
+    "CCT": "P", "CCC": "P", "CCA": "P", "CCG": "P",
+    "ACT": "T", "ACC": "T", "ACA": "T", "ACG": "T",
+    "GCT": "A", "GCC": "A", "GCA": "A", "GCG": "A",
+    "TAT": "Y", "TAC": "Y", "TAA": "*", "TAG": "*",
+    "CAT": "H", "CAC": "H", "CAA": "Q", "CAG": "Q",
+    "AAT": "N", "AAC": "N", "AAA": "K", "AAG": "K",
+    "GAT": "D", "GAC": "D", "GAA": "E", "GAG": "E",
+    "TGT": "C", "TGC": "C", "TGA": "*", "TGG": "W",
+    "CGT": "R", "CGC": "R", "CGA": "R", "CGG": "R",
+    "AGT": "S", "AGC": "S", "AGA": "R", "AGG": "R",
+    "GGT": "G", "GGC": "G", "GGA": "G", "GGG": "G"
+}
+
+
+def traducir(secuencia):
+    secuencia = secuencia.upper()
+    largo = len(secuencia) - len(secuencia) % 3   
+    proteina = ""
+    for i in range(0, largo, 3):
+        codon = secuencia[i:i+3]
+        proteina += codigo[codon]
+    return proteina
+
+print(traducir("ATGGCCTAA"))       
+print(traducir("ATGAAATTTGGGTGA")) 
+print(traducir("ATGGCCTA"))        
+print(traducir(""))   
+
+PS C:\Users\alumn\visual> & 'C:\Users\alumn\AppData\Local\Microsoft\WindowsApps\python3.13.exe' '"c:/Users/alumn/visual/codigo = {.py"'
+MA*
+MKFG*
+MA             

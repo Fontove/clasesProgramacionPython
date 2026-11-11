@@ -1,0 +1,93 @@
+###Problemas a corregir: ej. 4: el código no corre (nombre de variable distinto y paréntesis sin cerrar) y la posición está escrita a mano
+. Investigar cómo se usa el operador módulo (modulus) en python, explicarlo con sus palabras y poner un ejemplo. (1 punto)
+
+ El operador modulo se representa con el simbolo % y lo que hace es realizar una division pero en lugar de devolver la solucion devuelve el residuo, tambien, nos sirve para saber si un numero es divisible entre otro o si es par o impar.
+EJEMPLO.
+operacion = 20 % 3 
+print(operacion) 
+2
+operacion = 30 % 5
+print(operacion)
+0
+
+2. Crear una lista vacía y llenarla con los números pares del 2 al 50 (2,4,6,8,...,48,50) utilizando un for y un condicional para controlar que sólo los pares se agreguen.  (2 puntos)
+
+numeros_par = []
+for i in range(1,51):
+    if i % 2 == 0:
+        numeros_par.append(i)
+print(numeros_par)
+[2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50]
+
+
+3. Investigar para qué sirve el comando "break" en un for, explicarlo con sus palabras y hacer un ejemplo. (1 punto)
+El comando "break" es como detener o romper y se utiliza dentro de los bucles para deterner de inmediato.
+
+EJEMPLO.
+for numero in range(1,10):
+    if numero == 6:
+       break
+    print(numero)
+1
+2
+3
+4
+5
+
+
+4. Programar el método find de los strings a mano. (2 puntos) Sugerencia: utilizar break cuando encuentren lo que buscan
+palabra = 'banana'
+# regresar la posición de la primera 'a'
+
+palabra = "banana"
+encontrar = "a"
+posicion = 0 + 1
+### La posición se fija a mano antes del ciclo y nunca cambia: si la primera 'a' estuviera en otro lugar, ¿qué imprimiría? ¿Cómo puedes llevar la cuenta de la posición mientras recorres la palabra?
+for lentra in palabra:
+### Al ejecutarlo marca NameError: la variable del for se llama "lentra" pero abajo usas "letra", ¿coinciden los nombres?
+    if letra == encontrar:
+        print(f"la primera'{encontrar}'esta en la posicion: {posicion}"
+### Este renglón marca SyntaxError: revisa que todos los paréntesis que abres estén cerrados
+        break
+la primera'a'esta en la posicion : 1
+
+
+
+5. Imprimir todos los números de la siguiente lista utilizando ciclos: (4 puntos)
+lista = [ [1], [1,2], [1,2,3], [1,2,3,4], [1,2,3,4,5] ]
+# 1
+# 1
+# 2
+# 1
+# 2
+# 3
+# 1
+# 2
+# 3
+# 4
+# 1
+# 2
+# 3
+# 4
+# 5
+
+mis_datos = [1], [1,2], [1,2,3], [1,2,3,4], [1,2,3,4,5]
+### Nota: sin los corchetes de afuera esto ya no es una lista de listas sino una tupla; funciona, pero el enunciado pide usar la lista tal como está
+for grupo in mis_datos:
+    for numero in grupo:
+        print(numero)
+1
+1
+2
+1
+2
+3
+1
+2
+3
+4
+1
+2
+3
+4
+5

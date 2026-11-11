@@ -1,4 +1,4 @@
-###Problemas a corregir: ej. 1: usa un set en lugar de una lista; ej. 3: el código genético está incompleto
+###Tarea completa entregada
 Tarea 6.
 
 (3 puntos)
@@ -8,21 +8,16 @@ Tarea 6.
 
 def agregar(lista, elemento):
     if elemento not in lista:
-        lista.add(elemento)
-### Se pedía usar una lista que se comporte como conjunto; con una lista, ¿existe el método add? ¿cuál método de listas usarías?
+        lista.append(elemento)
 # Prueba de la primera función
-numeros = {1, 2, 3, 4}
+numeros = [1, 2, 3, 4]
 agregar(numeros, 3)
 agregar(numeros, 5)
 print(numeros)
-#Resultado {1, 2, 3, 4, 5}
+# [1, 2, 3, 4, 5]
 
 def agregar_valor(diccionario, llave, valor):
-    if llave not in diccionario:
-        diccionario[llave] = valor
-    else:
-        diccionario[llave] = valor
-### Nota: el if y el else hacen exactamente lo mismo, ¿hace falta la condición?
+    diccionario[llave] = valor
 # Prueba de la segunda función
 alumno = {"nombre": "Roberto", "edad": 22}
 agregar_valor(alumno, "edad", 23)
@@ -43,34 +38,18 @@ def buscar(llaves, valores, llave):
     if llave in llaves:
         posicion = llaves.index(llave)
         valor = valores[posicion]
-        print(f'La llave {llave} tiene valor {valor}')
+        return f'La llave {llave} tiene valor {valor}'
     else:
-        print('La llave no existe')
+        return 'La llave no existe'
 
 print(buscar(llaves, valores, 'quinto'))
-#Resultado La llave no existe
-### Nota: tu función ya imprime y no regresa nada; ¿qué más aparece al hacer print(buscar(...))?
 
 (3 puntos)
 3. Hacer una función que convierta un string con nucleótidos en la proteína correspondiente. Sugerencia, crea un diccionario del código genético. 
 Nota: los codones de paro comunmente se sustituyen por un asterisco (*). Tener cuidado con qué pasa si la secuencia no tiene una longitud múltiplo de 3.
 
-codigo_genetico = {"AUG": "Met", "UUU": "Phe", "UUC": "Phe", "UUA": "Leu",
-    "UUG": "Leu", "CUG": "Leu","UCU": "Ser", "UCC": "Ser", "UCA": "Ser", "UCG": "Ser",
-### Revisa tu diccionario: faltan algunos codones de Leu y esas secuencias no se traducen, ¿cuántos codones debería tener?
-    "UAU": "Tyr", "UAC": "Tyr", "UGU": "Cys", "UGC": "Cys", "UGG": "Trp",
-    "CCU": "Pro", "CCC": "Pro", "CCA": "Pro", "CCG": "Pro",
-    "CAU": "His", "CAC": "His", "CAA": "Gln", "CAG": "Gln",
-    "CGU": "Arg", "CGC": "Arg", "CGA": "Arg", "CGG": "Arg",
-    "AUU": "Ile", "AUC": "Ile", "AUA": "Ile",
-    "ACU": "Thr", "ACC": "Thr", "ACA": "Thr", "ACG": "Thr",
-    "AAU": "Asn", "AAC": "Asn", "AAA": "Lys", "AAG": "Lys",
-    "AGU": "Ser", "AGC": "Ser", "AGA": "Arg", "AGG": "Arg",
-    "GUU": "Val", "GUC": "Val", "GUA": "Val", "GUG": "Val",
-    "GCU": "Ala", "GCC": "Ala", "GCA": "Ala", "GCG": "Ala",
-    "GAU": "Asp", "GAC": "Asp", "GAA": "Glu", "GAG": "Glu",
-    "GGU": "Gly", "GGC": "Gly", "GGA": "Gly", "GGG": "Gly",
-    "UAA": "*", "UAG": "*", "UGA": "*"}
+codigo_genetico = codigo_genetico = {"AUG": "Met", "UUU": "Phe", "UUC": "Phe", "UUA": "Leu", "UUG": "Leu", "CUU": "Leu", "CUC": "Leu", "CUA": "Leu", "CUG": "Leu", "UCU": "Ser", "UCC": "Ser", "UCA": "Ser", "UCG": "Ser","UAU": "Tyr", "UAC": "Tyr", "UGU": "Cys", "UGC": "Cys", "UGG": "Trp", "CCU": "Pro", "CCC": "Pro", "CCA": "Pro", "CCG": "Pro", "CAU": "His", "CAC": "His", "CAA": "Gln", "CAG": "Gln","CGU": "Arg", "CGC": "Arg", "CGA": "Arg", "CGG": "Arg", "AUU": "Ile", "AUC": "Ile", "AUA": "Ile", "ACU": "Thr", "ACC": "Thr", "ACA": "Thr", "ACG": "Thr", "AAU": "Asn", "AAC": "Asn", "AAA": "Lys", "AAG": "Lys","AGU": "Ser", "AGC": "Ser", "AGA": "Arg", "AGG": "Arg","GUU": "Val", "GUC": "Val", "GUA": "Val", "GUG": "Val","GCU": "Ala", "GCC": "Ala", "GCA": "Ala", "GCG": "Ala","GAU": "Asp", "GAC": "Asp", "GAA": "Glu", "GAG": "Glu","GGU": "Gly", "GGC": "Gly", "GGA": "Gly", "GGG": "Gly","UAA": "*", "UAG": "*", "UGA": "*"}
+### Nota: escribiste dos veces "codigo_genetico =" al inicio de la línea; funciona, pero ¿hace falta repetirlo?
 def traducir_a_proteina(secuencia, diccionario):
     inicio_arn = secuencia.find("AUG")
     if inicio_arn == -1:

@@ -1,9 +1,12 @@
-###Problemas a corregir: ej. 1: el número ya era texto; ej. 1: revisar si "tengo " + edad + " años" corre; ej. 5: punto sin responder
+###Problemas a corregir: ej. 1: la línea suelta "edad" da NameError
 1. Cómo podemos concatenar un número a un string? (.5 punto)
-Opción 1: poner en número entre comillas (""). Ej: "hola"+"22"= hola22
-### Revisar: si pones el número entre comillas, nunca fue un número, ya era texto. ¿Cómo unirías un número de verdad (sin comillas) a un string?
-Opción 1:asignarle a una variable el valor del número. Ej: edad=18 "tengo "+edad+ " años"
-### Revisar esta segunda opción: aquí edad = 18 sí es un número. Ejecuta "tengo " + edad + " años": ¿Python lo permite o da error? ¿Qué paso falta antes de concatenar edad?
+edad 
+### Revisar: esta línea suelta "edad" hace que el programa dé error al ejecutarse (NameError). ¿Qué le falta para que Python sepa qué es edad, o hace falta esa línea?
+edadpapá="mi papá tiene "
+frase=edadpapá+str(48)+" años"
+print(frase)
+
+mi papá tiene 48 años
 
 2. De qué tipo son las variables justifica la respuesta (1.5 puntos)
  a = "1" 
@@ -90,9 +93,8 @@ print(a.replace("h", "n"))
 nola y adios profe!
 
 5. Qué problema tiene declarar estas variables? (1.5 puntos)
- oración larga = 'hola mundo'
- palabra = 'hola' 'mundo'
-### El punto 5 quedó sin responder: solo copiaste las dos declaraciones. ¿Qué tiene de raro para Python el nombre 'oración larga'? ¿Y palabra = 'hola' 'mundo' da error o no? ¿Qué valor guarda?
+ oración larga = 'hola mundo': el espacio hace que lo tome como dos variables
+ palabra = 'hola' 'mundo': se entiende que quieres que esté "hola mundo" pero le vana hacer falta el espacio 
 
 6. Investigar "fstring": qué son, cómo se usan y un ejemplo. (2.5 puntos)
 F-String es la forma preferida de formatear cadenas.Para especificar una cadena como una f-cadena, simplemente coloque un fdelante del literal de cadena y agregue llaves {}como marcadores de posición para variables y otras operaciones.

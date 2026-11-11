@@ -1,4 +1,4 @@
-###Problemas a corregir: ej. 2: la condición no filtra solo los pares
+###Tarea completa entregada
 1. Investigar cómo se usa el operador módulo (modulus) en python, explicarlo con sus palabras y poner un ejemplo. (1 punto)
 
 El operador módulo (%) se utiliza para obtener el residuo o resto de una división. Por ejemplo:
@@ -18,8 +18,7 @@ Esto ocurre porque al dividir 22 entre 10, el cociente es 2 y el residuo es 2.
 lista = []
 
 for i in range(2, 51):
-    if i % 1 == 0:
-### Revisa el número después de %: ¿qué números cumplen "i % 1 == 0"? Corre tu código y compara la salida con la que pegaste.
+    if i % 2 == 0:
         lista.append(i)
 
 print(lista)
@@ -37,8 +36,6 @@ lista.append(i) agrega el número a la lista.
 
 El comando break sirve para detener inmediatamente un ciclo for, sin importar que todavía queden iteraciones por realizar.
 
-print(lista)
-### Nota: este print(lista) no forma parte del ejemplo de break y su salida no aparece; ¿hace falta aquí?
 for i in range(1, 10):
     if i == 4:
         break
