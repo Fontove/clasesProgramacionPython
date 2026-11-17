@@ -1,0 +1,117 @@
+###Tarea completa entregada
+1. MiEsDigito
+>>> def MiEsDigito(texto):
+...     return texto.isdigit()
+... 
+... 
+... print(MiEsDigito("1234") == True)
+... print(MiEsDigito("abcd") == False)
+... print(MiEsDigito("123a") == False)
+... print(MiEsDigito("12a4") == False)
+... 
+True
+True
+True
+True
+
+2.MiConteo
+>>> def MiConteo(texto, caracter):
+...     conteo = 0
+... 
+...     for letra in texto:
+...         if letra == caracter:
+...             conteo += 1
+... 
+...     return conteo
+... 
+... 
+... print(MiConteo("hola mundo", "o") == 2)
+... print(MiConteo("hola mundo", "h") == 1)
+... print(MiConteo("hola mundo", " ") == 1)
+... print(MiConteo("hola mundo", "r") == 0)
+... print(MiConteo("hola mundo", "!") == 0)
+... print(MiConteo("hola mundo", "") == 0)
+... print(MiConteo("", "A") == 0)
+... 
+True
+True
+True
+True
+True
+True
+True
+
+3.GCcontent
+>>> def GCcontent(secuencia):
+...     if len(secuencia) == 0:
+...         return 0
+... 
+...     conteo_gc = 0
+... 
+...     for letra in secuencia:
+...         if letra.upper() == "G" or letra.upper() == "C":
+...             conteo_gc += 1
+... 
+...     return conteo_gc / len(secuencia)
+... 
+... 
+... print(GCcontent("ATGC") == 0.5)
+... print(GCcontent("") == 0)
+... print(GCcontent("AAAA") == 0)
+... print(GCcontent("ATgc") == 0.5)
+... print(GCcontent("GGCC") == 1)
+... 
+True
+True
+True
+True
+True
+
+
+4.MiSwapCase
+>>> def MiSwapCase(texto):
+...     resultado = ""
+... 
+...     for letra in texto:
+...         if letra.islower():
+...             resultado += letra.upper()
+...         elif letra.isupper():
+...             resultado += letra.lower()
+...         else:
+...             resultado += letra
+... 
+...     return resultado
+... 
+...
+... print(MiSwapCase("Hola Mundo") == "hOLA mUNDO")
+
+5. MiCapitalize
+
+>>> def MiCapitalize(texto):
+...     if len(texto) == 0:
+...         return texto
+... 
+...     return texto[0].upper() + texto[1:]
+... 
+... 
+... print(MiCapitalize("hola mundo") == "Hola mundo")
+... print(MiCapitalize("") == "")
+... 
+True
+True
+
+6.EsPar
+
+def EsPar(numero):
+...     if numero % 2 == 0:
+...         print("Par")
+...     else:
+...         print("Impar")
+... 
+... 
+... EsPar(8)
+... EsPar(7)
+... 
+Par
+Impar
+

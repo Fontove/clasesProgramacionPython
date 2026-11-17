@@ -1,4 +1,4 @@
-###Problemas a corregir: ej. 1: revisar quién es múltiplo de quién
+###Tarea completa entregada
 1. Investigar cómo se usa el operador módul0o (modulus) en python, explicarlo con sus palabras y poner un ejemplo. (1 punto)
 El operador modulus (%) se utiliza para calcular el residuo de una división entre dos (a%b), para saber si un número es par o impar (se utiliza un if y un else, también se le añade doble igual(==)), o para la comprobación de números múltiplos ((a%b), si el resultado da 0 quiere decir que son múltiplos exactos).
 
@@ -21,8 +21,7 @@ print(11%3)
 print(10%5)
 
 0
-(es un múltiplo de 10 ya que no nos da ningún residuo).
-### Revisa la frase: si 10 % 5 da 0, ¿quién es múltiplo de quién?
+(10 es múltiplo de 5, ya que la división es exacta y no nos da ningún residuo).
 
 
 2. Crear una lista vacía y llenarla con los números pares del 2 al 50 (2,4,6,8,...,48,50) utilizando un for y un condicional para controlar que sólo los pares se agreguen.  (2 puntos)

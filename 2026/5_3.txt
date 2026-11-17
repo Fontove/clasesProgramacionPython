@@ -1,0 +1,71 @@
+###Tarea completa entregada
+
+1.el operador modulo se representa con % y sirve para obtener el residuo de una división
+ejemplo:
+print(7 % 3)
+1
+
+2.>>> pares = []
+... 
+... for numero in range(2, 51):
+...     if numero % 2 == 0:
+...         pares.append(numero)
+... 
+... print(pares)
+... 
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]
+
+3.Break interrumpe un ciclo.siempre va con un if para la salida, eso hace que en vez de llegar al numero 10 en if numero==5
+### Nota: la idea se quedó a medias: ¿qué pasa exactamente con el ciclo cuando se ejecuta break? ¿Y siempre tiene que ir dentro de un if? Además, ¿range(1, 10) llega al 10?
+
+
+ejemplo:
+>>> for numero in range(1, 10):
+...     if numero == 5:
+...         print("Encontré el 5")
+...         break
+...     print(numero)
+...     
+1
+2
+3
+4
+Encontré el 5
+
+4.
+
+palabra = "banana"
+... buscado = "a"
+... posicion = -1
+... 
+... for indice in range(len(palabra)):
+...     if palabra[indice] == buscado:
+...         posicion = indice
+...         break
+... 
+... print(posicion)
+... 
+1
+
+5.
+>>> lista = [[1], [1, 2], [1, 2, 3], [1, 2, 3, 4], [1, 2, 3, 4, 5]]
+... 
+... for sublista in lista:
+...     for numero in sublista:
+...         print(numero)
+...         
+1
+1
+2
+1
+2
+3
+1
+2
+3
+4
+1
+2
+3
+4
+5

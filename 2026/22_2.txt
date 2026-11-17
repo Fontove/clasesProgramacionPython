@@ -1,0 +1,85 @@
+###Problemas a corregir: ej. 4: error de sangría, el código no corre
+#1. Crear una lista vacía y llenarla con los números  del 1 al 50 (1,2,3,...,48,49,50). Sugerencia: usar un ciclo, no generarla directamente con [1,2,3,...,48,49,50] ni list(range(0,50)) (1 punto)
+lista=list()
+for i in range(1,51):
+    lista.append(i)
+print(lista)
+listas=list(range(1,51))
+### Nota: el enunciado pide no generarla con list(range(...)); tu versión con el for ya es la que cuenta.
+print(listas)
+bases= []
+for base in ["adenina", "timina", "citosina", "guanina"]:
+    bases.append(base) #agrega las bases a la lista vacia base
+print(bases)
+print(len(bases)) #imprime el número de elementos en la lista bases
+print(bases[0:4])#indica cuales numeros de elementos se van a imprimir de la lista 
+#2. Crear una lista vacía y llenarla con los números múltiplos de 5 del 2 al 50 (5,10,15,...,40,45,50). Nota: hay que usar un ciclo, no se vale generarla directamente con [5,10,15,...,40,45,50] ni list(range(0,50,5)) (3 puntos)
+lista2=list()
+for i in range(1,10):
+### Nota: revisa el límite del range: tu lista llega a 45, ¿dónde quedó el 50?
+    lista2.append(i*5) 
+print(lista2)
+#3. Hacer un programa que imprima (4 puntos)
+for x in range(1,11):
+    print("*" * x)
+#4. Investigar cómo se usa un ciclo while y hacer un programa que imprima los números del 1 al 10. (2 puntos)
+
+contador=1
+while contador <=10:
+    print(contador)
+        contador=contador+1 
+### Esta línea tiene sangría extra; al correr el archivo marca IndentationError y no corre nada. ¿Cómo debe quedar alineada dentro del while?
+#aqui al uno se le va sumando uno hasta llegar al 10 porque se vuelve falso si es mayor de 10 
+contadors=11
+while contadors >=10:
+     print(contadors)
+     contadors=contadors-1
+#esto no va a imprimir nada porque el valor inicial es menor de 10 y tiene que ser igual o mayor a 10
+### Nota: esta parte extra no era obligatoria, pero ejecútala: ¿de verdad no imprime nada? ¿El valor inicial 11 es menor de 10?
+#el valor inicial es donde inicia el conteo y el valor de la condicion es el limite del conteo y la condición que la que la guía para el conteo y para el valor del límite
+temperatura= 25
+while temperatura <=37:
+ print(f"temperatura actual: {temperatura}°C") 
+ temperatura=temperatura+2
+contador= 34
+if contador >0:
+    print("true")
+else: contador= contador +10
+intercel=20 
+while intercel>8:
+    print("RNA")
+    intercel=intercel-1 
+#aqui se va a imprimir rna 12 veces porque es el numero de veces que se restó uno hasta llegar a 8
+intercel2=40
+while intercel2>=20:
+    print("ADN")
+    intercel2=intercel2-2
+    #aqui se va a imprimir ADN 11 veces porque es el numero de veces que se resta el -2 del 40 hasta llegar al 20
+for digito in "1413":
+    print(digito)
+numero= 13459
+for digito in str(numero):
+    print(numero)
+### Nota: esta parte extra no era obligatoria, pero ¿qué variable imprimes en cada vuelta, digito o numero? Fíjate en la salida.
+listDNA_sequence= []
+for base in ["A","A","T","T","C","G"]:
+   listDNA_sequence.append(base)
+print(f"hay {listDNA_sequence.count("T")} timinas,{listDNA_sequence.count("A")} adeninas, {listDNA_sequence.count("C")} citosina y {listDNA_sequence.count("G")} guaninas en la secuencia de nucleotidos")
+#dada una secuencia de proteína imprimir cuantas veces se repite un aminoacido
+listPP_sequence= []
+for aminoacid in ["Cys","Tyr","Lle","Gln","Asp","Cys","Pro","Leu","Gly"]:
+    listPP_sequence.append(aminoacid)
+print(f"hay {listPP_sequence.count("Cys")} cisteínas, {listPP_sequence.count("Tyr")} tirosina, {listPP_sequence.count("Lle")} isoleucina, {listPP_sequence.count("Gln")} glutamina, {listPP_sequence.count("Tyr")} tirosina, {listPP_sequence.count("Asp")} aspargina. {listPP_sequence.count("Pro")} prolina, {listPP_sequence.count("Leu")} leucina y {listPP_sequence.count("Gly")} glicina en la secuencia de aminoacidos de la oxitocina")
+adeninas= "AAAAAAAAA"
+citosinas= "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC"
+timinas= "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+guaninas=  "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG"
+listaDeNucleótidos= ["adeninas","citosinas","timinas","guaninas"]
+fors element in listaDeNucleótidos:
+### Nota: esta parte extra no era obligatoria, pero no corre: revisa cómo se escribe la palabra del ciclo (SyntaxError). ¿Qué contiene realmente listaDeNucleótidos, letras o nombres?
+    if element is "A":
+        "A"=="A"+ "A"
+        print(adeninas)
+
+
+

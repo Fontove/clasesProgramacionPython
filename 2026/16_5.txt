@@ -1,0 +1,73 @@
+###Problemas a corregir: ej. 1: el nombre del organismo conserva la extensión del archivo; ej. 6: falta la explicación del formato
+Tarea 5.
+
+Dado el archivo fasta, hacer un programa con las siguientes funcioens
+
+(1 punto)
+1. Para todos los encabezados, lo imprima en el formato
+"Organismo <el nombre del fasta>, contig <el contenido del encabezado, sin el ">""
+
+(2 punto)
+2. Para cada línea de secuencia genómica, imprima su contenido de GC en el formato "GC línea <número de línea>: <GC"
+
+(2 puntos)
+3. Para la primera secuencia de cada segmento, imprima su secuencia complementaria
+
+(2 punto)
+4. Imprima el número de línea donde encuentre el codón "ATG" en el formato "ATG en línea <número de línea>"
+
+(1 punto)
+5. Calcule el contenido GC total del archivo y lo imprima al final en formato "GC total del archivo: <GC>"
+
+ejemplo:
+fasta se usa para representar secuencias genómicas
+puede contener las secuencias de muchos organismos, cada una separada con un encabezado que comienza con ">"
+después del encabezado puede haber cualquier número de líneas con secuencias que pueden ser de nucleótidos o de aminoácidos
+
+#Utilice el codigo del E. colli
+
+nombre_fasta= "gene.fna" 
+
+def contenido_gc(secuencia):
+    gc = secuencia.count("G") + secuencia.count("C")
+    return 100 * gc / len(secuencia)
+### Nota: el ejemplo da el GC como fracción (.09, .53) y aquí sale en porcentaje (9.09, 53.03), ¿qué cambiarías para que coincida?
+def complemento(secuencia):
+    tabla = str.maketrans("ACGT", "TGCA")
+    return secuencia.translate(tabla)
+archivo = open(nombre_fasta, "r")
+
+total_bases = 0
+total_gc = 0
+primera_de_segmento = True
+
+numero_linea = 0
+for linea in archivo:
+    numero_linea += 1
+    linea = linea.strip()      
+    #Encabezados
+    if linea.startswith(">"):
+        print(f"Organismo {nombre_fasta}, contig {linea[1:]}")
+### ej. 1: el ejemplo pide el nombre del organismo sin la extensión ("humano", no "humano.fasta"), ¿cómo la quitarías?
+        primera_de_segmento = True
+        continue
+
+    secuencia = linea.upper()
+### Nota: con 16sVarios.fasta el programa truena con ZeroDivisionError, ¿qué pasa cuando el archivo trae una línea vacía entre secuencias?
+
+    print(f"GC línea {numero_linea}: {contenido_gc(secuencia):.2f}")
+    total_bases += len(secuencia)
+    total_gc += secuencia.count("G") + secuencia.count("C")
+
+    if primera_de_segmento:
+        print(f"Secuencia complementaria: {complemento(secuencia)}")
+        primera_de_segmento = False
+
+    if "ATG" in secuencia:
+        print(f"ATG en línea {numero_linea}")
+
+archivo.close()
+if total_bases > 0:
+    print(f"GC total del archivo: {100 * total_gc / total_bases:.2f}")
+     
+### ej. 6: falta; hay que explicar el formato de archivo que te tocó (nombre, extensión, para qué se usa, sus reglas y un ejemplo)

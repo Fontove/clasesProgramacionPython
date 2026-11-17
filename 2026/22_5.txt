@@ -1,0 +1,260 @@
+###Problemas a corregir: ej. 1: solo imprime el último encabezado y no el nombre del archivo; ej. 2: números de línea incorrectos; ej. 2: el GC no coincide con el ejemplo; ej. 3: imprime la complementaria de todas las líneas; ej. 4: no detecta todos los ATG del ejemplo; ej. 5: GC total incorrecto; ej. 6: falta la explicación del formato
+#Tarea 5.
+
+#Dado el archivo fasta, hacer un programa con las siguientes funciones
+
+#(1 punto)
+#1. Para todos los encabezados, lo imprima en el formato
+fasta= open("gene.fna")#abrimos el archivo sobre el que se va a iterar
+for linea in fasta:#recorremos cada linea del archivo
+     #le decimos a python que cuente las lineas de una en una
+    linea= linea.strip()#a cada linea la deja sin espacios o saltos de linea innecesarios
+    if linea.startswith (">"): # despues de quitar saltos de linea o espacios hacemos zoom en la linea que empieza con >
+        encabezado= linea[1:].strip() #la linea sin espacios o saltos de lineas que empiezasss por > 
+        #se le quita el caracter   
+print(f"escherichia-coli {fasta}, contig <{encabezado}>")
+### ej. 1: el print está fuera del for, así que solo sale el último encabezado (chr 2); además {fasta} imprime el objeto archivo, no su nombre. ¿Cómo sacarías "humano" de "humano.fasta"?
+fasta.close() 
+
+#Escribe un programa que:
+#Abra el archivo secuencias.fasta.
+countlinea=0
+fasta=open("gene.fna")   
+#Recorra cada línea con un for.
+for linea in fasta:
+#Lleve un contador llamado numerodelinea. 
+#Quite los espacios/saltos de línea usando .strip(). 
+    linea = linea.strip()
+#Detecte las líneas que empiezan con > usando .startswith(">").
+    if linea.startswith(">"):
+#Cuando encuentre una línea que empiece con >, guarde el nombre de la secuencia sin el símbolo > en una variable llamada encabezado.
+       encabezado= linea[1:].strip()
+countlinea+=1
+print(f"linea {countlinea}: {encabezado}")
+### Nota: en este bloque extra countlinea+=1 y el print quedaron fuera del for, por eso solo imprime "linea 1" con el último encabezado
+fasta.close()
+#Imprima el número de línea y el encabezado.
+#El resultado debería ser aproximadamente:
+#Linea 1: secuencia_1
+#Linea 3: secuencia_2
+#Linea 5: secuencia_3 
+#(2 punto)
+#2. Para cada línea de secuencia genómica, imprima su contenido de GC en el formato "GC línea <número de línea>: <GC"
+countlinea2=0 #abrimos un contador 
+with open("gene.fna") as fasta: #abrimos el archivo fasta
+#si vamos por las lineas que tienen gc entonces le decimos a python que ignore el encabezado
+     encabezado2= None
+### Nota: este inicio del ej. 2 quedó incompleto y se repite abajo; se puede borrar
+
+
+
+
+
+    
+#"Organismo <el nombre del fasta>, contig <el contenido del encabezado, sin el ">""
+
+#(2 punto)
+#2. Para cada línea de secuencia genómica, imprima su contenido de GC en el formato "GC línea <número de línea>: <GC"
+countlinea2=0 #le decimos a python que empiece a contar desde 0
+with open("gene.fna", "r") as fasta: #abre el archivo y lo llama fasta
+    for linea in fasta: #recorre cada linea del archivo fasta 
+        if linea.startswith(">"): #si la linea es encabezado entonces no la tome en cuenta 
+           continue #le digo que continue con la siguiente linea 
+        countlinea2+=1 #le decimos a python que cuente las lineas de una en una 
+### ej. 2: el contador solo avanza en las líneas de secuencia, pero el ejemplo numera todas las líneas del archivo (GC línea 2, 3, 5…), ¿dónde tendría que ir countlinea2+=1?
+        cantidadGC= 0 #le decimos a python que empiece a contar desde 0 
+        for base in linea: #recorre cada base de la linea 
+            if base== "G" or base=="C": #le decimos a python que haga zoom en las bases G o C
+               cantidadGC += 1 #le decimos a python que cuente las bases G o C de una en una 
+        porcentajedeGC = (cantidadGC) / len(linea) * 100 #declaramos las operaciones para obtener el porcentaje de G o C
+### ej. 2: con el ejemplo da 8.33 en la línea 2 en vez de .09 y 66.67 en la línea 8 en vez de .81: ¿len(linea) incluye el salto de línea? ¿se cuentan las g y c en minúsculas?
+        print(f" porcentaje de GC en línea {countlinea2}: {porcentajedeGC:.2f} %") #alineamos el resultado dentro del primer ciclo 
+### Nota: el ejemplo da el GC como fracción (.09, .53) y aquí sale en porcentaje, ¿qué cambiarías para que coincida?
+         #cerramos el archivo fasta 
+
+
+
+#(2 puntos)
+#3. Para la primera secuencia de cada segmento, imprima su secuencia complementaria
+with open("gene.fna", "r") as fasta: #abrimos el archivo fasta 
+    for linea in fasta: #recorremos cada linea del archivo fasta 
+        if linea.startswith(">"): #si la linea es encabezado entonces no la tome en cuenta 
+            continue #le digo que continue con la siguiente linea 
+        complementaria = "" #le decimos a python que guarde la secuencia complementariaen una variable vacia
+        for base in linea: #recorre cada base de la linea quitando espacios o saltos de lineas innecesarios
+            if base == "A": #le decimos a python que haga zoom en las bases A
+             complementaria += "T" #le decimos a python que cambie la base A por T
+            elif base == "T": #le decimos a python que haga zoom en las bases T
+                 complementaria += "A" #le decimos a python que cambie la base T por A
+            elif base == "C": #le decimos a python que haga zoom en las bases C
+             complementaria += "G" #le decimos a python que cambie la base C por G
+            elif base == "G": #le decimos a python que haga zoom en las bases G
+               complementaria += "C" #le decimos a python que cambie la base G por C
+        print(f"Secuencia complementaria: {complementaria}") #imprimimos el resultado dentro del primer ciclo
+### ej. 3: imprime la complementaria de todas las líneas, pero se pide solo la primera secuencia después de cada encabezado (en el ejemplo, solo dos líneas), ¿cómo sabrías que la línea anterior fue un encabezado?
+#3para cada secuencia del archivo fasta genere la secuencia transcrita reemplazando cada timina por uracilo
+with open('gene.fna','r') as fasta: #abrimos el archivo fasta 
+    for linea in fasta: #recorremos cada linea del archivo fasta 
+        if linea.startswith ('>'): 
+            continue #le decimos que ignore la linea del encabezado 
+        rnacomplemento= ""
+        for base in linea: #le decimos a python que quite los saltos de linea 
+         if base== "A":
+           rnacomplemento+= 'U'
+         elif base== 'T':
+             rnacomplemento+= 'A'
+         elif base == 'C':
+             rnacomplemento+= 'G'
+         elif base== 'C':
+             rnacomplemento+= 'G'
+### Nota: en este bloque extra el comentario dice reemplazar T por U, pero el código hace otra cosa, y la G nunca se agrega porque la C está repetida en el elif
+        print(f'secuencia de RNAm: {rnacomplemento}')
+        
+        
+
+            
+
+#(2 punto)
+#4. Imprima el número de línea donde encuentre el codón "ATG" en el formato "ATG en línea <número de línea>"
+countlinea3=0
+with open ('gene.fna', 'r') as fasta:
+    for linea in fasta: 
+        countlinea3+=1
+        if linea.startswith ('>'):
+            continue 
+        #countlinea3+=1
+        #if 'ATG' in linea:
+        if linea.startswith ('ATG'):
+### ej. 4: startswith solo encuentra el ATG al inicio de la línea; en el ejemplo faltan la línea 2 (AAAAATGTTTT) y la 8 (atg en minúsculas)
+         print(f'ATG esta en linea {countlinea3}')
+#(1 punto)
+#5. Calcule el contenido GC total del archivo y lo imprima al final en formato "GC total del archivo: <GC>"
+contadordeGC=0
+total_bases= 0 
+with open ('gene.fna') as fasta: #abrimos el archivo sobre el cual se va a trabajar 
+   for linea in fasta:
+      #linea= linea.strip().upper
+      if linea.startswith ('>'):
+         continue
+      for base in linea: 
+         if base in 'ATGC':
+            total_bases+=1
+            if base in 'GC':
+               contadordeGC+=1 #hasta aqui ya esta contando las GC de todo el archivo 
+      porcentajedeGCtotal= ((contadordeGC*100)/total_bases)
+### ej. 5: con el ejemplo da 53.97 en vez de .53 porque se saltan las bases en minúsculas; la idea que dejaste comentada arriba (.upper) va por buen camino, revisa los paréntesis
+print(f'el porcentaje total de GC del archivo fasta es {porcentajedeGCtotal}')
+contadordeTA=0
+bases_total=0 
+with open('gene.fna') as fasta:
+   for linea in fasta: 
+      if linea.startswith ('>'):
+         continue
+      for base in linea:
+         if base in 'ATGC':
+            bases_total+=1
+            if base in 'TA':
+               contadordeTA+=1
+   porcentajedeTAtotal= ((contadordeTA*100)/bases_total)
+countA=0
+count_bases=0
+print(porcentajedeTAtotal)
+with open('gene.fna') as fasta: 
+   for linea in fasta: 
+      if linea.startswith('>'):
+         continue
+      for base in linea: 
+         if base in 'ATGC':
+            count_bases+=1
+            if base=='A':
+               countA+=1
+   porcentajedeA_total= (countA*100/count_bases)
+print(porcentajedeA_total)
+countT=0
+count_bases=0
+with open('gene.fna') as fasta: 
+   for linea in fasta: 
+      if linea.startswith ('>'):
+         continue 
+      for base in linea:
+         count_bases+=1
+         if base=='T':
+            countT+=1
+   porcentaje_total_T= (countT*100/count_bases)
+### Nota: en los bloques extra de T, C y G, count_bases también cuenta el salto de línea, por eso los porcentajes no suman 100 con los de A
+   print(porcentaje_total_T)
+countC=0
+count_bases=0
+with open('gene.fna') as fasta:
+   for linea in fasta:
+      if linea.startswith('>'): 
+         continue
+      for base in linea:
+         count_bases+=1
+         if base=='C':
+            countC+=1
+   porcentajedeC_total= (countC*100/count_bases)
+print(porcentajedeC_total)
+countG=0
+count_bases=0
+with open('gene.fna') as fasta: 
+   for linea in fasta: 
+      if linea.startswith ('>'):
+         continue
+      for base in linea: 
+         count_bases+=1
+         if base== 'G':
+            countG+=1
+   porcentajedeG_total=(countG*100/count_bases)
+print(porcentajedeG_total)
+            
+
+
+
+      
+
+#fasta se usa para representar secuencias genómicas
+#puede contener las secuencias de muchos organismos, cada una separada con un encabezado que comienza con ">"
+#después del encabezado puede haber cualquier número de líneas con secuencias que pueden ser de nucleótidos o de aminoácidos
+
+#Ejemplo:
+#Archivo fasta: "humano.fasta"
+#>chr 1
+#AAAAATGTTTT
+#AAAAAAAAAAA
+#>chr 2
+#GGGGGGGGGGG
+#ATGCCCCCCCC
+#AAAAAACCCCC
+#atgCCCCCCCC
+
+#nos debe de imprimir:
+#Organismo humano, contig chr1
+#GC línea 2: .09
+#TTTTTACAAAA
+#ATG en línea 2
+#GC línea 3: 0
+#Organismo humano, contig chr2
+#GC línea 5: 1
+#CCCCCCCCCCC
+#GC línea 6: .81
+#ATG en línea 6
+#GC línea 7: .45
+#GC línea 8: .81
+#ATG en línea 8
+#GC total del archivo: .53
+
+#(2 a 8 puntos según la dificultad)
+#6. Para el formato que te toca, explicar el nombre, extensión del archivo, para qué se usa, en qué consiste (qué reglas debe seguir el archivo para cumplir el formato) y un ejemplo. 
+
+#(2) fna
+#(2) faa
+#(3) genbank
+#(4) fastq
+#(4) gff3
+#(6) Multiple Alignment Format
+#(6) Newick
+#(6) ClustalW
+#(6) sam
+#(8) json
+### ej. 6: falta; hay que explicar el formato de archivo que te tocó (nombre, extensión, para qué se usa, sus reglas y un ejemplo)

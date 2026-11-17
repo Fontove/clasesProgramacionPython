@@ -1,9 +1,7 @@
-###Problemas a corregir: ej. 1: la línea suelta "edad" da NameError
+###Tarea completa entregada
 1. Cómo podemos concatenar un número a un string? (.5 punto)
-edad 
-### Revisar: esta línea suelta "edad" hace que el programa dé error al ejecutarse (NameError). ¿Qué le falta para que Python sepa qué es edad, o hace falta esa línea?
-edadpapá="mi papá tiene "
-frase=edadpapá+str(48)+" años"
+edadpapa="mi papa tiene "
+frase=edadpapa+str(48)+" años"
 print(frase)
 
 mi papá tiene 48 años

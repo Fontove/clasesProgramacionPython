@@ -11,23 +11,19 @@ MiEsDigito("abcd") == False # probamos si funciona con puras letras
 MiEsDigito("123a") == False # probamos si hay números y letras
 MiEsDigito("12a4") == False # probamos que la letra esté a la mitad de los números
 
-def MiEsDigito(texto):
-    if (texto) == 0:
-### Nota: Comparas el texto con el número 0, y un string nunca es igual a un número, así que este if nunca se cumple. Prueba MiEsDigito(""): ¿qué regresa? ¿Qué te faltó aplicarle a texto para saber si está vacío?
+def isdigit(s):
+### Nota: el enunciado pide que la función se llame MiEsDigito; ¿con qué nombre la llamarías para cumplirlo?
+    if s == "":
         return False
-    for caracter in texto:
-        if caracter < "0" or caracter > "9":
+    for c in s:
+        if not ("0" <= c <= "9"):
             return False
     return True
-print(MiEsDigito("1234"))  # True  # probamos si funciona con puros números
-print(MiEsDigito("abcd"))  # False # probamos si funciona con puras letras
-print(MiEsDigito("123a"))  # False # probamos si hay números y letras
-print(MiEsDigito("12a4"))  # False # probamos que la letra esté a la mitad de los números
 
-True
-False
-False
-False
+assert( isdigit("1234") == True )
+assert( isdigit("abcd") == False )
+assert( isdigit("123a") == False )
+assert( isdigit("12a4") == False )
 
 (1.5 puntos)
 2. MiConteo

@@ -1,0 +1,119 @@
+###Tarea completa entregada
+#Escribir la función con el nombre dado en cada número. Debe recibir los parámetros indicados (input) y regrese el valor indicado (output).
+#Para los problemas 1-3 hay que probar la función con los ejemplos mostrados, para los 4-6 hay que hacer sus propios casos de prueba y explicar un poco para qué hacen la prueba (ver ejemplo en el problema 1). Está permitido usar código que hemos hecho en clase y los métodos de strings, pero tienen que hacer su propia función con el nombre que se pide
+
+#(1.5 puntos)
+#1. MiEsDigito
+#Input: un string
+#Output: Booleano indicando si el string se compone de puros números
+#Lo que se realizó: 
+#def: para definir una función.
+#MiEsDigito: nombre de la función.
+#(cadena): parámetro (representa el valor que se le va a pasar a la función).
+#return: para indicar que variable queremos que regrese la función.
+#isdigit(): método de los strings que verifica si todos los carácteres de una cadena de texto son números.
+def MiEsDigito(cadena):
+    return cadena.isdigit()
+#assert: prueba que una función funciona como debería.
+assert MiEsDigito("1234") == True # probamos si funciona con puros números
+assert MiEsDigito("abcd") == False # probamos si funciona con puras letras
+assert MiEsDigito("123a") == False # probamos si hay números y letras
+assert MiEsDigito("12a4") == False # probamos que la letra esté a la mitad de los números
+
+#(1.5 puntos)
+#2. MiConteo
+#Input: dos strings, el segundo es sólo un caracter
+#Output: un entero con el número de veces que aparece el segundo string en el primer string
+#Lo que se realizó:
+#Crear la función con los elementos necesarios...(def,MiConteo(nombre de la funciön), 2 Parámetros(texto, caracter)).
+#contador= 0: crear una variable contador que inicie con 0.Para contar cuantas veces aparece un carácter.Inicia con 0 porque al inicio no hemos encontrado ningun carácter (o).
+#for: recorrer el texto con un ciclo for.El ciclo revisa cada letra del texto.
+#if letra == caracter: compara si la letra coincide con el carácter que se busca.
+#contador+= 1: sumar cuando los valores coincidan.
+#return contador: indica el final de una función y lo que queremos que regrese.
+def MiConteo(texto, caracter):
+    contador= 0
+    for letra in texto:
+        if letra == caracter:
+            contador+= 1
+    return contador
+#assert: prueba que una función funciona como debería.
+assert MiConteo("hola mundo","o") == 2
+assert MiConteo("hola mundo","h") == 1
+assert MiConteo("hola mundo"," ") == 1
+assert MiConteo("hola mundo","r") == 0
+assert MiConteo("hola mundo","!") == 0
+assert MiConteo("hola mundo","") == 0
+assert MiConteo("","A") == 0
+
+#(2 puntos)
+#3. GCcontent
+#Input: un string con una secuencia de ADN
+#Output: porcentaje de caracteres que son "G" ó "C"
+#Lo que se realizó:
+#Crear la función con los elementos necesarios...(def,GCcontent(nombre de la función), parámetro(adn)).
+#if len (adn) == 0: len (adn)= longitud. (p.e.= len (ATGC) tiene 4 letras). if len (adn) == 0 comprueba si una cadena esta vacía y si es así devuelve 0 (caso de una secuencia vacía= GCcontent("") == 0)
+#adn= adn.upper (): convierte las letras del string a mayúsculas.
+#contador = 0: Almacena cuantas G o C encontramos. Y inicia con 0 porque no se ha revisado ninguna letra.
+#for letra in adn: un ciclo for que recorre todas las letras de una secuencia. 
+#if letra == "G" or letra == "C": comprueba si la letra es G o C.
+#contador +=1: suma cuando se encuentra una G o C.
+#return contador / len (adn): para calcular el porcentaje, contador/len(adn).(p.e.= ATGC- 1G, 1C- contador= 2, len(adn)=4, operación: 2/4=0.5)
+def GCcontent(adn):
+    if len (adn) == 0:
+        return 0
+    adn= adn.upper()
+
+    contador = 0
+    for letra in adn:
+        if letra == "G" or letra == "C":
+            contador +=1
+    return contador / len (adn)
+#assert: prueba que una función funciona como debería.
+assert GCcontent("ATGC") == .5
+assert GCcontent("") == 0
+assert GCcontent("AAAA") == 0
+assert GCcontent("ATgc") == .5
+assert GCcontent("GGCC") == 1
+
+#(2 puntos)
+#4. MiSwapCase
+#Input: un string
+#Output: un string que invierta las mayúsculas y minúsculas
+#Lo que se realizó:
+#Crear la función con los elementos necesarios...(def,MiSwapCase(nombre de la función),parámetro>(texto)).
+#swapcase: método de strings que convierte las mayúsculas en minúsculas y viceversa.
+#return texto.swapcase(): junto con el método de strings, indicamos la variable que queremos que regrese la función.
+def MiSwapCase(texto):
+    return texto.swapcase()
+#assert: prueba que una función funciona como debería.
+assert MiSwapCase("HOLA") == "hola" #probamos que las letras mayúsculas se convierten en minúsculas
+assert MiSwapCase("hola") == "HOLA" #probamos que las letras minúsculas se convierten en mayúsculas
+assert MiSwapCase("HoLa") == "hOlA" #probamos que la función puede manejar una combinación, convitiendo mayúsculas a minúsculas y viceversa.
+assert MiSwapCase("") == "" #probamos la función en una cadena vacía, en la cual funciona correctamente.
+
+#(1 punto)
+#5. MiCapitalize
+#Input: un string
+#Output: un string que tenga la primera letra en mayúsculas
+def MiCapitalize(texto):
+    return texto.capitalize()
+assert MiCapitalize("rosa") == "Rosa" #probamos que cambia la primera letra minúscula a mayúscula.
+assert MiCapitalize("ROSA") == "Rosa" #probamos que funciona cuando toda la palabra esta en mayúsculas.
+assert MiCapitalize("") == "" #probamos la función en una cadena vacía, en la cual funciona correctamente.
+
+#(2 puntos)
+#6. EsPar
+#Input: Un número entero
+#Output: Imprime si el número es par o impar, no debe regresar nada
+#if numero % 2 == 0: con el operador módulo se comprueba que un número es par si da 0 como residuo.
+#print("Par"): si la condición es verdadera, es par.
+#else -- print("Impar"): si no es par es impar.
+def EsPar(numero):
+    if numero % 2 == 0:
+        print("Par")
+    else:
+        print("Impar")
+EsPar(4)  #resultado= Par #probamos que un número par se identifica correctamente.
+EsPar(7) #resultado= Impar #probamos que un número impar se identifica correctamente.
+EsPar(0) #resultado= Par #probamos que el cero se identifica como un número par.

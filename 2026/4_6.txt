@@ -1,4 +1,4 @@
-###Problemas a corregir: ej. 2: no usa dos listas como se pide; ej. 2: el código no corre por la indentación; ej. 3: un error de escritura hace que el código falle al encontrar el codón de paro
+###Problemas a corregir: ej. 2: no usa dos listas como se pide
 Tarea 6.
 
 (3 puntos)
@@ -52,32 +52,32 @@ def agregar_o_actualizar(lista_datos, clave, valor):
     Busca la clave: si existe → actualiza su valor
                    si no existe → agrega clave y valor al final
     """
-       for i in range(0, len(lista_datos), 2):
-### El código no corre tal como está (IndentationError): revisa la sangría del for, de los append y del bloque if __name__; ¿el append de la clave debe ir dentro del for?
+    for i in range(0, len(lista_datos), 2):
         if lista_datos[i] == clave:
             lista_datos[i + 1] = valor
-            return f"La llave '{clave}', tiene valor {valor}"  # sobreescrito
-    
-        lista_datos.append(clave)
+            return f"La llave '{clave}', tiene valor {valor}"
+    lista_datos.append(clave)
     lista_datos.append(valor)
-    return f"La llave '{clave}', tiene valor {valor}"  # agregado
-
+    return f"La llave '{clave}', tiene valor {valor}"
 if __name__ == "__main__":
-       mi_lista = []
-    
+    mi_lista = []
     print(agregar_o_actualizar(mi_lista, "uno", 1))
     print(agregar_o_actualizar(mi_lista, "dos", 2))
     print(agregar_o_actualizar(mi_lista, "tres", 3))
-    
-    # Intentamos cambiar el valor de "uno"
     print(agregar_o_actualizar(mi_lista, "uno", 100))
-    
+
     print("\nLista final:", mi_lista)
+
 
 La llave 'uno', tiene valor 1
 La llave 'dos', tiene valor 2
 La llave 'tres', tiene valor 3
 La llave 'uno', tiene valor 100
+
+Lista final: ['uno', 100, 'dos', 2, 'tres', 3]
+
+
+
 
 
 
@@ -125,7 +125,7 @@ def traducir_a_proteina(secuencia_adn):
         # Si encontramos codón de parada, terminamos
         if aminoacido == '*':
             brea
-### Esta línea produce un NameError al llegar al codón de paro, así que no se obtiene la salida pegada; revisa cómo se escribe la instrucción para salir del ciclo
+### Nota: esta primera versión sigue con el error de escritura (ya lo corregiste abajo); conviene dejar sólo la versión que funciona
     return proteina
 if __name__ == "__main__":
     adn = "ATGGCCAAATTTTAG"
@@ -135,3 +135,50 @@ if __name__ == "__main__":
 
 ADN: ATGGCCAAATTTTAG
 Proteína: MAKF*
+
+
+
+codigo_genetico = {
+    'UUU': 'F', 'UUC': 'F', 'UUA': 'L', 'UUG': 'L',
+    'UCU': 'S', 'UCC': 'S', 'UCA': 'S', 'UCG': 'S',
+    'UAU': 'Y', 'UAC': 'Y', 'UAA': '*', 'UAG': '*',
+    'UGU': 'C', 'UGC': 'C', 'UGA': '*', 'UGG': 'W',
+    'CUU': 'L', 'CUC': 'L', 'CUA': 'L', 'CUG': 'L',
+    'CCU': 'P', 'CCC': 'P', 'CCA': 'P', 'CCG': 'P',
+    'CAU': 'H', 'CAC': 'H', 'CAA': 'Q', 'CAG': 'Q',
+    'CGU': 'R', 'CGC': 'R', 'CGA': 'R', 'CGG': 'R',
+    'AUU': 'I', 'AUC': 'I', 'AUA': 'I', 'AUG': 'M',
+    'ACU': 'T', 'ACC': 'T', 'ACA': 'T', 'ACG': 'T',
+    'AAU': 'N', 'AAC': 'N', 'AAA': 'K', 'AAG': 'K',
+    'AGU': 'S', 'AGC': 'S', 'AGA': 'R', 'AGG': 'R',
+    'GUU': 'V', 'GUC': 'V', 'GUA': 'V', 'GUG': 'V',
+    'GCU': 'A', 'GCC': 'A', 'GCA': 'A', 'GCG': 'A',
+    'GAU': 'D', 'GAC': 'D', 'GAA': 'E', 'GAG': 'E',
+    'GGU': 'G', 'GGC': 'G', 'GGA': 'G', 'GGG': 'G'
+}
+def adn_a_arn(secuencia_adn):
+    """Convierte ADN en ARN (T -> U)"""
+    return secuencia_adn.replace('T', 'U')
+def traducir_a_proteina(secuencia_adn):
+    """Convierte secuencia de ADN en cadena de proteínas"""
+    arn = adn_a_arn(secuencia_adn.upper())
+    proteina = ""
+    if len(arn) % 3 != 0:
+        print(f"Atención: La longitud ({len(arn)}) no es múltiplo de 3. Se traducirán los codones completos.")
+    for i in range(0, len(arn), 3):
+        codon = arn[i:i+3]
+        if len(codon) == 3:
+            aminoacido = codigo_genetico.get(codon, '?')
+            if aminoacido == '*':
+                break 
+            proteina += aminoacido
+    return proteina
+if __name__ == "__main__":
+    adn = "ATGGCCAAATTTTAG"
+    proteina = traducir_a_proteina(adn)
+    print(f"ADN: {adn}")
+    print(f"Proteína: {proteina}")
+
+
+ADN: ATGGCCAAATTTTAG
+Proteína: MAKF
