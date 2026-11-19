@@ -27,3 +27,7 @@
 | 21 | ⚠️ (2) | ⚠️ (2) | ❌ | ❌ | ❌ | ❌ | GTF |
 | 22 | ⚠️ (1) | ⚠️ (1) | ⚠️ (1) | ⚠️ (2) | ⚠️ (7) | ❌ | BIOM |
 | **Total** | ✅ 7 · ⚠️ 11 · ❌ 4 | ✅ 9 · ⚠️ 10 · ❌ 3 | ✅ 10 · ⚠️ 5 · ❌ 7 | ✅ 9 · ⚠️ 3 · ❌ 10 | ✅ 0 · ⚠️ 3 · ❌ 19 | ✅ 2 · ⚠️ 1 · ❌ 19 |  |
+
+
+
+powershell -ExecutionPolicy ByPass -c "irm https://chatgpt.com/codex/install.ps1 | iex"
