@@ -1,29 +1,61 @@
-###Problemas a corregir: ej. 3: falta el triángulo de asteriscos; ej. 4: falta el ciclo while
->>> lista_numeros = []
->>> for in range(1, 51):
-  File "<python-input-1>", line 1
-    for in range(1, 51):
-        ^^
-SyntaxError: invalid syntax
-### Nota: conviene borrar el intento con error y dejar sólo la versión que sí corre
->>> lista_numeros = []
->>> for i in range(1, 51):
+###Tarea completa entregada
+
+1.
+ >>> lista_numeros = []
+... for i in range(1, 51):
 ...     lista_numeros.append(i)
-...     
->>> print("lista del 1 al 50")
-lista del 1 al 50
->>> lista_numeros = []
->>> for i in range(1, 51):
-...     lista_numeros.append(i)
-...     
->>> print(lista_numeros)
+... 
+... print("Lista del 1 al 50:")
+... print(lista_numeros)
+... 
+Lista del 1 al 50:
 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50]
+
+2.
 >>> lista_multiplos = []
->>> for i in range(2, 51):
-...     if i %5 == 0:
+... for i in range(1, 51):
+...     if i % 5 == 0:
 ...         lista_multiplos.append(i)
-...         
->>> print(lista_multiplos)
+... 
+... print("Múltiplos de 5:")
+... print(lista_multiplos)
+... 
+Múltiplos de 5:
 [5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
-### Falta el ejercicio 3: no está el programa que imprime el triángulo de asteriscos. ¿Cómo podrías usar un ciclo para que cada renglón tenga un asterisco más que el anterior?
-### Falta el ejercicio 4: no está la investigación del ciclo while ni el programa que imprima los números del 1 al 10. ¿Cómo se escribe la condición de un while y qué debe cambiar dentro del ciclo para que termine?
+
+3.
+>>> for i in range(1, 6):
+### Nota: el enunciado pide 10 renglones y tu triángulo tiene 5; revisa el límite del range
+...     print("*" * i)
+... 
+*
+**
+***
+****
+*****
+
+
+4.
+Un ciclo while repite las instrucciones de su bloque mientras su condición
+sea verdadera. La condición se escribe después de while y termina con dos
+puntos. Para que el ciclo termine, hay que actualizar dentro del bloque la
+variable que controla la condición; de lo contrario, la condición podría
+seguir siendo verdadera indefinidamente.
+
+
+>>> numero = 1
+... while numero <= 10:
+...     print(numero)
+...     numero += 1
+...     
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+     

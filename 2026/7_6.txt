@@ -1,0 +1,201 @@
+###Tarea completa entregada
+Tarea 6.
+
+(3 puntos)
+1. Construye una lista que funcione como un conjunto (set). Esto es, construye una función a la que le pasas una lista y un elemento que agregar pero sólo lo agregue si no existe dentro de la lista, también hay que hacer una función que agregue valores (si la llave no existe hay que agregarla y si ya existe hay que sobre-escribir su valor).
+
+(4 puntos)
+2. Construye dos listas que funcionen juntas como un diccionario. Por ejemplo, simular el diccionario 
+d = {'uno':1, 'dos':2, 'tercero':3}
+Utilizando las listas debe poder responder
+"la llave uno, tiene valor 1"
+Sugerencia, usar el método index de las listas para buscar la llave y luego el índice para buscar el valor correspondiente.
+
+(3 puntos)
+3. Hacer una función que convierta un string con nucleótidos en la proteína correspondiente. Sugerencia, crea un diccionario del código genético. Nota: los codones de paro comunmente se sustituyen por un asterisco (*). Tener cuidado con qué pasa si la secuencia no tiene una longitud múltiplo de 3.
+
+
+# PSEUDOCÓDIGO
+# 1. Recibir una lista y un elemento.
+# 2. Verificar si el elemento ya existe.
+# 3. Si no existe, agregarlo.
+# 4. Regresar la lista.
+
+def agregar_unico(lista, elemento):
+
+    if elemento not in lista:
+        lista.append(elemento)
+
+    return lista
+
+
+# Prueba
+
+numeros = [1, 2, 3]
+
+agregar_unico(numeros, 4)
+agregar_unico(numeros, 2)
+
+print(numeros)
+
+
+# PSEUDOCÓDIGO
+# 1. Recibir un diccionario.
+# 2. Recibir una llave.
+# 3. Recibir un valor.
+# 4. Asignar el valor a la llave.
+# 5. Si la llave no existe se crea.
+# 6. Si existe se reemplaza.
+
+def agregar_valor(diccionario, llave, valor):
+
+    diccionario[llave] = valor
+
+    return diccionario
+
+
+# Prueba
+
+datos = {}
+
+agregar_valor(datos, "uno", 1)
+agregar_valor(datos, "dos", 2)
+agregar_valor(datos, "uno", 10)
+
+print(datos)
+
+# PSEUDOCÓDIGO
+# 1. Crear una lista para llaves.
+# 2. Crear una lista para valores.
+# 3. Buscar la llave usando index().
+# 4. Obtener el mismo índice en la lista de valores.
+# 5. Imprimir el resultado.
+
+llaves = ["uno", "dos", "tercero"]
+valores = [1, 2, 3]
+
+llave_buscada = "uno"
+
+indice = llaves.index(llave_buscada)
+
+valor = valores[indice]
+
+print("La llave", llave_buscada,
+      "tiene valor", valor)
+
+# PSEUDOCÓDIGO
+# 1. Recibir una secuencia de ADN.
+# 2. Convertirla a mayúsculas.
+# 3. Leer la secuencia de tres en tres.
+# 4. Buscar cada codón en el diccionario genético.
+# 5. Agregar el aminoácido correspondiente.
+# 6. Si el codón no existe, agregar "?".
+# 7. Ignorar bases sobrantes si la longitud no es múltiplo de 3.
+# 8. Regresar la proteína resultante.
+
+def traducir_proteina(secuencia):
+
+    codigo_genetico = {
+
+        # Fenilalanina
+        "TTT":"F", "TTC":"F",
+
+        # Leucina
+        "TTA":"L", "TTG":"L",
+        "CTT":"L", "CTC":"L",
+        "CTA":"L", "CTG":"L",
+
+        # Isoleucina
+        "ATT":"I", "ATC":"I",
+        "ATA":"I",
+
+        # Metionina (Inicio)
+        "ATG":"M",
+
+        # Valina
+        "GTT":"V", "GTC":"V",
+        "GTA":"V", "GTG":"V",
+
+        # Serina
+        "TCT":"S", "TCC":"S",
+        "TCA":"S", "TCG":"S",
+        "AGT":"S", "AGC":"S",
+
+        # Prolina
+        "CCT":"P", "CCC":"P",
+        "CCA":"P", "CCG":"P",
+
+        # Treonina
+        "ACT":"T", "ACC":"T",
+        "ACA":"T", "ACG":"T",
+
+        # Alanina
+        "GCT":"A", "GCC":"A",
+        "GCA":"A", "GCG":"A",
+
+        # Tirosina
+        "TAT":"Y", "TAC":"Y",
+
+        # Histidina
+        "CAT":"H", "CAC":"H",
+
+        # Glutamina
+        "CAA":"Q", "CAG":"Q",
+
+        # Asparagina
+        "AAT":"N", "AAC":"N",
+
+        # Lisina
+        "AAA":"K", "AAG":"K",
+
+        # Ácido aspártico
+        "GAT":"D", "GAC":"D",
+
+        # Ácido glutámico
+        "GAA":"E", "GAG":"E",
+
+        # Cisteína
+        "TGT":"C", "TGC":"C",
+
+        # Triptófano
+        "TGG":"W",
+
+        # Arginina
+        "CGT":"R", "CGC":"R",
+        "CGA":"R", "CGG":"R",
+        "AGA":"R", "AGG":"R",
+
+        # Glicina
+        "GGT":"G", "GGC":"G",
+        "GGA":"G", "GGG":"G",
+
+        # Codones de paro
+        "TAA":"*",
+        "TAG":"*",
+        "TGA":"*"
+    }
+
+    secuencia = secuencia.upper()
+
+    proteina = ""
+
+    for i in range(0, len(secuencia) - 2, 3):
+
+        codon = secuencia[i:i+3]
+
+        if codon in codigo_genetico:
+            proteina += codigo_genetico[codon]
+        else:
+            proteina += "?"
+
+    return proteina
+
+
+# Prueba
+
+adn = "ATGGTTCCCTAA"
+
+proteina = traducir_proteina(adn)
+
+print("ADN:", adn)
+print("Proteína:", proteina)

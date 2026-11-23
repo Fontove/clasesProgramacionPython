@@ -1,0 +1,109 @@
+###Tarea completa entregada
+Tarea 6.
+
+(3 puntos)
+1. Construye una lista que funcione como un conjunto (set). Esto es, construye una función a la que le pasas una lista y un elemento que agregar pero sólo lo agregue si no existe dentro de la lista, también hay que hacer una función que agregue valores (si la llave no existe hay que agregarla y si ya existe hay que sobre-escribir su valor).
+
+
+def agregar_al_conjunto(lista, elemento):
+    if elemento not in lista:
+        lista.append(elemento)
+    return lista
+def agregar_o_actualizar(lista_pares, llave, valor):
+    for par in lista_pares:
+        if par[0] == llave:
+            par[1] = valor  
+            return lista_pares
+    lista_pares.append([llave, valor])  # Si no existe, la agrega
+    return lista_pares
+
+mi_set = ["A", "T", "C"]
+agregar_al_conjunto(mi_set, "G")  
+agregar_al_conjunto(mi_set, "A") 
+print("Conjunto simulado:", mi_set)
+
+mi_registro = [["uno", 1], ["dos", 2]]
+agregar_o_actualizar(mi_registro, "tres", 3)   
+agregar_o_actualizar(mi_registro, "uno", 100)  
+print("Registro llave-valor:", mi_registro)
+
+Conjunto simulado: ['A', 'T', 'C', 'G']
+Registro llave-valor: [['uno', 100], ['dos', 2], ['tres', 3]]
+
+
+(4 puntos)
+2. Construye dos listas que funcionen juntas como un diccionario. Por ejemplo, simular el diccionario 
+d = {'uno':1, 'dos':2, 'tercero':3}
+Utilizando las listas debe poder responder
+"la llave uno, tiene valor 1"
+Sugerencia, usar el método index de las listas para buscar la llave y luego el índice para buscar el valor correspondiente.
+
+llaves = ['uno', 'dos', 'tercero']
+valores = [1, 2, 3]
+
+def consultar_diccionario(llaves, valores, llave_buscada):
+    if llave_buscada in llaves:
+        indice = llaves.index(llave_buscada)
+        valor = valores[indice]
+        return f"la llave {llave_buscada}, tiene valor {valor}"
+    else:
+        return f"La llave '{llave_buscada}' no existe."
+
+def guardar_en_diccionario(llaves, valores, llave, valor):
+    if llave in llaves:
+        indice = llaves.index(llave)
+        valores[indice] = valor  
+    else:
+        llaves.append(llave)     
+        valores.append(valor)   
+
+print(consultar_diccionario(llaves, valores, 'uno'))
+print(consultar_diccionario(llaves, valores, 'tercero'))
+
+guardar_en_diccionario(llaves, valores, 'cuarto', 4)
+guardar_en_diccionario(llaves, valores, 'dos', 20)
+print(consultar_diccionario(llaves, valores, 'cuarto'))
+print(consultar_diccionario(llaves, valores, 'dos'))
+
+(3 puntos)
+3. Hacer una función que convierta un string con nucleótidos en la proteína correspondiente. Sugerencia, crea un diccionario del código genético. Nota: los codones de paro comunmente se sustituyen por un asterisco (*). Tener cuidado con qué pasa si la secuencia no tiene una longitud múltiplo de 3.
+
+CODIGO_GENETICO = {
+    'UUU': 'F', 'UUC': 'F', 'UUA': 'L', 'UUG': 'L',
+    'UCU': 'S', 'UCC': 'S', 'UCA': 'S', 'UCG': 'S',
+    'UAU': 'Y', 'UAC': 'Y', 'UAA': '*', 'UAG': '*',
+    'UGU': 'C', 'UGC': 'C', 'UGA': '*', 'UGG': 'W',
+    'CUU': 'L', 'CUC': 'L', 'CUA': 'L', 'CUG': 'L',
+    'CCU': 'P', 'CCC': 'P', 'CCA': 'P', 'CCG': 'P',
+    'CAU': 'H', 'CAC': 'H', 'CAA': 'Q', 'CAG': 'Q',
+    'CGU': 'R', 'CGC': 'R', 'CGA': 'R', 'CGG': 'R',
+    'AUU': 'I', 'AUC': 'I', 'AUA': 'I', 'AUG': 'M',
+    'ACU': 'T', 'ACC': 'T', 'ACA': 'T', 'ACG': 'T',
+    'AAU': 'N', 'AAC': 'N', 'AAA': 'K', 'AAG': 'K',
+    'AGU': 'S', 'AGC': 'S', 'AGA': 'R', 'AGG': 'R',
+    'GUU': 'V', 'GUC': 'V', 'GUA': 'V', 'GUG': 'V',
+    'GCU': 'A', 'GCC': 'A', 'GCA': 'A', 'GCG': 'A',
+    'GAU': 'D', 'GAC': 'D', 'GAA': 'E', 'GAG': 'E',
+    'GGU': 'G', 'GGC': 'G', 'GGA': 'G', 'GGG': 'G'
+}
+
+def traducir_a_proteina(secuencia):
+    arn = secuencia.strip().upper().replace("T", "U")
+    longitud_valida = len(arn) - (len(arn) % 3)
+    
+    proteina = []
+    for i in range(0, longitud_valida, 3):
+        codon = arn[i:i+3]
+        aminoacido = CODIGO_GENETICO.get(codon, "X")  # 'X' si hay algún carácter inválido
+        proteina.append(aminoacido)
+        
+    return "".join(proteina)
+
+adn_exacto = "ATGGCCATTGTAUGA"
+print("ADN exacto:", traducir_a_proteina(adn_exacto))
+
+adn_incompleto = "ATGGCCATTGTAUGACC"
+print("ADN no múltiplo de 3:", traducir_a_proteina(adn_incompleto))
+
+ADN exacto: MAIV*
+ADN no múltiplo de 3: MAIV*

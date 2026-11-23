@@ -1,4 +1,4 @@
-###Problemas a corregir: ej. 5: revisar qué hace Python con 'hola' 'mundo'
+###Problemas a corregir: ej. 5: falta explicar qué problema tiene cada declaración
 1. Cómo podemos concatenar un número a un string? (.5 punto)
 Tendríamos que convertir el numero a texto con str()
 numero=18
@@ -22,6 +22,7 @@ print(resultado)=Edad18
 palabra="gato"
 resultado=palabra.replace("t","1").replace("o","4")
 print(resultado)=gat4
+### Nota: ejecuta tu código: ¿de verdad imprime gat4? Revisa qué letra cambia cada replace()
 
  b. remover espacios
 	palabra = "  hola"
@@ -63,10 +64,7 @@ nueva_frase= frase.replace("gatos","perros")
 print(nueva_frase)=me gustan los perros
 
 5. Qué problema tiene declarar estas variables? (1.5 puntos)
- oración larga = 'hola mundo'
- palabra = 'hola' 'mundo'
-Python no une textos auntomaticante se tendría que poner el signo de + 
-### Revisar: ejecuta palabra = 'hola' 'mundo' (sin el +) e imprime palabra: ¿Python de verdad no las une? ¿Qué valor guarda?
+### Falta responder ej. 5: escribe las dos variables tal como vienen en el enunciado (oración larga, 'hola' 'mundo'), ejecútalas y explica con tus palabras qué problema tiene cada una
 oracion_larga = 'hola mundo'
 palabra = 'hola''mundo'
 palabra_correcta = 'hola'+'+''mundo'

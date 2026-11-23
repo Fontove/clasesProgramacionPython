@@ -1,0 +1,232 @@
+###Problemas a corregir: ej. 5: el código no corre (variables sin definir)
+Tarea 5.
+
+Dado el archivo fasta, hacer un programa con las siguientes funcioens
+
+(1 punto)
+1. Para todos los encabezados, lo imprima en el formato
+"Organismo <el nombre del fasta>, contig <el contenido del encabezado, sin el ">""
+
+
+ Aspergillus sp. SY012 18S ribosomal RNA gene, partial sequence
+
+import os
+
+nombre_organismo = os.path.splitext(os.path.basename("Aspergillus.fasta"))[0]
+
+with open("Aspergillus.fasta", "r", encoding="utf-8") as archivo:
+    for linea in archivo:
+        linea = linea.strip()
+        if linea.startswith(">"):
+            contig = linea[1:].strip()
+            print(f"Organismo {nombre_organismo}, contig {contig}")
+Organismo Aspergillus, contig KU862635.1 Aspergillus sp. SY012 18S ribosomal RNA gene, partial sequence
+
+
+
+(2 punto)
+2. Para cada línea de secuencia genómica, imprima su contenido de GC en el formato "GC línea <número de línea>: <GC"
+
+def formatear_gc(valor):
+    if valor == 0:
+        return "0"
+    if valor == 1:
+        return "1"
+    truncado = int(valor * 100) / 100
+    return f"{truncado:.2f}".lstrip("0")
+
+with open("Aspergillus.fasta", "r", encoding="utf-8") as archivo:
+    for num_linea, linea in enumerate(archivo, start=1):
+        linea = linea.strip()
+        if linea and not linea.startswith(">"):
+            sec_upper = linea.upper()
+            gc_linea = sec_upper.count("G") + sec_upper.count("C")
+            proporcion_gc = gc_linea / len(sec_upper)
+            print(f"GC línea {num_linea}: {formatear_gc(proporcion_gc)}")
+GC línea 2: .35
+GC línea 3: .34
+GC línea 4: .44
+GC línea 5: .48
+GC línea 6: .60
+GC línea 7: .61
+GC línea 8: .41
+GC línea 9: .52
+GC línea 10: .51
+GC línea 11: .70
+GC línea 12: .45
+GC línea 13: .48
+GC línea 14: .45
+GC línea 15: .50
+GC línea 16: .55
+GC línea 17: .54
+GC línea 18: .47
+GC línea 19: .48
+GC línea 20: .61
+GC línea 21: .61
+GC línea 22: .62
+GC línea 23: .55
+GC línea 24: .55
+GC línea 25: .65
+GC línea 26: .46
+
+(2 puntos)
+3. Para la primera secuencia de cada segmento, imprima su secuencia complementaria
+
+def complemento(secuencia):
+    tabla = str.maketrans("ATCGatcg", "TAGCtagc")
+    return secuencia.translate(tabla)
+
+es_primera_linea_segmento = False
+
+with open("Aspergillus.fasta", "r", encoding="utf-8") as archivo:
+    for linea in archivo:
+        linea = linea.strip()
+        if not linea:
+            continue
+        if linea.startswith(">"):
+            es_primera_linea_segmento = True
+        elif es_primera_linea_segmento:
+            print(complemento(linea))
+            es_primera_linea_segmento = False
+TTTCTAATTCGGTACGTACAGATTCATATTCGTGAAATATGACACTTTGACGCTTACCGAGTAATTTAGT
+
+(2 punto)
+4. Imprima el número de línea donde encuentre el codón "ATG" en el formato "ATG en línea <número de línea>"
+
+with open("Aspergillus.fasta", "r", encoding="utf-8") as archivo:
+    for num_linea, linea in enumerate(archivo, start=1):
+        linea = linea.strip()
+        if linea and not linea.startswith(">"):
+            if "ATG" in linea.upper():
+                print(f"ATG en línea {num_linea}")
+ATG en línea 2
+ATG en línea 3
+ATG en línea 5
+ATG en línea 6
+ATG en línea 8
+ATG en línea 12
+ATG en línea 13
+ATG en línea 15
+ATG en línea 16
+ATG en línea 17
+ATG en línea 19
+ATG en línea 21
+ATG en línea 22
+ATG en línea 24
+ATG en línea 25
+
+(1 punto)
+5. Calcule el contenido GC total del archivo y lo imprima al final en formato "GC total del archivo: <GC>"
+
+ejemplo:
+fasta se usa para representar secuencias genómicas
+puede contener las secuencias de muchos organismos, cada una separada con un encabezado que comienza con ">"
+después del encabezado puede haber cualquier número de líneas con secuencias que pueden ser de nucleótidos o de aminoácidos
+
+Ejemplo:
+Archivo fasta: "humano.fasta"
+>chr 1
+AAAAATGTTTT
+AAAAAAAAAAA
+>chr 2
+GGGGGGGGGGG
+ATGCCCCCCCC
+AAAAAACCCCC
+atgCCCCCCCC
+
+nos debe de imprimir:
+Organismo humano, contig chr1
+GC línea 2: .09
+TTTTTACAAAA
+ATG en línea 2
+GC línea 3: 0
+Organismo humano, contig chr2
+GC línea 5: 1
+CCCCCCCCCCC
+GC línea 6: .81
+ATG en línea 6
+GC línea 7: .45
+GC línea 8: .81
+ATG en línea 8
+GC total del archivo: .53
+
+gc_total = total_gc / total_bases if total_bases > 0 else 0
+print(f"GC total del archivo: {formatear_gc(gc_total)}")
+### ej. 5: así como está, el código truena con NameError porque total_gc y total_bases nunca se calculan; ¿dónde los irías acumulando mientras recorres las líneas de secuencia?
+Organismo Aspergillus, contig KU862635.1 Aspergillus sp. SY012 18S ribosomal RNA gene, partial sequence
+GC línea 2: .35
+TTTCTAATTCGGTACGTACAGATTCATATTCGTGAAATATGACACTTTGACGCTTACCGAGTAATTTAGT
+ATG en línea 2
+GC línea 3: .34
+ATG en línea 3
+GC línea 4: .44
+GC línea 5: .48
+ATG en línea 5
+GC línea 6: .60
+ATG en línea 6
+GC línea 7: .61
+GC línea 8: .41
+ATG en línea 8
+GC línea 9: .52
+GC línea 10: .51
+GC línea 11: .70
+GC línea 12: .45
+ATG en línea 12
+GC línea 13: .48
+ATG en línea 13
+GC línea 14: .45
+GC línea 15: .50
+ATG en línea 15
+GC línea 16: .55
+ATG en línea 16
+GC línea 17: .54
+ATG en línea 17
+GC línea 18: .47
+GC línea 19: .48
+ATG en línea 19
+GC línea 20: .61
+GC línea 21: .61
+ATG en línea 21
+GC línea 22: .62
+ATG en línea 22
+GC línea 23: .55
+GC línea 24: .55
+ATG en línea 24
+GC línea 25: .65
+ATG en línea 25
+GC línea 26: .46
+GC total del archivo: .51
+
+
+
+(2 a 8 puntos según la dificultad)
+6. Para el formato que te toca, explicar el nombre, extensión del archivo, para qué se usa, en qué consiste (qué reglas debe seguir el archivo para cumplir el formato) y un ejemplo. 
+
+Formato VCF (Variant Call Format):
+
+Nombre: Formato de Llamado de Variantes (Variant Call Format).
+Extensión del archivo: .vcf (o .vcf.gz cuando está comprimido con bgzip para indexación).
+Para qué se usa: Almacenar variaciones genéticas detectadas al comparar una o varias muestras contra un genoma de referencia, tales como SNPs (polimorfismos de un solo nucleótido), indels (inserciones y deleciones cortas) y variantes estructurales. Es el estándar en genómica clínica, estudios poblacionales y análisis de mutaciones.
+En qué consiste:
+Es un archivo de texto plano estructurado en tres secciones:
+Líneas de metadatos (##): Comienzan con doble almohadilla ##. La primera línea debe ser obligatoriamente la versión del formato (##fileformat=VCFv4.2 o VCFv4.3). Otras líneas definen contigs, filtros (##FILTER), campos de información (##INFO) y formatos de genotipo (##FORMAT).
+Línea de encabezado (#CHROM): Comienza con una sola almohadilla # y define las 8 columnas obligatorias separadas por tabulaciones (\t):
+CHROM: Cromosoma o contig de referencia.
+POS: Posición base-1 donde ocurre la variante en la referencia.
+ID: Identificador único de la variante (ej. código rs de dbSNP) o . si no tiene.
+REF: Base(s) en el genoma de referencia (A, C, G, T, N).
+ALT: Base(s) alternativa(s) observada(s) en la muestra (separadas por coma si hay múltiples alelos).
+QUAL: Puntuación de calidad en escala Phred de la variante.
+FILTER: PASS si pasó todos los filtros de calidad, o el código del filtro que falló.
+INFO: Anotaciones adicionales en pares CLAVE=VALOR separados por punto y coma ; (ej. profundidad DP, frecuencia alélica AF).
+(Opcional) Si el archivo incluye datos de muestras individuales, se añade una 9ª columna FORMAT seguida de una columna por cada muestra con su genotipo (ej. 0/1 para heterocigoto, 1/1 para homocigoto alternativo).
+Líneas de datos: Cada fila representa una variante genética en una posición específica, ordenada por cromosoma y posición, usando un punto (.) para cualquier dato faltante.
+Ejemplo:
+##fileformat=VCFv4.2
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Profundidad total de lectura">
+##INFO=<ID=AF,Number=A,Type=Float,Description="Frecuencia alelica">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotipo">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Muestra_01
+chr1	14370	rs6054257	G	A	99	PASS	DP=48;AF=0.50	GT	0/1
+chr1	17330	.	T	A	45	q10	DP=12;AF=0.25	GT	0/1
+chr1	1110696	rs6040355	A	G,T	87	PASS	DP=64;AF=0.33,0.17	GT	1/2

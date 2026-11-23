@@ -1,7 +1,11 @@
-###Problemas a corregir: ej. 1: el número ya era texto; ej. 3: nombres de variable que empiezan con número; ej. 4: el ejemplo de count() no corre; ej. 4: revisar el ejemplo de replace(); ej. 6: revisar la salida de la f-string
+###Tarea completa entregada
 1. Cómo podemos concatenar un número a un string? (.5 punto)
-se puede contatenar convirtiendo el numero a string al agregarle comillas, ya que las comillas hacen que Python lo identifique como string: "hola" + "2" = "hola2"
-### Revisar: si le pones comillas desde el inicio, ese "2" nunca fue un número, ya era texto. Si tuvieras edad = 2 (sin comillas), ¿qué función necesitarías para unirlo a "hola"?
+se puede contatenar convirtiendo el numero a string al agregarle comillas, ya que las comillas hacen que Python lo identifique como string: 
+### Nota: tu ejemplo usa str(), pero la explicación dice que el número se convierte "al agregarle comillas"; ¿qué hace realmente la conversión en tu ejemplo?
+numero = 5
+variable = "hola"
+"hola" + str(numero)
+'hola5'
 
 2. De qué tipo son las variables justifica la respuesta (1.5 puntos)
  a = "1" : strign porque esta dentro de las comillas y Python lo identifica como texto mientras esta dentro de las comillas
@@ -16,12 +20,9 @@ se puede contatenar convirtiendo el numero a string al agregarle comillas, ya qu
  a. cambiar algunas letras por números
 
 	palabra = "hola" 
-	en "Ho14" :
-1- 1paso = palabra.replace("h","H") => "Hola"
-### Revisar: ejecuta tu código tal cual. ¿Python acepta un nombre de variable que empieza con un número, como 1paso o 2paso? ¿Qué error aparece?
-2- 2paso = 1paso.replace("l","1") => "Ho1a"
-3- resultado_final = 2paso.replace("a","4") => "Ho14"
-print(resultado_final) => Ho14
+    palabra.replace("o","0").replace("l","1")
+    ´h01a'
+### Nota: el enunciado pide llegar a "Ho14" y tu resultado es "h01a"; ¿qué letras tendrías que cambiar (y cuál poner en mayúscula) para obtenerlo?
 
  b. remover espacios
 	palabra = "  hola"
@@ -37,12 +38,10 @@ print(resultado_final) => Ho14
 
 4. Explica qué hacen los métodos y da un ejemplo: (2 puntos)
 
- a. count() cuenta las veces que se llega a repetir una letra, palabra o texto dentro de una string. ejemplo: manzana.count(a) => 3
-### Revisar el ejemplo de count(): tal como lo escribiste, sin comillas en manzana ni en a, ¿Python lo ejecuta? ¿Qué le falta a un texto para que Python lo trate como string?
+ a. count() cuenta las veces que se llega a repetir una letra, palabra o texto dentro de una string. ejemplo: "manzana".count("a") => 3
  b. find() indica en que posición comienza la primera palabra o letra, cuando no la encuentra nos da -1. ejemplo: "mariposa".find("s") => 6
  c. isdigit() checa si el texto esta todo hecho solo de números y nos arroja true si es que son puros dígitos y false si es que hay letras o algún símbolo. ejemplo: "3000".isdigit() => true
- d. replace() encuentra una parte del texto y lo cambia por otro. ejemplo: "pala".remplace("c","p") => cala
-### Revisar el ejemplo de replace(): ¿qué texto se busca y por cuál se cambia? ¿La palabra "pala" tiene alguna "c"? Ejecútalo y revisa también cómo se escribe el nombre del método.
+ d. replace() encuentra una parte del texto y lo cambia por otro. ejemplo: "manzana".replace("a","o") => 'monzono'
 
 5. Qué problema tiene declarar estas variables? (1.5 puntos)
  oración larga = 'hola mundo' => tiene espacio en el nombre y en Python no se puede usar espacio para nombrar variables y tiene tilde que es un símbolo no recomendado.
@@ -52,5 +51,4 @@ print(resultado_final) => Ho14
 Ejemplo: persona = "rosa"
          dulces = 4
 oracion = f"La niña {persona} se ha comido {dulces} dulces hoy"
-print(oracion) => La niña dulce se ha comido 4 dulces hoy
-### Revisar el resultado: ¿qué valor guarda la variable persona? ¿Es eso lo que aparece en tu salida en lugar de {persona}?
+print(oracion) => La niña rosa se ha comido 4 dulces hoy

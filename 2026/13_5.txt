@@ -1,0 +1,249 @@
+###Problemas a corregir: ej. 6: falta la explicación del formato
+
+from pathlib import Path
+
+archivo_fasta = "gene.fna"
+
+organismo = Path(archivo_fasta).stem
+
+total_gc = 0
+total_nucleotidos = 0
+
+primera_secuencia = False
+
+def calcular_gc(secuencia):
+    cantidad_gc = secuencia.count("G") + secuencia.count("C")
+    return cantidad_gc / len(secuencia)
+
+def complementaria(secuencia):
+    tabla = str.maketrans("ATGCN", "TACGN")
+    return secuencia.translate(tabla)
+
+
+def formato_gc(valor):
+    resultado = f"{int(valor * 100) / 100:.2f}"
+    resultado = resultado.rstrip("0").rstrip(".")
+
+    if resultado.startswith("0."):
+        resultado = resultado[1:]
+
+    return resultado
+
+
+with open(archivo_fasta, "r", encoding="utf-8") as archivo:
+
+    for numero_linea, linea in enumerate(archivo, start=1):
+
+        linea = linea.strip()
+
+        if not linea:
+            continue
+
+        if linea.startswith(">"):
+
+            encabezado = linea[1:].strip()
+
+            print(f"Organismo {organismo}, contig {encabezado}")
+
+            primera_secuencia = True
+
+        else:
+
+            secuencia = linea.replace(" ", "").upper()
+
+            if not secuencia:
+                continue
+
+            gc = calcular_gc(secuencia)
+
+            print(f"GC línea {numero_linea}: {formato_gc(gc)}")
+
+            total_gc += secuencia.count("G") + secuencia.count("C")
+            total_nucleotidos += len(secuencia)
+
+            if primera_secuencia:
+                print(complementaria(secuencia))
+                primera_secuencia = False
+
+            if "ATG" in secuencia:
+                print(f"ATG en línea {numero_linea}")
+
+
+if total_nucleotidos > 0:
+    gc_total = total_gc / total_nucleotidos
+    print(f"GC total del archivo: {formato_gc(gc_total)}")
+else:
+    print("El archivo no contiene secuencias.")
+#Salida: Organismo gene, contig NC_031468.1:c1894140-1886587 TGME49_321310 [organism=Toxoplasma gondii ME49] [GeneID=7895142] [chromosome=Ib]
+GC línea 2: .57
+GCCTTCGCCGTCAGTGAAACACAGCCGAAGATTGCGGGGTCTTAAAACCAGTTTCAGCCGCTGCCTTGGG
+GC línea 3: .45
+GC línea 4: .41
+ATG en línea 4
+GC línea 5: .54
+ATG en línea 5
+GC línea 6: .5
+GC línea 7: .5
+GC línea 8: .51
+GC línea 9: .48
+GC línea 10: .32
+GC línea 11: .41
+ATG en línea 11
+GC línea 12: .35
+ATG en línea 12
+GC línea 13: .42
+ATG en línea 13
+GC línea 14: .41
+GC línea 15: .5
+GC línea 16: .51
+ATG en línea 16
+GC línea 17: .55
+ATG en línea 17
+GC línea 18: .54
+ATG en línea 18
+GC línea 19: .52
+GC línea 20: .52
+GC línea 21: .6
+GC línea 22: .47
+GC línea 23: .61
+ATG en línea 23
+GC línea 24: .67
+GC línea 25: .67
+GC línea 26: .58
+ATG en línea 26
+GC línea 27: .7
+ATG en línea 27
+GC línea 28: .58
+GC línea 29: .55
+ATG en línea 29
+GC línea 30: .52
+ATG en línea 30
+GC línea 31: .54
+GC línea 32: .54
+ATG en línea 32
+GC línea 33: .55
+GC línea 34: .62
+GC línea 35: .48
+ATG en línea 35
+GC línea 36: .68
+ATG en línea 36
+GC línea 37: .55
+ATG en línea 37
+GC línea 38: .55
+ATG en línea 38
+GC línea 39: .55
+ATG en línea 39
+GC línea 40: .5
+GC línea 41: .52
+GC línea 42: .54
+GC línea 43: .5
+ATG en línea 43
+GC línea 44: .47
+ATG en línea 44
+GC línea 45: .5
+GC línea 46: .57
+GC línea 47: .45
+GC línea 48: .44
+ATG en línea 48
+GC línea 49: .57
+ATG en línea 49
+GC línea 50: .48
+ATG en línea 50
+GC línea 51: .44
+ATG en línea 51
+GC línea 52: .48
+ATG en línea 52
+GC línea 53: .45
+GC línea 54: .45
+ATG en línea 54
+GC línea 55: .45
+ATG en línea 55
+GC línea 56: .48
+ATG en línea 56
+GC línea 57: .55
+ATG en línea 57
+GC línea 58: .45
+ATG en línea 58
+GC línea 59: .5
+ATG en línea 59
+GC línea 60: .55
+GC línea 61: .47
+ATG en línea 61
+GC línea 62: .52
+ATG en línea 62
+GC línea 63: .55
+GC línea 64: .47
+ATG en línea 64
+GC línea 65: .51
+GC línea 66: .54
+ATG en línea 66
+GC línea 67: .42
+ATG en línea 67
+GC línea 68: .44
+ATG en línea 68
+GC línea 69: .42
+ATG en línea 69
+GC línea 70: .52
+ATG en línea 70
+GC línea 71: .44
+GC línea 72: .38
+GC línea 73: .55
+GC línea 74: .55
+GC línea 75: .52
+GC línea 76: .47
+GC línea 77: .44
+ATG en línea 77
+GC línea 78: .4
+ATG en línea 78
+GC línea 79: .44
+ATG en línea 79
+GC línea 80: .55
+ATG en línea 80
+GC línea 81: .61
+ATG en línea 81
+GC línea 82: .6
+ATG en línea 82
+GC línea 83: .48
+GC línea 84: .61
+ATG en línea 84
+GC línea 85: .68
+GC línea 86: .54
+GC línea 87: .71
+GC línea 88: .55
+ATG en línea 88
+GC línea 89: .55
+GC línea 90: .64
+ATG en línea 90
+GC línea 91: .45
+ATG en línea 91
+GC línea 92: .58
+GC línea 93: .48
+ATG en línea 93
+GC línea 94: .47
+ATG en línea 94
+GC línea 95: .5
+ATG en línea 95
+GC línea 96: .51
+GC línea 97: .44
+GC línea 98: .54
+GC línea 99: .55
+ATG en línea 99
+GC línea 100: .58
+GC línea 101: .44
+GC línea 102: .45
+ATG en línea 102
+GC línea 103: .48
+GC línea 104: .55
+ATG en línea 104
+GC línea 105: .48
+ATG en línea 105
+GC línea 106: .48
+ATG en línea 106
+GC línea 107: .5
+ATG en línea 107
+GC línea 108: .52
+ATG en línea 108
+GC línea 109: .5
+ATG en línea 109
+GC total del archivo: .51
+### ej. 6: falta; hay que explicar el formato de archivo que te tocó (nombre, extensión, para qué se usa, sus reglas y un ejemplo)

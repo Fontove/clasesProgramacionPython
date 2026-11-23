@@ -1,0 +1,97 @@
+###Tarea completa entregada
+# Tarea 6: contenedores
+
+
+# 1. Funciones para simular un conjunto y actualizar un diccionario
+# representado con dos listas paralelas.
+def agregar_unico(lista, elemento):
+    """Agrega el elemento sólo si todavía no aparece en la lista."""
+    if elemento not in lista:
+        lista.append(elemento)
+
+
+def agregar_o_actualizar(llaves, valores, llave, valor):
+    """Agrega una pareja llave-valor o reemplaza el valor de una llave existente."""
+    if len(llaves) != len(valores):
+        raise ValueError("Las listas de llaves y valores deben tener el mismo tamaño.")
+
+    if llave in llaves:
+        indice = llaves.index(llave)
+        valores[indice] = valor
+    else:
+        llaves.append(llave)
+        valores.append(valor)
+
+
+# Ejemplo del conjunto simulado.
+conjunto = [1, 2, 3]
+agregar_unico(conjunto, 2)
+agregar_unico(conjunto, 4)
+print("Conjunto:", conjunto)
+
+
+# 2. Diccionario simulado con dos listas: cada llave corresponde al valor
+# que ocupa la misma posición en la otra lista.
+llaves = ["uno", "dos", "tercero"]
+valores = [1, 2, 3]
+
+llave_buscada = "uno"
+if llave_buscada in llaves:
+    indice = llaves.index(llave_buscada)
+    print(f"La llave {llave_buscada}, tiene valor {valores[indice]}")
+else:
+    print(f"La llave {llave_buscada} no existe.")
+
+# Demostración de agregar y reemplazar valores.
+agregar_o_actualizar(llaves, valores, "cuatro", 4)
+agregar_o_actualizar(llaves, valores, "dos", 20)
+print("Llaves:", llaves)
+print("Valores:", valores)
+
+
+# 3. Traducción de una secuencia de ADN o ARN a una secuencia de aminoácidos.
+# El código genético usa codones de tres nucleótidos; los codones de paro
+# se representan con "*". Si sobran nucleótidos incompletos, se informa el error.
+CODIGO_GENETICO = {
+    "TTT": "F", "TTC": "F", "TTA": "L", "TTG": "L",
+    "TCT": "S", "TCC": "S", "TCA": "S", "TCG": "S",
+    "TAT": "Y", "TAC": "Y", "TAA": "*", "TAG": "*",
+    "TGT": "C", "TGC": "C", "TGA": "*", "TGG": "W",
+    "CTT": "L", "CTC": "L", "CTA": "L", "CTG": "L",
+    "CCT": "P", "CCC": "P", "CCA": "P", "CCG": "P",
+    "CAT": "H", "CAC": "H", "CAA": "Q", "CAG": "Q",
+    "CGT": "R", "CGC": "R", "CGA": "R", "CGG": "R",
+    "ATT": "I", "ATC": "I", "ATA": "I", "ATG": "M",
+    "ACT": "T", "ACC": "T", "ACA": "T", "ACG": "T",
+    "AAT": "N", "AAC": "N", "AAA": "K", "AAG": "K",
+    "AGT": "S", "AGC": "S", "AGA": "R", "AGG": "R",
+    "GTT": "V", "GTC": "V", "GTA": "V", "GTG": "V",
+    "GCT": "A", "GCC": "A", "GCA": "A", "GCG": "A",
+    "GAT": "D", "GAC": "D", "GAA": "E", "GAG": "E",
+    "GGT": "G", "GGC": "G", "GGA": "G", "GGG": "G",
+}
+
+
+def traducir_a_proteina(secuencia):
+    """Traduce ADN o ARN (5' a 3') a aminoácidos usando letras de una letra."""
+    secuencia = secuencia.upper().replace("U", "T")
+
+    if any(base not in "ATCG" for base in secuencia):
+        raise ValueError("La secuencia sólo puede contener A, C, G, T o U.")
+    if len(secuencia) % 3 != 0:
+        raise ValueError(
+            "La longitud de la secuencia debe ser múltiplo de 3; "
+            "hay un codón incompleto al final."
+        )
+
+    proteina = ""
+    for inicio in range(0, len(secuencia), 3):
+        codon = secuencia[inicio:inicio + 3]
+        proteina += CODIGO_GENETICO[codon]
+
+    return proteina
+
+
+# Ejemplo: ATG = metionina (M), GAA = ácido glutámico (E), TAA = paro (*).
+secuencia_ejemplo = "ATGGAATAA"
+print("Proteína:", traducir_a_proteina(secuencia_ejemplo))

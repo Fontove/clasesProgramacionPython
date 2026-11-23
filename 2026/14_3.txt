@@ -1,4 +1,4 @@
-###Problemas a corregir: ej. 4: el código no corre (nombre de variable distinto y paréntesis sin cerrar) y la posición está escrita a mano
+###Tarea completa entregada
 . Investigar cómo se usa el operador módulo (modulus) en python, explicarlo con sus palabras y poner un ejemplo. (1 punto)
 
  El operador modulo se representa con el simbolo % y lo que hace es realizar una division pero en lugar de devolver la solucion devuelve el residuo, tambien, nos sirve para saber si un numero es divisible entre otro o si es par o impar.
@@ -41,14 +41,12 @@ palabra = 'banana'
 
 palabra = "banana"
 encontrar = "a"
-posicion = 0 + 1
-### La posición se fija a mano antes del ciclo y nunca cambia: si la primera 'a' estuviera en otro lugar, ¿qué imprimiría? ¿Cómo puedes llevar la cuenta de la posición mientras recorres la palabra?
-for lentra in palabra:
-### Al ejecutarlo marca NameError: la variable del for se llama "lentra" pero abajo usas "letra", ¿coinciden los nombres?
+posicion = 0
+for letra in palabra:
     if letra == encontrar:
-        print(f"la primera'{encontrar}'esta en la posicion: {posicion}"
-### Este renglón marca SyntaxError: revisa que todos los paréntesis que abres estén cerrados
+        print(f"la primera'{encontrar}'esta en la posicion: {posicion}")
         break
+    posicion = posicion + 1     
 la primera'a'esta en la posicion : 1
 
 
@@ -71,8 +69,7 @@ lista = [ [1], [1,2], [1,2,3], [1,2,3,4], [1,2,3,4,5] ]
 # 4
 # 5
 
-mis_datos = [1], [1,2], [1,2,3], [1,2,3,4], [1,2,3,4,5]
-### Nota: sin los corchetes de afuera esto ya no es una lista de listas sino una tupla; funciona, pero el enunciado pide usar la lista tal como está
+mis_datos =[ [1], [1,2], [1,2,3], [1,2,3,4], [1,2,3,4,5] ]
 for grupo in mis_datos:
     for numero in grupo:
         print(numero)

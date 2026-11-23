@@ -1,4 +1,4 @@
-###Problemas a corregir: ej. 6: error de sintaxis, la función no corre
+###Tarea completa entregada
 Escribir la función con el nombre dado en cada número. Debe recibir los parámetros indicados (input) y regrese el valor indicado (output).
 Para los problemas 1-3 hay que probar la función con los ejemplos mostrados, para los 4-6 hay que hacer sus propios casos de prueba y explicar un poco para qué hacen la prueba (ver ejemplo en el problema 1). Está permitido usar código que hemos hecho en clase y los métodos de strings, pero tienen que hacer su propia función con el nombre que se pide.
 
@@ -148,10 +148,7 @@ def EsPar(numero):
     if numero % 2 == 0:
         print("El número es par")
     else:
-        print("El número
-### Revisar: esta línea tiene un error de sintaxis (la cadena nunca se cierra), así que la función no corre y la salida que escribiste abajo no pudo salir de este código. ¿Qué le falta a esa línea? Complétala y vuelve a ejecutarla.
-EsPar(4) 
-EsPar(7) 
+        print("El número es impar")
 
-El número es par
-El número es impar
+EsPar(6)
+EsPar(9)

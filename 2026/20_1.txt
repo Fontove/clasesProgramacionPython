@@ -1,9 +1,8 @@
-###Problemas a corregir: ej. 2: revisar el tipo de a = "1"; ej. 5: revisar el nombre 'oración larga'; ej. 5: revisar qué hace Python con 'hola' 'mundo'
+###Tarea completa entregada
 1. Cómo podemos concatenar un número a un string? (.5 punto)
 - Usando la función string (str)
 2. De qué tipo son las variables justifica la respuesta (1.5 puntos)
- a = "1": Número entero.
-### Revisar: ¿qué indican las comillas alrededor del 1? Comprueba con type(a) qué tipo es realmente.
+ a = "1": str (cadena de texto)
  b = 1.0: Número decimal, por el punto decimal.
  c = 1.5 + True: El resultado es decimal, ya que al sumarlos True vale 1.
  d = 1.5 + 2.5: El resultado es 4.0, lo que lo convierte en un número decimal.
@@ -14,12 +13,10 @@
  a. cambiar algunas letras por números
 	palabra = "hola" 
 	en "Ho14"
-palabra= "hol"
-str="4"
-palabra+str
-´hola
-### Nota: El ejercicio pide partir de palabra = "hola" y llegar a "Ho14". Ejecuta tu código: ¿qué resultado da realmente? ¿Cómo podrías cambiar letras por números y la primera letra a mayúscula con métodos de strings?
-### Nota: usaste str como nombre de variable. Funciona, pero ¿qué le pasa después a la función str() si la usas como variable?
+palabra= "hola"
+resultado= palabra.capitalize().replace("l", "1").replace("a", "4")
+print(resultado)
+Ho14
  b. remover espacios
 	palabra = "  hola"
 	en "hola"
@@ -41,8 +38,7 @@ print(a.replace("h", "H"))
 Hola
 4. Explica qué hacen los métodos y da un ejemplo: (2 puntos)
  a. count(): Cuenta cuántas veces aparece un elemento en una colección.
-frutas= ("manzana", "manzana", "pera")
-### Nota: tu ejemplo usa count() sobre una tupla, no sobre un string. Funciona, pero la pregunta es sobre métodos de strings: ¿cómo sería con un texto?
+frutas= "manzana pera manzana"
 resultado= frutas.count("manzana")
 print(resultado)
 2
@@ -60,10 +56,8 @@ texto= "Me gusta el rosa, el rosa es muy bonito"
 resultado= texto.replace("rosa", "morado")
 Me gusta el morado, el morado es muy bonito
 5. Qué problema tiene declarar estas variables? (1.5 puntos)
- oración larga = 'hola mundo'= Se necesita la doble comilla al inicio y al final de la variable (" ")
-### Revisar: las comillas simples '...' son igual de válidas que las dobles en Python. Fíjate en el NOMBRE de la variable: ¿puede llevar un espacio?
- palabra = 'hola' 'mundo'= No la toma en cuenta, ya que no se permiten espacios.
-### Revisar: esta línea sí es válida. Ejecútala, imprime palabra y observa qué hace Python con dos cadenas escritas una junto a la otra.
+ oración larga = 'hola mundo'= El nombre de la variable no puede llevar espacios. Solo podría ser: oraciónlarga o oración_larga.
+ palabra = 'hola' 'mundo'= No hay ningún error. Python permite escribir dos cadenas adyacentes y las concatena.
 6. Investigar "fstring": qué son, cómo se usan y un ejemplo. (2.5 puntos)
 Un fstring (cadena con formato) es una forma rápida y moderna de insertar variables y operaciones directamente dentro de un texto en Python.
 Son textos normales que llevan una letra f o F al inicio, antes de las comillas.Permiten escribir variables o cuentas matemáticas adentro usando llaves {}.Python cambia esas llaves por el valor real cuando corre el programa.

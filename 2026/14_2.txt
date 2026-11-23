@@ -1,4 +1,4 @@
-###Problemas a corregir: ej. 1: el nombre de la lista no coincide y marca NameError; ej. 4: el código tiene un error de sintaxis y no corre
+###Problemas a corregir: ej. 1: el nombre de la lista no coincide y marca NameError
 1. Crear una lista vacía y llenarla con los números  del 1 al 50 (1,2,3,...,48,49,50). Sugerencia: usar un ciclo, no generarla directamente con [1,2,3,...,48,49,50] ni list(range(0,50)) (1 punto)
 
 listạ_ṇumeros = []
@@ -51,8 +51,8 @@ el ciclo while se utiliza para repetir un bloque de codigo mientras una condicio
 numero = 1
 while numero <= 10:
    print(numero)
-   numero + = 1
-### Este renglón marca SyntaxError al ejecutarlo: ¿cómo se escribe correctamente el operador de asignación aumentada?
+   numero = numero + 1
+print("termino")
    
 1
 2
@@ -64,14 +64,4 @@ while numero <= 10:
 8
 9
 10
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10...
-### Nota: la salida pegada no coincide con lo que imprime el código (los números aparecen dos veces y termina en "...")
+termino

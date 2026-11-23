@@ -1,0 +1,68 @@
+###Tarea completa entregada
+1. Investigar cómo se usa el operador módulo (modulus) en python, explicarlo con sus palabras y poner un ejemplo. (1 punto)
+El operador modulo (%) funciona para poder conocer el  residuo de dividir un numero entre otro. Por ejemplo, 7 entre 2 da 3 y sobran 1, así que 7 % 2 es 1. 
+Codigo:
+print(10 % 3)  
+print(8 % 2)  
+Imprime:
+1
+0
+
+2. Crear una lista vacía y llenarla con los números pares del 2 al 50 (2,4,6,8,...,48,50) utilizando un for y un condicional para controlar que sólo los pares se agreguen.  (2 puntos)
+Codigo:
+pares = []
+for n in range(2, 51):
+    if n % 2 == 0:
+        pares.append(n)
+print(pares)
+Imprime:
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]
+
+3. Investigar para qué sirve el comando "break" en un for, explicarlo con sus palabras y hacer un ejemplo. (1 punto)
+Sirve para detener un ciclo for, ya que al cumplir cierta condición se abandona el for y se continua en la siguiente linea.
+Codigo:
+for n in range(1, 10):
+    if n == 5:
+        break
+    print(n) 
+Imprime:
+1
+2
+3
+4
+
+4.Programar el método find de los strings a mano. (2 puntos) Sugerencia: utilizar break cuando encuentren lo que buscan
+Codigo:
+palabra = 'banana'
+posicion = -1  
+for i in range(len(palabra)):
+    if palabra[i] == 'a':
+        posicion = i
+        break
+print(posicion)   
+Imprime:
+1
+
+5. Imprimir todos los números de la siguiente lista utilizando ciclos: (4 puntos)
+Codigo:
+lista = [[1], [1, 2], [1, 2, 3], [1, 2, 3, 4], [1, 2, 3, 4, 5]]
+for sublista in lista:
+    for numero in sublista:
+        print(numero)  
+Imprime:
+### Nota: la salida pegada no coincide con lo que imprime tu código; compárala con la primera sublista [1]: ¿cuántos números deberían salir en total?
+1
+2
+1
+2
+3
+1
+2
+3
+4
+1
+2
+3
+4
+5
+

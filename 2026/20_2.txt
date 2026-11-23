@@ -1,14 +1,14 @@
-###Problemas a corregir: ej. 1: la lista empieza en 0
+###Tarea completa entregada
 Tarea 2: Ciclos
 
 1. Crear una lista vacía y llenarla con los números  del 1 al 50 (1,2,3,...,48,49,50). Sugerencia: usar un ciclo, no generarla directamente con [1,2,3,...,48,49,50] ni list(range(0,50)) (1 punto)
 
 lista=list()
-for i in range (0,51):
+for i in range (1,51):
 >>> lista.append(i)
->>> print(lista)
-[0,...,50]
-### Revisar el rango: el ejercicio pide los números del 1 al 50, pero tu lista empieza en 0 (tú mismo lo muestras: [0,...,50]). ¿Con qué número empieza range(0,51)?
+### Nota: en Python la sangría se escribe con espacios, no con ">>>"; si copias este código tal cual, ¿correría?
+print(lista)
+[1,...,50]
 
 2. Crear una lista vacía y llenarla con los números múltiplos de 5 del 2 al 50 (5,10,15,...,40,45,50). Nota: hay que usar un ciclo, no se vale generarla directamente con [5,10,15,...,40,45,50] ni list(range(0,50,5)) (3 puntos)
 
@@ -59,5 +59,3 @@ Ejecución 9
 Ejecución 10
 
 Termino la ejecución 
-
-
