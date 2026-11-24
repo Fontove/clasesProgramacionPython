@@ -1,0 +1,134 @@
+###Problemas a corregir: ej. 1-5: el programa no corre por un carácter de más; ej. 6: falta la explicación del formato
+Tarea 5.
+Dado el archivo fasta hacer un programa con las siguientes funciones.
+
+(1 punto)
+1. Para todos los encabezados, lo imprima en el formato
+"Organismo <el nombre del fasta>, contig <el contenido del encabezado, sin el ">""
+
+¿Qué hace? identifica las líneas de el archivo cuando empiezan con el símbolo > , al encontrarla se quita ese símbolo e imprime cambiando el nombre del archivo usando la estructura que nos da.
+
+(2 punto)
+2. Para cada línea de secuencia genómica, imprima su contenido de GC en el formato "GC línea <número de línea>: <GC"
+
+¿Qué hace? Esto lo que hace es calcular el porcentaje de bases de guanina y citosina  en cada secuencia genómica, la cantidad obtenida de bases se divide entre el numero total de caracteres de esa misma linea. 
+
+(2 puntos)
+3. Para la primera secuencia de cada segmento, imprima su secuencia complementaria
+
+¿Qué hace? Toma únicamente la primera linea de secuencia que aparece inmediatamente después de cada encabezado , asi mostrando su complementariedad del ADN
+
+(2 punto)
+4. Imprima el número de línea donde encuentre el codón "ATG" en el formato "ATG en línea <número de línea>"
+
+¿Qué hace? Detecta  en que numero de líneas exactas aparece el codón de inicio "ATG"
+
+
+(1 punto)
+5. Calcule el contenido GC total del archivo y lo imprima al final en formato "GC total del archivo: <GC>
+¿Qué hace? calcula el porcentaje global de G y C considerando todo el archivo completo al finalizar la lectura.
+
+import os
+
+# Tabla para obtener la secuencia complementaria
+TABLA_COMPLEMENTO = str.maketrans("ACGTacgt", "TGCAtgca")
+
+
+def leer_fasta(ruta):
+    with open(ruta, "r") as f:
+        return [l.strip() for l in f.read().splitlines()]
+
+
+def es_encabezado(linea):
+    return linea.startswith(">")
+
+
+def contar_gc(secuencia):
+    s = secuencia.upper()
+    return s.count("G") + s.count("C")
+
+
+def imprimir_encabezado(nombre, linea):
+    # 1. Encabezado
+    print(f"Organismo {nombre}, contig {linea[1:]}")
+
+
+def imprimir_gc_linea(num, secuencia):
+    # 2. GC por línea
+    gc = contar_gc(secuencia) / len(secuencia)
+    print(f"GC línea {num}: {gc:.2f}")
+
+
+def imprimir_complementaria(secuencia):
+    # 3. Complementaria de la primera secuencia de cada segmento
+    print(secuencia.upper().translate(TABLA_COMPLEMENTO))
+
+
+def buscar_atg(num, secuencia):
+    # 4. Línea donde aparece ATG
+    if "ATG" in secuencia.upper():
+        print(f"ATG en línea {num}")
+
+
+def imprimir_gc_total(total_gc, total_bases):
+    # 5. GC total del archivo
+    if total_bases > 0:
+        print(f"GC total del archivo: {total_gc / total_bases:.2f}")
+    else:
+        print("El archivo no contiene secuencias.")
+
+
+def main():
+    print("Directorio actual:", os.getcwd())
+    ruta = input("Nombre del archivo FASTA: ")
+    nombre = os.path.splitext(os.path.basename(ruta))[0]
+
+    lineas = leer_fasta(ruta)
+
+    total_gc = 0
+    total_bases = 0
+    es_primera = False
+
+    for num, linea in enumerate(lineas, start=1):
+        if linea == "":
+            continue
+
+        if es_encabezado(linea):
+            imprimir_encabezado(nombre, linea)
+            es_primera = True
+            continue
+
+        imprimir_gc_linea(num, linea)
+        total_gc += contar_gc(linea)
+        total_bases += len(linea)
+
+        if es_primera:
+            imprimir_complementaria(linea)
+            es_primera = False
+
+        buscar_atg(num, linea)
+
+    imprimir_gc_total(total_gc, total_bases)
+
+
+main()v
+### ej. 1-5: así como está el programa no corre (SyntaxError en esta línea), ¿qué carácter sobra después de main()?
+
+Nombre del archivo FASTA: humano.fasta
+Organismo humano, contig chr 1
+GC línea 2: 0.09
+TTTTTACAAAA
+ATG en línea 2
+GC línea 3: 0.00
+Organismo humano, contig chr 2
+GC línea 5: 1.00
+CCCCCCCCCCC
+GC línea 6: 0.82
+ATG en línea 6
+GC línea 7: 0.45
+GC línea 8: 0.82
+ATG en línea 8
+GC total del archivo: 0.53
+
+
+### ej. 6: falta; hay que explicar el formato de archivo que te tocó (nombre, extensión, para qué se usa, sus reglas y un ejemplo)

@@ -1,58 +1,44 @@
-###Problemas a corregir: ej. 1: el código está incompleto y no corre (falta la función para agregar elementos); ej. 3: falta el diccionario del código genético (NameError)
+###Tarea completa entregada
 Tarea 6.
+print("EJERCICIO 1: LISTA COMO CONJUNTO")
 
-(3 puntos)
-1. Construye una lista que funcione como un conjunto (set). Esto es, construye una función a la que le pasas una lista y un elemento que agregar pero sólo lo agregue si no existe dentro de la lista, también hay que hacer una función que agregue valores (si la llave no existe hay que agregarla y si ya existe hay que sobre-escribir su valor).
+def agregar_elemento(lista, elemento):
+    if elemento not in lista:
+        lista.append(elemento)
 
+    return lista
+
+def agregar_valor(llaves, valores, llave, valor):
+    if llave in llaves:
+        posicion = llaves.index(llave)
         valores[posicion] = valor
-### ej. 1: el código quedó cortado y mezclado (falta el inicio, no aparece la función agregar_elemento y hay texto pegado en llaves.append(llave)epetidos...), así no corre; ¿puedes pegar las dos funciones completas?
-...
-...     else:
-...         llaves.append(llave)epetidos:", numeros)
-...         valores.append(valor)
-...
-...     return llaves, valores
-...
+    else:
+        llaves.append(llave)
+        valores.append(valor)
 
-...
-... print("EJERCICIO 1: LISTA COMO CONJUNTO")
-...
-... numeros = [1, 2, 3, 4]
-...
-... agregar_elemento(numeros, 3)
-... agregar_elemento(numeros, 5)
-...
-... print("Lista sin elementos repetidos:", numeros)
-...
-...
-... llaves = []
-... valores = []
-...
-... agregar_valor(llaves, valores, "uno", 1)
-... agregar_valor(llaves, valores, "dos", 2)
-... agregar_valor(llaves, valores, "uno", 10)
-...
-... print("Llaves:", llaves)
-... print("Valores:", valores)
-#Salida:
-EJERCICIO 1: LISTA COMO CONJUNTO
-Lista sin elementos repetidos: [1, 2, 3, 4, 5]
-Llaves: ['uno', 'dos']
-Valores: [10, 2]
+    return llaves, valores
+
+numeros = [1, 2, 3, 4]
+
+agregar_elemento(numeros, 3)
+agregar_elemento(numeros, 5)
+
+print("Lista sin elementos repetidos:", numeros)
 
 
-(4 puntos)
-2. Construye dos listas que funcionen juntas como un diccionario. Por ejemplo, simular el diccionario 
-d = {'uno':1, 'dos':2, 'tercero':3}
-Utilizando las listas debe poder responder
-"la llave uno, tiene valor 1"
-Sugerencia, usar el método index de las listas para buscar la llave y luego el índice para buscar el valor correspondiente.
+llaves = []
+valores = []
 
+agregar_valor(llaves, valores, "uno", 1)
+agregar_valor(llaves, valores, "dos", 2)
+agregar_valor(llaves, valores, "uno", 10)
+
+print("Llaves:", llaves)
+print("Valores:", valores)
 print("\nEJERCICIO 2: DICCIONARIO CON LISTAS")
 
 llaves = ["uno", "dos", "tercero"]
 valores = [1, 2, 3]
-
 
 llave_buscada = "uno"
 
@@ -66,67 +52,73 @@ if llave_buscada in llaves:
 
 else:
     print("La llave no existe")
-#Salida:
-EJERCICIO 2: DICCIONARIO CON LISTAS
-La llave uno tiene valor 1
 
-(3 puntos)
-3. Hacer una función que convierta un string con nucleótidos en la proteína correspondiente. Sugerencia, crea un diccionario del código genético. Nota: los codones de paro comunmente se sustituyen por un asterisco (*). Tener cuidado con qué pasa si la secuencia no tiene una longitud múltiplo de 3.
+print("EJERCICIO 3: TRADUCCION DE ADN A PROTEINA")
+# Diccionario del codigo genetico
+codigo_genetico = {
+    "TTT": "F", "TTC": "F",
+    "TTA": "L", "TTG": "L",
+    "TCT": "S", "TCC": "S",
+    "TCA": "S", "TCG": "S",
+    "TAT": "Y", "TAC": "Y",
+    "TAA": "*", "TAG": "*",
+    "TGT": "C", "TGC": "C",
+    "TGA": "*", "TGG": "W",
 
-print("\nEJERCICIO 2: DICCIONARIO CON LISTAS")
-### Nota: aquí se repite el ej. 2 dentro del ej. 3; se puede borrar
-...
-... llaves = ["uno", "dos", "tercero"]
-... valores = [1, 2, 3]
-...
-... # Buscar el valor de una llave
-...
-... llave_buscada = "uno"
-...
-... if llave_buscada in llaves:
-...
-...     posicion = llaves.index(llave_buscada)
-...     valor = valores[posicion]
-...
-...     print("La llave", llave_buscada,
-...           "tiene valor", valor)
-...
-... else:
-...     print("La llave no existe")
-...
+    "CTT": "L", "CTC": "L",
+    "CTA": "L", "CTG": "L",
+    "CCT": "P", "CCC": "P",
+    "CCA": "P", "CCG": "P",
+    "CAT": "H", "CAC": "H",
+    "CAA": "Q", "CAG": "Q",
+    "CGT": "R", "CGC": "R",
+    "CGA": "R", "CGG": "R",
 
-EJERCICIO 2: DICCIONARIO CON LISTAS
-La llave uno tiene valor 1
-... def traducir_proteina(secuencia):
-...
-...     secuencia = secuencia.upper().replace("U", "T")
-...
-...     proteina = ""
-...
-...     for i in range(0, len(secuencia) - 2, 3):
-...
-...         codon = secuencia[i:i+3]
-...
-...         aminoacido = codigo_genetico.get(codon, "X")
-### ej. 3: codigo_genetico no está definido en ningún lado, así la función truena con NameError; ¿dónde está el diccionario del código genético?
-...
-...         proteina += aminoacido
-...
-...     sobrantes = len(secuencia) % 3
-...
-...     if sobrantes != 0:
-...         print("Advertencia:", sobrantes,
-...               "nucleotido(s) sobrante(s) al final.")
-...
-...     return proteina
-...
-...
-... adn = "ATGGCCATTGTAATGGGCCGCTGAAAGGGTGCCCGATAG"
-...
-... resultado = traducir_proteina(adn)
-...
-... print("Secuencia de ADN:", adn)
-... print("Proteina:", resultado)
-#Salida: EJERCICIO 3: TRADUCCION DE ADN A PROTEINA
-Secuencia de ADN: ATGGCCATTGTAATGGGCCGCTGAAAGGGTGCCCGATAG
-Proteina: MAIVMGR*KGAR*
+    "ATT": "I", "ATC": "I",
+    "ATA": "I", "ATG": "M",
+    "ACT": "T", "ACC": "T",
+    "ACA": "T", "ACG": "T",
+    "AAT": "N", "AAC": "N",
+    "AAA": "K", "AAG": "K",
+    "AGT": "S", "AGC": "S",
+    "AGA": "R", "AGG": "R",
+
+    "GTT": "V", "GTC": "V",
+    "GTA": "V", "GTG": "V",
+    "GCT": "A", "GCC": "A",
+    "GCA": "A", "GCG": "A",
+    "GAT": "D", "GAC": "D",
+    "GAA": "E", "GAG": "E",
+    "GGT": "G", "GGC": "G",
+    "GGA": "G", "GGG": "G"
+}
+
+
+def traducir_proteina(secuencia):
+
+    secuencia = secuencia.upper()
+    proteina = ""
+
+    for i in range(0, len(secuencia) - 2, 3):
+
+        codon = secuencia[i:i+3]
+
+        aminoacido = codigo_genetico.get(codon, "X")
+
+        proteina += aminoacido
+
+    sobrantes = len(secuencia) % 3
+
+    if sobrantes != 0:
+        print("Advertencia:", sobrantes,
+              "nucleotido(s) sobrante(s) al final.")
+
+    return proteina
+
+
+adn = "ATGGCCATTGTAATGGGCCGCTGAAAGGGTGCCCGATAG"
+
+resultado = traducir_proteina(adn)
+
+print("Secuencia de ADN:", adn)
+print("Proteina:", resultado)

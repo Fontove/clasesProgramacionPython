@@ -1,4 +1,4 @@
-###Problemas a corregir: ej. 6: falta la explicación del formato
+###Problemas a corregir: ej. 6: el ejemplo no sigue las reglas del formato GenBank
 
 from pathlib import Path
 
@@ -246,4 +246,30 @@ ATG en línea 108
 GC línea 109: .5
 ATG en línea 109
 GC total del archivo: .51
-### ej. 6: falta; hay que explicar el formato de archivo que te tocó (nombre, extensión, para qué se usa, sus reglas y un ejemplo)
+Nombre: GenBank.
+Extensión: .gb o .gbk.
+Tipo de archivo: texto plano.
+Permite almacenar secuencias genéticas e información relacionada.
+¿Para qué se utiliza?
+Guardar secuencias de ADN y ARN.
+Consultar información genética.
+Identificar genes y regiones importantes.
+Compartir información entre investigadores.
+Analizar secuencias mediante programas como Python y Biopython.
+Un archivo GenBank contiene diferentes secciones:
+ LOCUS: nombre, longitud y tipo de secuencia.
+ DEFINICIÓN: descripción de la secuencia.
+ ACCESSION: número de identificación.
+ FEATURES: información sobre genes y otras regiones.
+ ORIGIN: contiene la secuencia de nucleótidos.
+ : indica el final del registro.
+Ejemplo
+ADN LOCUS EJEMPLO 12 pb
+DEFINICIÓN Secuencia de ejemplo.
+ACESIÓN ABC123
+CARACTERÍSTICAS Ubicación/Clasificatorios
+ Gen 1..12
+ORIGEN
+### ej. 6: el ejemplo no sigue las reglas del formato: en un archivo GenBank real las palabras clave van en inglés (como las pusiste arriba: LOCUS, DEFINITION, ACCESSION, FEATURES, ORIGIN); ¿cómo quedaría tu ejemplo con ellas?
+        1 atgctagctagc
+//

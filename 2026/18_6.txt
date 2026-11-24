@@ -1,0 +1,100 @@
+###Problemas a corregir: ej. 3: código genético incompleto; ej. 3: error de sangría, el código no corre
+Tarea 6.
+
+1. Construye una lista que funcione como un conjunto (set). Esto es, construye una función a la que le pasas una lista y un elemento que agregar pero sólo lo agregue si no existe dentro de la lista, también hay que hacer una función que agregue valores (si la llave no existe hay que agregarla y si ya existe hay que sobre-escribir su valor).
+
+# Función para agregar un elemento a la lista
+# Solamente lo agrega si todavía no existe.
+
+def agregar(lista, elemento):
+    if elemento not in lista:
+        lista.append(elemento)
+        print("Elemento agregado")
+    else:
+        print("El elemento ya existe")
+
+
+# Función para agregar o modificar un valor usando una llave.
+def agregar_valor(diccionario, llave, valor):
+    diccionario[llave] = valor
+    print("Valor agregado o actualizado")
+
+
+# Probamos la primera función
+numeros = [1, 2, 3]
+
+agregar(numeros, 4)
+agregar(numeros, 2)
+
+print(numeros)
+
+
+# Probamos la segunda función
+datos = {"nombre": "Juan", "edad": 20}
+
+agregar_valor(datos, "ciudad", "Guanajuato")
+agregar_valor(datos, "edad", 25)
+
+print(datos)
+
+
+2. Construye dos listas que funcionen juntas como un diccionario. Por ejemplo, simular el diccionario 
+d = {'uno':1, 'dos':2, 'tercero':3}
+Utilizando las listas debe poder responder
+"la llave uno, tiene valor 1"
+Sugerencia, usar el método index de las listas para buscar la llave y luego el índice para buscar el valor correspondiente.
+
+# Creamos dos listas
+llaves = ["uno", "dos", "tercero"]
+valores = [1, 2, 3]
+
+# Pedimos una llave
+llave = "uno"
+
+# Buscamos la posición de la llave
+posicion = llaves.index(llave)
+
+# Buscamos el valor en la misma posición
+valor = valores[posicion]
+
+# Mostramos el resultado
+print("La llave", llave, "tiene valor", valor)
+
+
+3. Hacer una función que convierta un string con nucleótidos en la proteína correspondiente. Sugerencia, crea un diccionario del código genético. Nota: los codones de paro comunmente se sustituyen por un asterisco (*). Tener cuidado con qué pasa si la secuencia no tiene una longitud múltiplo de 3.
+
+# Creamos un diccionario con el código genético
+codigo = {
+    "ATG": "M", "TTT": "F", "TTC": "F",
+    "TTA": "L", "TTG": "L", "TAA": "*",
+    "TAG": "*", "TGA": "*", "GCT": "A",
+    "GCC": "A", "GCA": "A", "GCG": "A",
+    "GGT": "G", "GGC": "G", "GGA": "G",
+    "GGG": "G"
+}
+### ej. 3: el diccionario del código genético está incompleto (solo tiene 16 codones), ¿qué saldría al traducir una secuencia con AAA o CCC?
+
+# Función para convertir nucleótidos en proteína
+def convertir(secuencia):
+    proteina = ""
+
+# Revisamos la secuencia de 3 en 3
+  for i in range(0, len(secuencia) - 2, 3):
+### ej. 3: la sangría no es consistente (el for, el if y el return no quedan al mismo nivel que proteina = ""), así marca IndentationError; ¿qué nivel deben tener dentro de la función?
+        codon = secuencia[i:i+3]
+
+# Buscamos el codón en el diccionario
+  if codon in codigo:
+            proteina += codigo[codon]
+        else:
+            proteina += "?"
+  return proteina
+
+
+# Probamos la función
+secuencia = "ATGGCTGGTTAA"
+
+resultado = convertir(secuencia)
+
+print("Secuencia:", secuencia)
+print("Proteína:", resultado)

@@ -1,0 +1,124 @@
+###Problemas a corregir: ej. 2: números de línea incorrectos; ej. 3: el código no corre solo; ej. 4: números de línea incorrectos y no detecta el atg en minúsculas; ej. 5: no calcula ni imprime el GC total; ej. 6: falta la explicación del formato
+Tarea 5.
+
+Dado el archivo fasta, hacer un programa con las siguientes funciones
+
+1. Para todos los encabezados, lo imprima en el formato
+"Organismo <el nombre del fasta>, contig <el contenido del encabezado, sin el ">""
+
+import os
+
+# Nombre del archivo FASTA
+archivo = "vitiligo_homosapiens.fasta"
+
+# Obtener el nombre del archivo sin la extensión
+organismo = os.path.splitext(os.path.basename(archivo))[0]
+
+# Leer el archivo FASTA
+with open(archivo, "r") as fasta:
+
+    for linea in fasta:
+
+        # Identificar los encabezados
+        if linea.startswith(">"):
+
+            # Eliminar el símbolo > y espacios adicionales
+            encabezado = linea[1:].strip()
+
+            # Imprimir en el formato solicitado
+            print(f"Organismo {organismo}, contig {encabezado}")
+
+
+2. Para cada línea de secuencia genómica, imprima su contenido de GC en el formato "GC línea <número de línea>: <GC"
+
+# Ignorar los encabezados y las líneas vacías
+if not linea.startswith(">") and linea.strip() != "":
+
+    # Aumentar el número de línea
+    numero = numero + 1
+
+    # Contar las letras G y C
+    G = linea.upper().count("G")
+    C = linea.upper().count("C")
+
+    # Calcular el porcentaje de GC
+    GC = (G + C) / len(linea.strip()) * 100
+
+    # Imprimir el resultado
+    print("GC línea", numero, ":", GC, "%")
+### ej. 2: numero solo avanza en las líneas de secuencia, pero el ejemplo numera todas las líneas del archivo (GC línea 2, 3, 5…), ¿dónde tendrías que sumar 1 al contador?
+### Nota: el ejemplo da el GC como fracción (.09, .53) y aquí sale en porcentaje, ¿qué cambiarías para que coincida?
+
+
+    print("GC línea", numero, ":", GC, "%")
+### Nota: este print está repetido, así que cada línea de GC se imprime dos veces
+
+
+3. Para la primera secuencia de cada segmento, imprima su secuencia complementaria
+
+# Si encuentra un encabezado, comienza un nuevo segmento
+if linea.startswith(">"):
+### ej. 3: este fragmento no corre solo (linea no existe: falta abrir el archivo y el for que lo recorre, y dar valor inicial a primera); ¿dónde debería ir este código?
+    primera = True
+
+# Si es una secuencia y es la primera del segmento
+elif linea.strip() != "" and primera:
+
+    # Guardar la secuencia
+    secuencia = linea.strip()
+
+    # Crear una secuencia complementaria vacía
+    complementaria = ""
+
+    # Revisar cada letra de la secuencia
+    for letra in secuencia:
+
+        # Cambiar cada letra por su complementaria
+        if letra == "A":
+            complementaria = complementaria + "T"
+
+        elif letra == "T":
+            complementaria = complementaria + "A"
+
+        elif letra == "C":
+            complementaria = complementaria + "G"
+
+        elif letra == "G":
+            complementaria = complementaria + "C"
+
+    # Imprimir la secuencia complementaria
+    print("Secuencia complementaria:", complementaria)
+
+    # Indicar que ya encontramos la primera secuencia
+    primera = False
+
+
+4. Imprima el número de línea donde encuentre el codón "ATG" en el formato "ATG en línea <número de línea>"
+
+# Ignorar los encabezados y las líneas vacías
+if not linea.startswith(">") and linea.strip() != "":
+
+    # Contar las líneas de secuencia
+    numero = numero + 1
+
+    # Buscar el codón ATG
+    if "ATG" in linea:
+### ej. 4: con el ejemplo imprime "ATG en línea 1" y "4" en vez de 2 y 6, y no encuentra el atg en minúsculas de la línea 8; ¿qué líneas cuentas y cómo compararías sin importar mayúsculas?
+
+        # Imprimir el número de línea donde se encontró ATG
+        print("ATG en línea", numero)
+
+
+5. Calcule el contenido GC total del archivo y lo imprima al final en formato "GC total del archivo: <GC>"
+
+# Ignorar los encabezados y las líneas vacías
+if not linea.startswith(">") and linea.strip() != "":
+
+    # Contar las letras G y C
+    G = G + linea.upper().count("G")
+    C = C + linea.upper().count("C")
+
+    # Contar el total de nucleótidos
+    total = total + len(linea.strip())
+### ej. 5: falta calcular el GC total con esos contadores e imprimirlo al final en el formato "GC total del archivo: <GC>"
+### ej. 6: falta; hay que explicar el formato que te tocó (BED): nombre, extensión, para qué se usa, sus reglas y un ejemplo

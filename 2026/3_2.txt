@@ -1,4 +1,4 @@
-###Problemas a corregir: ej. 3: el print de los asteriscos no corre; ej. 4: error de sangría, el código no corre
+###Problemas a corregir: ej. 4: error de sangría, el código no corre
 tarea 2 programacion
 
 1. Crear una lista vacía y llenarla con los números  del 1 al 50 (1,2,3,...,48,49,50). Sugerencia: usar un ciclo, no generarla directamente con [1,2,3,...,48,49,50] ni list(range(0,50)) (1 punto)
@@ -56,8 +56,7 @@ print(multiplos_de_5)
  Se utiliza un ciclo for que aumenta la cantidad de asteriscos en cada línea:
 
 for i in range(1,11):
-    print("*" i)
-### Esta línea marca error de sintaxis, ¿qué falta entre el "*" y la i?
+    print("*" * i)
 
  Resultado:
 
